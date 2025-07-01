@@ -1,15 +1,23 @@
-import { useState } from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+;
+import Navbar from './Components/Navbar';
+import Home from './pages/Home';
 
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1>Hello Email</h1>
-    </>
-  )
+    <Router>
+      <div className="min-h-screen bg-gradient-to-b from-[#141627] to-[#0f111a] text-white">
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
