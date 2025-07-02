@@ -1,100 +1,13 @@
-import React, { useState } from 'react';
-import { FaUserPlus, FaLock } from 'react-icons/fa';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { Link, useLocation } from 'react-router-dom';
+/* Rectangle 10 */
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
+box-sizing: border-box;
 
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'Extension', path: '/extension' },
-    { name: 'Contact Us', path: '/contact' },
-  ];
+position: absolute;
+width: 333px;
+height: 52px;
+left: 553px;
+top: 1942px;
 
-  return (
-    <nav className="px-4 py-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center bg-gradient-to-r from-[#1c1e3e] to-[#191c3c] text-white px-6 py-3 rounded-full shadow-lg backdrop-blur-md">
-        <div className="text-lg font-semibold">Logo</div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 text-sm">
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <Link
-                to={item.path}
-                className={`font-medium hover:text-white transition ${
-                  location.pathname === item.path
-                    ? 'text-white font-semibold'
-                    : 'text-gray-300'
-                }`}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Desktop Buttons */}
-        <div className="hidden md:flex items-center space-x-3">
-          <Link
-            to="/signup"
-            className="flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm shadow hover:opacity-90 transition"
-          >
-            Create An Account <FaUserPlus className="ml-2" />
-          </Link>
-          <Link
-            to="/login"
-            className="flex items-center bg-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition"
-          >
-            Login <FaLock className="ml-2" />
-          </Link>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden mt-3 space-y-3 bg-[#1e203d] rounded-xl py-4 px-6 shadow-lg text-sm text-gray-300">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              onClick={() => setMenuOpen(false)}
-              className={`block hover:text-white transition ${
-                location.pathname === item.path ? 'text-white font-semibold' : ''
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-          <Link
-            to="/signup"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm"
-          >
-            Create An Account <FaUserPlus className="ml-2" />
-          </Link>
-          <Link
-            to="/login"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center bg-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-600"
-          >
-            Login <FaLock className="ml-2" />
-          </Link>
-        </div>
-      )}
-    </nav>
-  );
-};
-
-export default Navbar;
+background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+border-radius: 800px;

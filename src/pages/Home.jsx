@@ -2,6 +2,14 @@ import React from "react";
 import { RiSearchEyeLine } from "react-icons/ri";
 import img1 from "../assets/girl.jpg";
 import { FaPlayCircle } from "react-icons/fa";
+import SimplePlans from "../Components/SimplePlans";
+import AboutUs from "../Components/AboutUs";
+import Testimonials from "../Components/testimonials";
+import WhyChooseUs from "../Components/WhyChooseUs";
+import FAQSection from "../Components/FAQSection";
+import StatsSection from "../Components/StatsSection";
+import Footer from "../Components/Footer";
+
 const Home = () => {
   return (
     <div>
@@ -93,6 +101,14 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <SimplePlans/>
+    <AboutUs/>
+  <Testimonials/>
+  <WhyChooseUs/>
+  <FAQSection/>
+  <StatsSection/>
+  <Footer/>
+
     </div>
   );
 };

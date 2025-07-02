@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="px-5 py-3">
-      <div className="max-w-8xl mx-auto flex justify-between items-center bg-gradient-to-r from-[#1c1e3e] to-[#191c3c] text-white px-6 py-3 rounded-full shadow-lg backdrop-blur-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center bg-gradient-to-r from-[#1c1e3e] to-[#191c3c] text-white px-6 py-3 rounded-full shadow-lg backdrop-blur-md">
         <div className="text-lg font-semibold">Logo</div>
 
         {/* Desktop Menu */}
