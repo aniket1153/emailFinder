@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#1B101D] text-white px-6 md:px-16 pt-16 pb-10 font-sans">
       {/* ✅ Top Heading */}
-      <h2 className="text-center lg:text-7xl   font-spaceGrotesk leading-tight tracking-tight">
+      <h2 className="text-center lg:text-7xl   font-inter leading-tight tracking-tight">
         Find Emails Instantly Wherever You Work
       </h2>
 
