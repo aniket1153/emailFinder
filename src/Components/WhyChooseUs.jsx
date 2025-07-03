@@ -3,11 +3,11 @@ import exampleImg from '../assets/typing-hands.jpg'; // Replace with your image
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-[#0E1021] text-white py-20 px-6 md:px-20 relative font-sans">
+    <section className="bg-[#0f0c29] text-white py-20 px-6 md:px-20 relative font-sans">
       {/* Title */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-semibold mb-2">Why Choose Us</h2>
-        <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base">
+        <h2 className="text-3xl md:text-4xl font-spaceGrotesk mb-2">Why Choose Us</h2>
+        <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base font-inter">
           We help you reach the right people with confidence, accuracy, and ease. Here's why professionals rely on our platform every day.
         </p>
       </div>
@@ -27,8 +27,8 @@ const WhyChooseUs = () => {
 
           {/* Text */}
           <div className="flex-1">
-            <h3 className="text-xl font-semibold mb-3">Industry Leading Accuracy</h3>
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <h3 className="text-xl font-spaceGrotesk mb-3">Industry Leading Accuracy</h3>
+            <p className="text-sm text-gray-300 leading-relaxed font-inter">
               We use top-rated email verification APIs that ensure the data you get is as clean and accurate as possible.
               <br /><br />
               No more wasted outreach on invalid addresses or high bounce rates. Every email you get is validated in real-time,

@@ -41,11 +41,11 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-[#0C0E1E] via-[#0E1021] to-[#181529] text-white px-4 py-20 md:px-16 font-sans">
+    <section className="bg-[#0f0c29] text-white px-4 py-20 md:px-16 font-sans">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <h2 className="text-center text-3xl md:text-4xl font-semibold mb-2">FAQ</h2>
-        <p className="text-center text-gray-400 text-sm md:text-base mb-10">
+        <h2 className="text-center text-3xl md:text-4xl font-spaceGrotesk mb-2">FAQ</h2>
+        <p className="text-center text-gray-400 text-sm md:text-base mb-10 font-inter">
           Answers to common queries about our platform, features, pricing, and more.
         </p>
 
@@ -64,7 +64,7 @@ const FAQSection = () => {
                 className="flex items-center justify-between cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="text-sm md:text-base">{faq.question}</span>
+                <span className="text-sm md:font-spaceGrotesk ">{faq.question}</span>
                 {activeIndex === index ? (
                   <FiMinus className="text-white" />
                 ) : (
@@ -83,7 +83,7 @@ const FAQSection = () => {
           {showBanner && (
             <div className="mt-6 bg-gradient-to-r from-[#6B4EFF] to-[#FF4ED9] text-white px-6 py-4 rounded-lg flex justify-between items-start text-sm md:text-base">
               <div>
-                <p className="font-semibold">
+                <p className="font-spaceGrotesk">
                   Is The Platform Available On Mobile And Browser Extensions?
                 </p>
                 <p className="text-xs mt-1 text-white/90">

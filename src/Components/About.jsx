@@ -5,7 +5,7 @@ import Footer from './Footer';
 import WhyChooseUs from './WhyChooseUs';
 import StatsSection from './StatsSection';
 
-const AboutUs = () => {
+const About = () => {
   return (
     <div className=" bg-[#0f0c29] ">
       <div className="flex flex-col-reverse py-12  lg:flex-row items-center justify-center gap-12 lg:gap-60">
@@ -48,12 +48,12 @@ const AboutUs = () => {
           </span>
         </button>
       </div>
-      {/* <WhyChooseUs/>
+      <WhyChooseUs/>
       <StatsSection/>
       
-      <Footer/> */}
+      <Footer/>
     </div>
   );
 };
 
-export default AboutUs;
+export default About;

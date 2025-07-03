@@ -10,23 +10,26 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'Extension', path: '/extension' },
-    { name: 'Contact Us', path: '/contact' },
+    { name: 'Pricing', path: '/' },
+    { name: 'Extension', path: '/' },
+    { name: 'Contact Us', path: '/' },
   ];
 
   return (
-    <nav className="px-5 py-3">
-      <div className="max-w-7xl mx-auto flex justify-between items-center bg-gradient-to-r from-[#1c1e3e] to-[#191c3c] text-white px-6 py-3 rounded-full shadow-lg backdrop-blur-md">
-        <div className="text-lg font-semibold">Logo</div>
+    <nav className="px-5 py-3 bg-[#0f0c29]">
+      <div className="max-w-7xl mx-auto flex justify-between items-center text-white px-6 py-3 rounded-full shadow-lg border border-[#ffffff1a] bg-gradient-to-r from-[#1b1c2d] via-[#1f1f35] to-[#161623]">
+        
+        {/* Logo */}
+        <div className="text-2xl font-spaceGrotesk pl-2">Logo</div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 text-sm">
+        <div className='flex flex-row gap-2'>
+          <ul className="hidden md:flex space-x-15 text-sm font-medium mt-2.5">
           {navItems.map((item) => (
             <li key={item.name}>
               <Link
                 to={item.path}
-                className={`font-medium hover:text-white transition ${
+                className={`hover:text-white transition ${
                   location.pathname === item.path
                     ? 'text-white font-semibold'
                     : 'text-gray-300'
@@ -41,18 +44,18 @@ const Navbar = () => {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center space-x-3">
           <Link
-            to="/signup"
-            className="flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm shadow hover:opacity-90 transition"
+            to="/auth?mode=signup"
+            className="flex items-center bg-gradient-to-r from-[#7f5af0] to-[#f13bc1] text-white px-4 ml-16 py-2 rounded-full text-sm shadow hover:opacity-90 transition"
           >
             Create An Account <FaUserPlus className="ml-2" />
           </Link>
           <Link
-            to="/login"
-            className="flex items-center bg-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition"
+            to="/auth?mode=login"
+            className="flex items-center bg-[#2c2c2e] px-4 py-2 rounded-full text-sm hover:bg-[#3a3a3e] transition"
           >
             Login <FaLock className="ml-2" />
           </Link>
-        </div>
+        </div></div>
 
         {/* Mobile Hamburger */}
         <div className="md:hidden">
@@ -80,14 +83,14 @@ const Navbar = () => {
           <Link
             to="/signup"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm"
+            className="flex items-center justify-center bg-gradient-to-r from-[#7f5af0] to-[#f13bc1] text-white px-4 py-2 rounded-full text-sm"
           >
             Create An Account <FaUserPlus className="ml-2" />
           </Link>
           <Link
             to="/login"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center bg-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-600"
+            className="flex items-center justify-center bg-[#2c2c2e] px-4 py-2 rounded-full text-sm hover:bg-[#3a3a3e]"
           >
             Login <FaLock className="ml-2" />
           </Link>

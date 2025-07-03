@@ -21,13 +21,13 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <section className="w-full bg-[#0E1021] text-white py-20 px-4 md:px-12 font-sans">
+    <section className="w-full bg-[#0f0c29] text-white py-20 px-4 md:px-12 font-sans">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2 tracking-tight text-white">
+        <h2 className="text-2xl md:text-4xl font-spaceGrotesk mb-2 tracking-tight text-white">
           Trusted Intelligence at Scale
         </h2>
-        <p className="text-[#B0B3C3] text-sm md:text-base mb-12">
+        <p className="text-[#B0B3C3] text-sm md:text-base mb-12 font-inter ">
           Empowering businesses with accurate, high-volume data across every industry.
         </p>
 
@@ -38,10 +38,10 @@ const StatsSection = () => {
               key={index}
               className="bg-gradient-to-br from-[#1E1F2F] to-[#2B1F3C] rounded-xl px-6 py-8 shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
             >
-              <div className="text-white text-2xl md:text-3xl font-bold mb-3 leading-tight tracking-tight">
+              <div className="text-white text-2xl md:text-5xl font-spaceGrotesk mb-3 ">
                 {stat.value}
               </div>
-              <p className="text-sm text-[#D1D1DB] leading-snug">
+              <p className="text-sm text-[#D1D1DB] leading-snug font-inter">
                 {stat.description}
               </p>
             </div>

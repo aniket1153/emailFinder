@@ -4,7 +4,7 @@ import img1 from "../assets/girl.jpg";
 import { FaPlayCircle } from "react-icons/fa";
 import SimplePlans from "../Components/SimplePlans";
 import AboutUs from "../Components/AboutUs";
-import Testimonials from "../Components/testimonials";
+import Testimonials from "../Components/Testimonials";
 import WhyChooseUs from "../Components/WhyChooseUs";
 import FAQSection from "../Components/FAQSection";
 import StatsSection from "../Components/StatsSection";
@@ -12,14 +12,14 @@ import Footer from "../Components/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-[#0f0c29]">
       {/* {Text Heading} */}
-<div className="w-full bg-gradient-to-br  py-15 px-4 md:px-5">
+<div className="w-full   py-15 px-4 md:px-5 ">
   <div className="max-w-7xl mx-auto">
-    <h1 className="text-4xl sm:text-5xl md:text-6xl text-white font-light leading-tight tracking-tight text-left">
+    <h1 className=" font-spaceGrotesk  text-4xl sm:text-5xl md:text-6xl text-white font-light leading-tight tracking-tight text-left">
       Find & Verify Professional Emails
     </h1>
-    <p className="text-4xl sm:text-5xl font-semibold mt-2 tracking-tight text-left text-white">
+    <p className="text-4xl sm:text-5xl  mt-2 tracking-tight text-left text-white">
       Instantly
     </p>
   </div>
@@ -29,15 +29,31 @@ const Home = () => {
 
       {/* Middle Section (Styled Box) */}
 {/* Middle Section (Styled Box) */}
+{/* Middle Section (Styled Box) */}
 <div className="bg-[#1b1f30] rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-[#2e3248] max-w-7xl w-full mx-auto mt-10">
+  {/* Label (stays outside) */}
   <label className="block text-white mb-2 text-sm font-medium">
-    Type Or Paste Domain Address:
+    
   </label>
-  <textarea
-    className="w-full h-40 p-4 rounded-md bg-white text-black resize-none focus:outline-none shadow-inner"
-    placeholder={`company.com\ngoogle.com\ngithub.com`}
-  ></textarea>
 
+  {/* Textarea with gray placeholder */}
+  <div className="bg-white w-full h-44 rounded-md">
+  <textarea
+    className="w-full resize-none  text-black pl-2.5 pt-1.5 focus:outline-none shadow-inner placeholder-gray-500"
+  placeholder={`Type or Paste Domain Address:`}
+  ></textarea>
+  <div className="flex flex-col gap-2 pl-2.5">
+    <p className="text-black">company.com</p>
+  <p className="text-black">google.com</p>
+  <p className="text-black">github.com</p>
+  </div>
+  </div>
+  {/* <textarea
+    className="w-full h-40 p-4 rounded-md bg-white text-black resize-none focus:outline-none shadow-inner placeholder-gray-500"
+    placeholder={`Type or Paste Domain Address:`}
+  ></textarea> */}
+
+  {/* Search Button */}
   <button className="w-full mt-6 py-3 rounded-full text-white font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#6e61e6] to-[#ef497a] hover:from-[#5a4edc] hover:to-[#e73368] transition duration-300">
     Search Records
     <RiSearchEyeLine color="white" size={23} />
@@ -46,17 +62,18 @@ const Home = () => {
 
 
 
+
       {/* {How It Works} */}
              
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-20 px-3 md:px-20">
+          <div className="flex flex-col justify-center lg:gap-80 md:flex-row items-center gap-3 mt-20 px-5 md:px-20">
       {/* Left Text Section */}
-      <div className="flex flex-col gap-6 text-left max-w-xl">
-        <h2 className="text-white text-4xl font-semibold">How It Works</h2>
+      <div className="flex flex-col gap-8 text-left max-w-xl">
+        <h2 className="text-white text-5xl font-spaceGrotesk">How It Works</h2>
 
         {/* Step 1 */}
-        <div>
-          <h3 className="text-gray-400 font-medium">1. Enter A Name Or Domain</h3>
-          <p className="text-gray-500 text-sm">
+        <div className="flex flex-col gap-3">
+          <h3 className="text-gray-400 font-spaceGrotesk">1. Enter A Name Or Domain</h3>
+          <p className="text-gray-500 text-sm font-inter">
             Start by entering the person’s name and their company, or just the
             company’s domain (e.g., example.com). Our system will start
             searching immediately.
@@ -64,9 +81,9 @@ const Home = () => {
         </div>
 
         {/* Step 2 */}
-        <div>
-          <h3 className="text-white font-medium">2. We Search Public Sources</h3>
-          <p className="text-gray-400 text-sm">
+        <div className="flex flex-col gap-3">
+          <h3 className="text-white font-spaceGrotesk">2. We Search Public Sources</h3>
+          <p className="text-gray-300 text-sm font-inter">
             Our tool scans thousands of publicly available web pages,
             professional profiles, corporate websites, and social platforms to
             locate matching email patterns.
@@ -74,9 +91,9 @@ const Home = () => {
         </div>
 
         {/* Step 3 */}
-        <div>
-          <h3 className="text-white font-medium">3. Verify Every Email</h3>
-          <p className="text-gray-400 text-sm">
+        <div className="flex flex-col gap-3">
+          <h3 className="text-white font-spaceGrotesk">3. Verify Every Email</h3>
+          <p className="text-gray-500 font-inter">
             Our tool scans thousands of publicly available web pages,
             professional profiles, corporate websites, and social platforms to
             locate matching email patterns.
