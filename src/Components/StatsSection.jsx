@@ -22,7 +22,7 @@ const stats = [
 const StatsSection = () => {
   return (
     <section className="w-full bg-[#0f0c29] text-white py-20 px-4 md:px-12 font-sans">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-2xl md:text-4xl font-spaceGrotesk mb-2 tracking-tight text-white">
           Trusted Intelligence at Scale

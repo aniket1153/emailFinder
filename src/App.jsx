@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import AuthForm from "./pages/AuthForm";
 import AboutUs from "./Components/AboutUs";
 import About from "./Components/About";
+import Pricing from "./pages/Pricing";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/auth" element={<AuthForm />} />
-          <Route path="/about" element={<About/>}/>
+     <Route path="/about" element={<About/>} />
+          <Route path="/Pricing" element={<Pricing/>}/>
         </Routes>
       </div>
     </Router>

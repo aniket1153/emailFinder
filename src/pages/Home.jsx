@@ -14,6 +14,16 @@ const Home = () => {
   return (
     <div className="bg-[#0f0c29]">
       {/* {Text Heading} */}
+   {/* <div class="relative w-full h-screen bg-[#0f0c29] overflow-hidden">
+  
+  <div class="absolute top--1/4 left-1/3 w-96 h-80 bg-white rounded-full blur-3xl opacity-20"></div>
+
+  
+  <div class="relative z-10 p-10">
+    <h1 class="text-3xl font-bold">Foreground Content</h1>
+  </div>
+</div> */}
+
 <div className="w-full   py-15 px-4 md:px-5 ">
   <div className="max-w-7xl mx-auto">
     <h1 className=" font-spaceGrotesk  text-4xl sm:text-5xl md:text-6xl text-white font-light leading-tight tracking-tight text-left">

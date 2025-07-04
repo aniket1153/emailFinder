@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiPlus, FiMinus, FiX } from 'react-icons/fi';
+import { RxCross1 } from 'react-icons/rx';
 
 const faqs = [
   {
@@ -42,7 +43,7 @@ const FAQSection = () => {
 
   return (
     <section className="bg-[#0f0c29] text-white px-4 py-20 md:px-16 font-sans">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <h2 className="text-center text-3xl md:text-4xl font-spaceGrotesk mb-2">FAQ</h2>
         <p className="text-center text-gray-400 text-sm md:text-base mb-10 font-inter">
@@ -64,40 +65,35 @@ const FAQSection = () => {
                 className="flex items-center justify-between cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="text-sm md:font-spaceGrotesk ">{faq.question}</span>
+                <span className="text-sm md:font-spaceGrotesk">{faq.question}</span>
                 {activeIndex === index ? (
-                  <FiMinus className="text-white" />
+                  <RxCross1 className="text-white" />
                 ) : (
                   <FiPlus className="text-white" />
                 )}
               </div>
 
-              {/* Answer below question */}
               {activeIndex === index && (
-                <div className="mt-3 text-xs text-white/90">{faq.answer}</div>
+                <>
+                  <div className="mt-3 text-xs text-white/90"></div>
+
+                  {showBanner && (
+                    <div className="mt-6 bg-gradient-to-r from-[#6B4EFF] to-[#FF4ED9] text-white px-6 py-4 rounded-lg flex justify-between items-start text-sm md:text-base">
+                      <div>
+                        <p className="font-spaceGrotesk text-xl">
+                          {faq.question}
+                        </p>
+                        <p className="text-md mt-1 font-spaceGrotesk text-white/90">
+{faq.answer}
+                        </p>
+                      </div>
+                     
+                    </div>
+                  )}
+                </>
               )}
             </div>
           ))}
-
-          {/* Gradient Answer Banner */}
-          {showBanner && (
-            <div className="mt-6 bg-gradient-to-r from-[#6B4EFF] to-[#FF4ED9] text-white px-6 py-4 rounded-lg flex justify-between items-start text-sm md:text-base">
-              <div>
-                <p className="font-spaceGrotesk">
-                  Is The Platform Available On Mobile And Browser Extensions?
-                </p>
-                <p className="text-xs mt-1 text-white/90">
-                  Yes! The platform is accessible via Web, Android, iOS, and browser extensions for Chrome, Firefox, and Edge — so you can work from anywhere.
-                </p>
-              </div>
-              <button
-                className="ml-4 text-white/90 hover:text-white"
-                onClick={() => setShowBanner(false)}
-              >
-                <FiX size={18} />
-              </button>
-            </div>
-          )}
         </div>
 
         {/* Footer CTA */}

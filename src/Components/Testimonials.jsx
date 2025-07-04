@@ -92,19 +92,22 @@ const Testimonials = () => {
   ];
 
   // Chunk testimonials into groups of 6 and pad incomplete chunks
-  const chunked = [];
-  for (let i = 0; i < testimonials.length; i += 6) {
-    const chunk = testimonials.slice(i, i + 6);
-    while (chunk.length < 6) {
-      chunk.push(null); // Add placeholders
+  const chunkArray = (arr, size) => {
+    const chunked = [];
+    for (let i = 0; i < arr.length; i += size) {
+      const chunk = arr.slice(i, i + size);
+      while (chunk.length < size) chunk.push(null);
+      chunked.push(chunk);
     }
-    chunked.push(chunk);
-  }
+    return chunked;
+  };
+
+  const rows = chunkArray(testimonials, 6); 
 
   return (
-    <section className="text-white py-20 px-4 md:px-16">
+      <section className="text-white py-20 px-4 md:px-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-spaceGroteskmb mb-4">
+        <h2 className="text-3xl md:text-4xl font-spaceGrotesk mb-4">
           Trusted by Teams Worldwide
         </h2>
         <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto font-inter">
@@ -114,53 +117,51 @@ const Testimonials = () => {
         </p>
       </div>
 
-      <Swiper
-        modules={[Autoplay]}
-        autoplay={{
-          delay: 1,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        speed={5000}
-        loop={true}
-        allowTouchMove={false}
-        className="w-[100%]"
-      >
-        {chunked.map((group, index) => (
-          <SwiperSlide key={index} className='m-2'>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
- {group.map((t, i) =>
-  t ? (
-    <div
-      key={`${t.name}-${i}`}
-      className="rounded-2xl p-5 min-h-[220px] flex flex-col justify-between bg-gradient-to-br from-[#1c1e2f] to-[#15172a] border border-[#2a2d4a] text-sm text-gray-300"
-    >
-      <p className="mb-7 leading-relaxed font-inter">"{t.message}"</p>
-      <div className="flex items-center gap-6 mt-auto">
-        <img
-          src={t.avatar}
-          alt={t.name}
-          className="w-10 h-10 rounded-full border border-gray-300"
-        />
-        <div>
-          <p className="font-medium text-white">{t.name}</p>
-          <p className="text-xs text-gray-400">{t.title}</p>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div
-      key={`empty-${i}`}
-      className="rounded-2xl p-6 min-h-[220px] bg-transparent border border-transparent opacity-0"
-    />
-  )
-)}
-
-
-            </div>
-          </SwiperSlide>
+      <div className="flex flex-col gap-10">
+        {rows.map((group, index) => (
+          <Swiper
+            key={index}
+            modules={[Autoplay]}
+            slidesPerView={3}
+            spaceBetween={20}
+            loop={true}
+            allowTouchMove={false}
+            speed={1500}
+            autoplay={{
+              delay:1,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+              reverseDirection: index % 2 !== 0, // alternate direction
+            }}
+            className="w-full group"
+          >
+            {group.map((t, i) =>
+              t ? (
+                <SwiperSlide key={`${t.name}-${i}`}>
+                  <div className="rounded-2xl p-5 min-h-[220px] flex flex-col justify-between bg-gradient-to-br from-[#1c1e2f] to-[#15172a] border border-[#2a2d4a] text-sm text-gray-300 hover:scale-[1.02] transition">
+                    <p className="mb-7 leading-relaxed font-inter">"{t.message}"</p>
+                    <div className="flex items-center gap-6 mt-auto">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="w-10 h-10 rounded-full border border-gray-300"
+                      />
+                      <div>
+                        <p className="font-medium text-white">{t.name}</p>
+                        <p className="text-xs text-gray-400">{t.title}</p>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ) : (
+                <SwiperSlide key={`empty-${i}`}>
+                  <div className="opacity-0 h-[220px]" />
+                </SwiperSlide>
+              )
+            )}
+          </Swiper>
         ))}
-      </Swiper>
+      </div>
     </section>
   );
 };
