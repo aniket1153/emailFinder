@@ -9,7 +9,7 @@ const Testimonials = () => {
       name: 'Rohit Sinha',
       title: 'Founder @ PilotEase',
       message:
-        'As a startup founder, I needed to reach potential investors and partners fast. This tool saved me hours of research by giving me verified email leads in seconds. The accuracy is impressive, and the UI is refreshingly clean.',
+        'As a startup founder, I needed to reach potential investors and partners fast. This tool saved me hours of research by giving me verified email leads in seconds..',
       avatar: 'https://i.pravatar.cc/100?img=1',
     },
     {
@@ -120,21 +120,28 @@ const Testimonials = () => {
       <div className="flex flex-col gap-10">
         {rows.map((group, index) => (
           <Swiper
-            key={index}
-            modules={[Autoplay]}
-            slidesPerView={3}
-            spaceBetween={20}
-            loop={true}
-            allowTouchMove={false}
-            speed={1500}
-            autoplay={{
-              delay:1,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-              reverseDirection: index % 2 !== 0, // alternate direction
-            }}
-            className="w-full group"
-          >
+  key={index}
+  modules={[Autoplay]}
+  loop={true}
+  allowTouchMove={false}
+  speed={1500}
+  autoplay={{
+    delay: 1,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+    reverseDirection: index % 2 !== 0,
+  }}
+  breakpoints={{
+    0: { slidesPerView: 1, spaceBetween: 16 },
+    640: { slidesPerView: 1.2, spaceBetween: 16 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    1024: { slidesPerView: 2, spaceBetween: 24 },
+    1280: { slidesPerView: 3.5, spaceBetween: 24 },
+    1536: { slidesPerView: 4, spaceBetween: 28 },
+  }}
+  className="w-full group"
+>
+
             {group.map((t, i) =>
               t ? (
                 <SwiperSlide key={`${t.name}-${i}`}>

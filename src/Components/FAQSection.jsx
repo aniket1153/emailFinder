@@ -55,7 +55,7 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`rounded-lg px-6 py-4 transition-all duration-300 border ${
+              className={`rounded-lg px-6 py-4 transition-all duration-300 ${
                 activeIndex === index
                   ? 'border-[#00A3FF] bg-[#1E2139]'
                   : 'border-[#2E2F4F] bg-[#181A2C] hover:bg-[#1E2035]'

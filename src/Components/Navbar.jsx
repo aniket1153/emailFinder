@@ -11,7 +11,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Pricing', path: '/Pricing' },
-    { name: 'Extension', path: '/' },
+    { name: 'Extension', path: '/Extension' },
     { name: 'Contact Us', path: '/' },
   ];
 
@@ -24,7 +24,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className='flex flex-row gap-2'>
-          <ul className="hidden md:flex space-x-15 text-sm font-medium mt-2.5">
+          <ul className="hidden md:flex space-x-15 text-md font-inter mt-2.5">
           {navItems.map((item) => (
             <li key={item.name}>
               <Link
