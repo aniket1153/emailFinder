@@ -24,7 +24,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className='flex flex-row gap-2'>
-          <ul className="hidden md:flex space-x-15 text-md font-inter mt-2.5">
+          <ul className="hidden md:flex space-x-15  font-inter mt-2.5">
           {navItems.map((item) => (
             <li key={item.name}>
               <Link

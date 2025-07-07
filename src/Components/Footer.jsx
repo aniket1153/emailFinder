@@ -8,7 +8,7 @@ const Footer = () => {
       {/* ✅ Seamless Scrolling Text */}
       <div className="relative overflow-hidden whitespace-nowrap w-full py-6">
         <motion.div
-          className="flex gap-16 text-2xl md:text-5xl font-bold font-inter tracking-tight"
+          className="flex gap-16 text-2xl md:text-7xl  font-spaceGrotesk tracking-tight"
           animate={{ x: ["100%", "-100%"] }}
           transition={{
             repeat: Infinity,
