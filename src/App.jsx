@@ -7,6 +7,7 @@ import AuthForm from "./pages/AuthForm";
 import About from "./Components/About";
 import Pricing from "./pages/Pricing";
 import Extension from "./Components/Extension";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
          <Route path="/about" element={<About/>} />
           <Route path="/Pricing" element={<Pricing/>}/>
            <Route path="/Extension" element={<Extension/>}/>
+           <Route path="/ContactUs" element={<ContactUs/>}/>
         </Routes>
       </div>
     </Router>
