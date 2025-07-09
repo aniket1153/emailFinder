@@ -42,22 +42,29 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-[#0f0c29] text-white px-4 py-20 md:px-16 font-sans">
-      <div className="max-w-7xl mx-auto">
+    <section className=" text-white px-4 py-20 md:px-16 font-sans relative ">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-15 right-160 w-[750px] h-[480px] bg-pink-500 rounded-full opacity-13 blur-3xl" />
+        <div className="absolute right-150 bottom-[-22%] w-[500px] h-[500px] bg-pink-500  rounded-full opacity-13 blur-3xl" />
+        
+
+      </div>
+      <div className="max-w-7xl mx-auto  ">
         {/* Header */}
-        <h2 className="text-center text-3xl md:text-4xl font-spaceGrotesk mb-2">FAQ</h2>
-        <p className="text-center text-gray-400 text-sm md:text-base mb-10 font-inter">
+        <h2 className="text-center text-3xl md:text-4xl font-spaceGrotesk mb-2 relative">FAQ</h2>
+        <p className="text-center text-gray-200 text-sm md:text-base mb-10 font-inter relative">
           Answers to common queries about our platform, features, pricing, and more.
         </p>
 
         {/* FAQ List */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 relative">
           {faqs.map((faq, index) => (
             <div
               key={index}
               className={`rounded-lg px-6 py-4 transition-all duration-300 ${
                 activeIndex === index
-                  ? 'border-[#00A3FF] bg-[#1E2139]'
+                  ? 'border-[#00A3FF] bg-[#1E2139] '
                   : 'border-[#2E2F4F] bg-[#181A2C] hover:bg-[#1E2035]'
               }`}
             >
@@ -65,7 +72,7 @@ const FAQSection = () => {
                 className="flex items-center justify-between cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="text-sm md:font-spaceGrotesk">{faq.question}</span>
+                <span className="text-sm md:font-spaceGrotesk relative">{faq.question}</span>
                 {activeIndex === index ? (
                   <RxCross1 className="text-white" />
                 ) : (
@@ -83,7 +90,7 @@ const FAQSection = () => {
                         <p className="font-spaceGrotesk text-xl">
                           {faq.question}
                         </p>
-                        <p className="text-md mt-1 font-spaceGrotesk text-white/90">
+                        <p className="text-md mt-1 font-spaceGrotesk text-white/90 relative">
 {faq.answer}
                         </p>
                       </div>

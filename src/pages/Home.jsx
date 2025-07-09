@@ -93,9 +93,10 @@ const Home = () => {
 };
 
   return (
-    <div className="bg-[#0f0c29]">
+    <div className=" relative">
+    
       {/* {Text Heading} */}
-      {/* <div class="relative w-full h-screen bg-[#0f0c29] overflow-hidden">
+      {/* <div class="relative w-full  bg-[#0f0c29] h-screen bg-[#0f0c29] overflow-hidden">
   
   <div class="absolute top--1/4 left-1/3 w-96 h-80 bg-white rounded-full blur-3xl opacity-20"></div>
 
@@ -110,7 +111,7 @@ const Home = () => {
           <h1 className=" font-spaceGrotesk  text-4xl sm:text-5xl md:text-6xl text-white font-light leading-tight tracking-tight text-left">
             Find & Verify Professional Emails
           </h1>
-          <p className="text-4xl sm:text-5xl  mt-2 tracking-tight text-left text-white">
+          <p className="  font-spaceGrotesk sm:text-6xl  mt-2 tracking-tight text-left text-white ">
             Instantly
           </p>
         </div>
@@ -120,19 +121,22 @@ const Home = () => {
       {/* Middle Section (Styled Box) */}
       {/* Middle Section (Styled Box) */}
       <div className={`" ${isvisible
-      ?'bg-[#1b1f30] flex flex-row gap-5 rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-[#2e3248] w-[80%] mx-auto mt-10'
+      ?'bg-[#1b1f30] flex flex-row gap-5 rounded-2xl p-4 sm:p-6 md:p-9 shadow-xl border border-[#2e3248] w-[85%] mx-auto mt-10'
       : 'bg-[#1b1f30] rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-[#2e3248] max-w-7xl w-full mx-auto mt-10'}`}>
         {/* Label (stays outside) */}
         
 
         {/* Textarea with gray placeholder */}
-        <div className={isvisible}>
-  <div className="bg-white w-full h-44 rounded-md">
+        <div className={` ${isvisible?'w-[25%] mt-6 flex flex-col p-4 rounded-2xl  shadow-xl bg-[#1C212E] border border-[#5d616E]':'w-full'}`}> {isvisible &&(<p className="text-gray-300 text-center text-lg">Search Records</p>)}
+  <div className={`${isvisible
+    ?"bg-white h-[255px] w-[255px] rounded-xl mt-3 mb-80 "
+    :"bg-white w-full h-44 rounded-md"
+  }`}>
           <textarea
             className="w-full resize-none  text-black pl-2.5 pt-1.5 focus:outline-none shadow-inner placeholder-gray-500"
             placeholder={`Type or Paste Domain Address:`}
           ></textarea>
-          <div className="flex flex-col gap-2 pl-2.5">
+          <div className="flex flex-col gap-2 pl-2.5 ">
             <p className="text-black">company.com</p>
             <p className="text-black">google.com</p>
             <p className="text-black">github.com</p>
@@ -152,29 +156,25 @@ const Home = () => {
 
         
 
-  {isvisible && (<div className="max-w-7xl bg-white rounded-xl mt-7 w-full">
-  <div className="flex flex-col md:flex-row justify-between md:justify-evenly md:gap-28 gap-4 mt-6 px-4">
+  {isvisible && (<div className="max-w-[78%] bg-white rounded-xl mt-7 w-full">
+  <div className="flex flex-col md:flex-row justify-between md:justify-evenly md:gap-14 gap-4 mt-6 px-4">
     {/* Checkbox + Select */}
-    <div className="flex items-center gap-2 mt-4">
-      <input
-        type="checkbox"
-        id="mycheckbox"
-        checked={isChecked}
-        onChange={handleCheckboxChange}
-        className="h-3.5 w-3.5 text-black focus:ring-gray-600 border-gray-300 rounded"
-      />
-      <p className="text-black">Select</p>
+    <div className="flex items-start gap-2 mr-2 mt-4">
+       <input type="checkbox" className="mt-1 h-4 w-4" />
+      <p className="text-black mb-2">Select</p>
     </div>
 
     {/* Total contacts */}
+    <div className="flex  flex-row gap-5">
+    <div className="flex flex-row  gap-9">
     <div>
-      <p className="text-black font-inter font-semibold text-sm md:text-base text-center mt-4">
+      <p className="text-black font-inter font-semibold text-sm md:text-base text-center mt-4 ml-15">
         6M+ contacts from 3M+ companies
       </p>
     </div>
 
     {/* Rows per page */}
-    <div className="flex flex-col md:flex-row items-center gap-2 mt-4">
+    <div className="flex flex-col md:flex-row items-center gap-1.5 mt-4">
       <p className="text-gray-400 text-sm">Rows Per Page</p>
       <select className="text-black border-2 border-gray-500 text-sm">
         <option className="text-black">10</option>
@@ -182,18 +182,22 @@ const Home = () => {
         <option className="text-black">30</option>
       </select>
     </div>
+    </div>
 
     {/* Pages */}
-    <div className="text-black text-sm text-center md:text-left mt-4">
+   <div className="flex flex-row gap-5">
+     <div className="text-black text-sm text-center md:text-left mt-5">
       Pages 1 of 130,180
     </div>
 
     {/* Arrows */}
-    <div className="flex gap-2 justify-center mt-4">
+    <div className="flex gap-1 justify-center mt-4">
       <BiLeftArrowCircle color="black" size={28} />
       <BiRightArrowCircle color="black" size={28} />
     </div>
   </div>
+  </div>
+   </div>
 
   {/* Table Section */}
 
@@ -203,7 +207,7 @@ const Home = () => {
         <tr>
           <th className="px-5 py-3 text-left font-medium text-gray-700">Name</th>
           <th className="px-5 py-3 text-left font-medium text-gray-700">Contact</th>
-          <th className="px-5 py-3 text-left font-medium text-gray-700">Company</th>
+          <th className="px-12 py-3 text-left font-medium text-gray-700">Company</th>
           <th className="px-5 py-3 text-left font-medium text-gray-700">Company Details</th>
         </tr>
       </thead>
@@ -227,14 +231,14 @@ const Home = () => {
               <div className="flex flex-col space-y-3">
                 <div className="flex items-center space-x-2 text-gray-600">
                   <MdEmail className="w-4 h-4" />
-                  <span>{person.email}</span>
+                  <span className="pr-0.5">{person.email}</span>
                   <button className="text-sm px-4 py-1 rounded-full text-black font-semibold border border-gray-400 bg-white hover:bg-gray-200 shadow">
                     View
                   </button>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-600">
                   <MdPhone className="w-4 h-4" />
-                  <span>{person.Phone}</span>
+                  <span className="pr-23">{person.Phone}</span>
                   <button className="text-sm px-4 py-1 rounded-full text-black font-semibold border border-gray-400 bg-white hover:bg-gray-200 shadow">
                     Find
                   </button>
@@ -286,10 +290,17 @@ const Home = () => {
 
       {/* {How It Works} */}
 
-      <div className="flex flex-col justify-center lg:gap-80 md:flex-row items-center gap-3 mt-20 px-5 md:px-20">
+      <div className="flex flex-col justify-center lg:gap-80 md:flex-row items-center gap-3 mt-20 px-5 md:px-20 relative">
+        <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
+        <div className="absolute bottom-[-10%] left-1/8 w-[600px] h-[500px] bg-pink-500 rounded-full opacity-15 blur-3xl" />
+        
+
+      </div>
         {/* Left Text Section */}
-        <div className="flex flex-col gap-8 text-left max-w-xl">
-          <h2 className="text-white text-5xl font-spaceGrotesk">
+        <div className="flex flex-col gap-8 text-left max-w-xl relative">
+          <h2 className="text-white text-5xl font-spaceGrotesk ">
             How It Works
           </h2>
 

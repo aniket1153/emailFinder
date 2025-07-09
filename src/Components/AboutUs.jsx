@@ -7,31 +7,38 @@ import StatsSection from "./StatsSection";
 
 const AboutUs = () => {
   return (
-    <div className=" bg-[#0f0c29] px-4 py-12 ">
-      <div className="flex flex-col-reverse   lg:flex-row items-center justify-center gap-12 lg:gap-60">
+    <div className="  px-4 py-12 relative">
+        <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-10%] left-[38%] w-[700px] h-[500px] bg-white rounded-full opacity-15 blur-3xl" />
+        <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
+        <div className="absolute bottom-32 left-1/4 w-[400px] h-[400px]  rounded-full opacity-35 blur-3xl" />
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 rounded-full opacity-25 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72  rounded-full opacity-20 blur-3xl" />
+      </div>
+      <div className="flex flex-col-reverse   lg:flex-row items-center justify-center gap-12 lg:gap-60 relative">
         {/* Text Section */}
         <div className="flex flex-col gap-6 max-w-xl w-full">
           <div className="flex flex-col gap-3 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl  text-white font-spaceGrotesk">
+            <h1 className="text-4xl md:text-5xl  text-white font-spaceGrotesk relative">
               About Us
             </h1>
-            <h2 className="text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk">
+            <h2 className="text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk relative">
               Helping You Connect with the Right{" "}
             </h2>
-            <h2 className="text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk">
+            <h2 className="text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk relative">
               {" "}
               People Accurately and Reliably
             </h2>
           </div>
 
-          <div className="text-[#8D909C] text-base md:text-lg  flex flex-col gap-4 font-inter ">
-            <div>
+          <div className="text-[#8D909C] text-base md:text-lg  flex flex-col gap-4 font-inter relative ">
+            <div className="relative">
               <p>
                 We are a data-driven SaaS company focused on helping businesses
                 connect with the right people.
               </p>
             </div>
-            <div>
+            <div className="relative">
               <p>
                 Our Email Finder & Verifier platform empowers sales teams,
                 recruiters, marketers, and entrepreneurs with accurate, verified
@@ -57,7 +64,7 @@ const AboutUs = () => {
         </div>
 
         {/* Image Section */}
-        <div className="w-full max-w-sm md:max-w-md flex justify-center">
+        <div className="w-full max-w-sm md:max-w-md flex justify-center relative">
           <img
               className="rounded-2xl w-full h-auto lg:w-[450px] lg:h-[450px] object-cover"
                       src={imgAb}

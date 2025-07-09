@@ -105,12 +105,19 @@ const Testimonials = () => {
   const rows = chunkArray(testimonials, 6); 
 
   return (
-      <section className="text-white py-20 px-4 md:px-16">
+      <section className="text-white py-20 px-4 md:px-16 relative">
+         <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-28 right-58 w-[350px] h-[350px] rounded-full bg-pink-500 opacity-15 blur-3xl" />
+        <div className="absolute bottom-[-6%] left-1/8 w-[500px] h-[500px] bg-pink-500 rounded-full opacity-15 blur-3xl" />
+        
+
+      </div>
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-spaceGrotesk mb-4">
+        <h2 className="text-3xl md:text-4xl font-spaceGrotesk mb-4 relative">
           Trusted by Teams Worldwide
         </h2>
-        <p className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto font-inter">
+        <p className="text-gray-300 text-sm md:text-base max-w-2xl mx-auto font-inter relative">
           Thousands of businesses rely on us to improve their email outreach and
           lead generation. Here’s what some of them have to say about how our
           platform helps them work faster, smarter, and more efficiently.
@@ -139,14 +146,16 @@ const Testimonials = () => {
     1280: { slidesPerView: 3.5, spaceBetween: 24 },
     1536: { slidesPerView: 4, spaceBetween: 28 },
   }}
-  className="w-full group"
+  className="w-full group relative"
 >
 
             {group.map((t, i) =>
               t ? (
                 <SwiperSlide key={`${t.name}-${i}`}>
-                  <div className="rounded-2xl p-5 min-h-[220px] flex flex-col justify-between bg-gradient-to-br from-[#1c1e2f] to-[#15172a] border border-[#2a2d4a] text-sm text-gray-300 hover:scale-[1.02] transition">
-                    <p className="mb-7 leading-relaxed font-inter">"{t.message}"</p>
+                  
+                  <div className="rounded-2xl p-5 min-h-[220px] flex flex-col justify-between bg-gradient-to-br from-[#1c1e2f] to-[#15172a] border border-[#2a2d4a] text-sm text-gray-300 hover:scale-[1.02] transition relative">
+                    
+                    <p className="mb-7 leading-relaxed font-inter relative">"{t.message}"</p>
                     <div className="flex items-center gap-6 mt-auto">
                       <img
                         src={t.avatar}
