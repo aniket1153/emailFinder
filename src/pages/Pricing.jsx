@@ -8,17 +8,17 @@ import FAQSection from '../Components/FAQSection';
 import Footer from '../Components/Footer';
 
 const ComparisonTable = () => (
-  <div className="overflow-x-auto mt-6 rounded-xl border border-[#3F4550] bg-[#1E2035] shadow-md">
+  <div className="overflow-x-auto mt-6 rounded-xl border border-[#3F4550] bg-[#1E2035] shadow-md relative">
     <table className="w-full text-sm text-white font-inter rounded-xl overflow-hidden">
       <thead>
-        <tr className="bg-[#1E2035] text-left">
+        <tr className="bg-[#1E2035] text-left relative">
           <th className="px-6 py-4 font-medium"> </th>
           <th className="px-6 py-4 font-medium">1</th>
           <th className="px-6 py-4 font-medium">2</th>
           <th className="px-6 py-4 font-medium">Unlimited</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className='releative'>
         {[
           ['Members', '1', '2', 'Unlimited'],
           ['Workspaces', '1', '10', 'Unlimited'],
@@ -103,7 +103,7 @@ const [activeIndex, setActiveIndex] = useState(null);
   };
   return (
    <div className='w-[100%]'>
-     <div className='w-full bg-[#0f0c29] text-white py-20 px-4 md:px-12 font-sans'>
+     <div className='w-full  text-white py-20 px-4 md:px-12 font-sans'>
         <div className=" text-white mb-10 lg:ml-18">
         <h2 className="text-4xl md:text-4xl font-spaceGrotesk mb-2">
           Simple Plans, Powerful Results
@@ -112,7 +112,14 @@ const [activeIndex, setActiveIndex] = useState(null);
           Choose the plan that fits your goals. Scale up your outreach with verified emails, no hidden fees, cancel anytime.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center">
+      <div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center relative">
+          <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-20 right-1  w-[600px] h-[500px]  rounded-full opacity-15 blur-3xl" />
+        <div className="absolute bottom-[30%] left-1/8 w-[600px] h-[500px] bg-pink-500  rounded-full opacity-15 blur-3xl" />
+        
+
+      </div>
               {/* CARD 1: Pay As You Go */}
               <div className="flex flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg">
                 <h3 className="text-lg font-spaceGrotesk mb-7">Pay As You Go</h3>
@@ -122,20 +129,20 @@ const [activeIndex, setActiveIndex] = useState(null);
                   Then pay-as-you-go. No minimums. No expiration. No credit card required.
                 </p>
       
-                <button className="w-full bg-[#444057] hover:bg-white hover:text-black transition-colors duration-200 text-white py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
+                <button className="w-full bg-[#444057] hover:bg-white hover:text-black transition-colors duration-200 text-white py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7 relative">
                   Sign Up Free <BsPersonCircle className="" size={23} />
                 </button>
       
                 <ul className="space-y-3 text-sm text-white">
                   <li className="flex items-start gap-2">
-                    <span className="text-green-400 font-inter mb-2">✔</span>
+                    <span className="text-green-400 font-inter mb-2 relative">✔</span>
                     Access all endpoints in public models
                   </li>
                   <li className="flex items-start gap-4">
                     <span className="text-green-400">✔</span>
                     <div>
                       <div className="font-inter text-white mb-3">Concurrency Limits</div>
-                      <ul className="list-disc list-inside space-y-2 text-white font-inter mb-3">
+                      <ul className="list-disc list-inside space-y-2 text-white font-inter mb-3 relative">
                         <li>Speech-to-text: <br/> - Up to 100 for the REST API <br />  - Up to 50 for the WSS API <br /> - Up to 5 for Deepgram Whisper Cloud</li>
                         <li>Text-to-speech: <br />- Up to 5 for the REST API + WSS API</li>
                         <li>Voice Agent API: <br />  - Up to 5 for the WSS API</li>
@@ -152,8 +159,8 @@ const [activeIndex, setActiveIndex] = useState(null);
       
               {/* CARD 2: Growth */}
               <div className="flex flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white rounded-2xl p-5 sm:p-8 w-full max-w-[400px] shadow-lg relative">
-                <div className="absolute top-4 right-4 bg-gray-700 text-xs px-2 py-1 rounded-md font-spaceGroteskmb">Most Popular</div>
-                <h3 className="text-lg font-spaceGrotesk mb-8">Growth</h3>
+                <div className="absolute top-4 right-4 bg-gray-700 text-xs px-2 py-1 rounded-md font-spaceGroteskmb ">Most Popular</div>
+                <h3 className="text-lg font-spaceGrotesk mb-8 relative">Growth</h3>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="text-4xl font-spaceGrotesk mb-2">$4k+</div>
                   <div className="text-sm text-white">/ Year</div>
@@ -229,11 +236,18 @@ const [activeIndex, setActiveIndex] = useState(null);
     </div>
        </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 relative">
+              <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
+        <div className="absolute bottom-[-10%] left-1/8 w-[600px] h-[500px] bg-white rounded-full opacity-15 blur-3xl" />
+        
+
+      </div>
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className={`px-6 py-4 transition-all duration-300 border-b border-b-[#3F4550] ${activeIndex === index ? 'bg-[#1E2139]' : ''}`}
+                className={`px-6 py-4 transition-all duration-300 border-b border-b-[#3F4550] relative ${activeIndex === index ? 'bg-[#1E2139] relative' : ''}`}
               >
                 <div
                   className="flex items-center justify-between cursor-pointer"

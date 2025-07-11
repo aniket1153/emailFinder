@@ -16,8 +16,15 @@ const AuthForm = () => {
   }, [mode]);
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-[#0f0c29] px-4">
-      <div className="flex flex-col md:flex-row items-center gap-28">
+    <div className="min-h-screen w-full flex items-center justify-center  px-4 relative">
+       <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[42%] w-[600px] h-[500px] bg-white   rounded-full opacity-15 blur-3xl" />
+        <div className="absolute top-20 right-10 w-[600px] h-[500px] bg-gray-400  rounded-full opacity-15 blur-3xl" />
+        <div className="absolute bottom-[-10%] left-1/8  rounded-full opacity-15 blur-3xl" />
+        
+
+      </div>
+      <div className="flex flex-col md:flex-row items-center gap-28 relative">
         {/* Left Card */}
         <div className="bg-gradient-to-b from-[#2b2b2d] to-[#1b1c1e] p1 rounded-2xl shadow-xl border border-blue-600">
           <div className="bg-[#57565B] rounded-2xl p-6 w-[340px] md:w-[450px]">
@@ -108,11 +115,11 @@ const AuthForm = () => {
         </div>
 
         {/* Right Illustration */}
-        <div className="hidden md:block">
+        <div className="hidden md:block relative">
           <img
             src={isLogin ? LoginImage : SignupImage}
             alt="auth-illustration"
-            className="max-w-[350px] md:max-w-[550px]"
+            className="max-w-[350px] md:max-w-[550px] relative"
           />
         </div>
       </div>
