@@ -3,22 +3,24 @@ import { BsPersonCircle } from 'react-icons/bs'
 import { FaPlus, FaShoppingBag } from 'react-icons/fa'
 import { FiPlus, FiMinus, FiX } from 'react-icons/fi';
 import { ImCross } from 'react-icons/im';
+ import { FiCheck  } from 'react-icons/fi';
 import { RxCross1 } from 'react-icons/rx';
 import FAQSection from '../Components/FAQSection';
 import Footer from '../Components/Footer';
 
 const ComparisonTable = () => (
-  <div className="overflow-x-auto mt-6 rounded-xl border border-[#3F4550] bg-[#1E2035] shadow-md">
-    <table className="w-full text-sm text-white font-inter rounded-xl overflow-hidden">
+
+  <div className="overflow-x-auto mt-6 rounded-xl border border-[#3F4550]  shadow-md relative">
+    <table className="w-full text-sm text-white font-inter rounded-xl overflow-hidden relative">
       <thead>
-        <tr className="bg-[#1E2035] text-left">
+        <tr className=" text-left relative">
           <th className="px-6 py-4 font-medium"> </th>
           <th className="px-6 py-4 font-medium">1</th>
           <th className="px-6 py-4 font-medium">2</th>
           <th className="px-6 py-4 font-medium">Unlimited</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className='releative'>
         {[
           ['Members', '1', '2', 'Unlimited'],
           ['Workspaces', '1', '10', 'Unlimited'],
@@ -46,6 +48,7 @@ const ComparisonTable = () => (
 );
 
 const Pricing = () => {
+    const[isCardhover,setIsCardhover] =useState(false)
     const faqs = [
   {
     question: 'AI Agents',
@@ -103,7 +106,7 @@ const [activeIndex, setActiveIndex] = useState(null);
   };
   return (
    <div className='w-[100%]'>
-     <div className='w-full bg-[#0f0c29] text-white py-20 px-4 md:px-12 font-sans'>
+     <div className='w-full  text-white py-20 px-4 md:px-12 font-sans'>
         <div className=" text-white mb-10 lg:ml-18">
         <h2 className="text-4xl md:text-4xl font-spaceGrotesk mb-2">
           Simple Plans, Powerful Results
@@ -112,109 +115,158 @@ const [activeIndex, setActiveIndex] = useState(null);
           Choose the plan that fits your goals. Scale up your outreach with verified emails, no hidden fees, cancel anytime.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center">
+      <div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center relative">
+          <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-20 right-1  w-[600px] h-[500px]  rounded-full opacity-15 blur-3xl" />
+        <div className="absolute bottom-[30%] left-1/8 w-[600px] h-[500px] bg-pink-500  rounded-full opacity-15 blur-3xl" />
+        
+
+      </div>
               {/* CARD 1: Pay As You Go */}
-              <div className="flex flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg">
-                <h3 className="text-lg font-spaceGrotesk mb-7">Pay As You Go</h3>
-                <div className="text-4xl font-spaceGrotesk mb-1 flex flew-row ">Free <div className="text-sm text-gray-300  mb-4 mt-4 ml-1">$200 Of Credit</div></div>
+              <div  onTouchMoveCapture={()=> isCardhover(true)}  
+               className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white  rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg">
+                <h3 className="text-lg font-spaceGrotesk mb-7 ">Pay As You Go</h3>
+                <div className="text-4xl font-spaceGrotesk mb-1 flex flew-row ">Free <div className="text-[1rem] text-gray-300  mb-4 mt-4 ml-1">$200 Of Credit</div></div>
                 
-                <p className="text-sm x` text-white mb-5 font-inter ">
+                <p className="text-[1rem] x` text-white mb-5 font-inter  ">
                   Then pay-as-you-go. No minimums. No expiration. No credit card required.
                 </p>
       
-                <button className="w-full bg-[#444057] hover:bg-white hover:text-black transition-colors duration-200 text-white py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
+     <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 text-white py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7 relative">
                   Sign Up Free <BsPersonCircle className="" size={23} />
                 </button>
       
                 <ul className="space-y-3 text-sm text-white">
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-400 font-inter mb-2">✔</span>
+                  <li className="flex items-start gap-2 text-[1rem]">
+                    <span className="text-white font-inter mb-2 relative text-[1rem]"><FiCheck  size={16} className="mt-1" /></span>
                     Access all endpoints in public models
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="text-green-400">✔</span>
+                    <span className="text-white"><FiCheck  size={16} className="mt-1" /></span>
                     <div>
-                      <div className="font-inter text-white mb-3">Concurrency Limits</div>
-                      <ul className="list-disc list-inside space-y-2 text-white font-inter mb-3">
-                        <li>Speech-to-text: <br/> - Up to 100 for the REST API <br />  - Up to 50 for the WSS API <br /> - Up to 5 for Deepgram Whisper Cloud</li>
-                        <li>Text-to-speech: <br />- Up to 5 for the REST API + WSS API</li>
-                        <li>Voice Agent API: <br />  - Up to 5 for the WSS API</li>
-                        <li>Audio Intelligence: <br />- Up to 10 for the REST API</li>
+                      <div className="font-inter text-white mb-3 text-[1rem]">Concurrency Limits</div>
+                      <ul className="list-disc list-inside space-y-3 text-white text-[1rem]  font-inter mb-3 relative">
+                        <li >Speech-to-text:  </li>
+                        <div className="ml-5">- Up to 100 for the REST API </div>
+                             <div className="ml-5">- Up to 50 for the WSS API</div>
+                             <div className="ml-5">- Up to 5 for Deepgram Whisper Cloud</div>
+                        <li>Text-to-speech: <div className="ml-5">- Up to 5 for the REST API + WSS API</div></li>
+                        <li>Voice Agent API:  <div className="ml-5"> - Up to 5 for the WSS API</div></li>
+                        <li>Audio Intelligence: <div className="ml-5">- Up to 10 for the REST API</div></li>
                       </ul>
                     </div>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-400 font-inter">✔</span>
+                  <li className="flex items-start gap-2 text-[1rem]">
+                    <span className="text-white font-inter text-[1rem]"><FiCheck  size={16} className="mt-1" /></span>
                     Discord and community help
                   </li>
                 </ul>
               </div>
-      
+         {/* absolute top-4 right-4 bg-gray-700 text-xs px-2 py-1 rounded-md font-spaceGroteskmb  */}
               {/* CARD 2: Growth */}
-              <div className="flex flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white rounded-2xl p-5 sm:p-8 w-full max-w-[400px] shadow-lg relative">
-                <div className="absolute top-4 right-4 bg-gray-700 text-xs px-2 py-1 rounded-md font-spaceGroteskmb">Most Popular</div>
-                <h3 className="text-lg font-spaceGrotesk mb-8">Growth</h3>
+              <div  className="flex  group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white  rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg ">
+               <div className='flex justify-between' >
+                <div><h3 className="text-lg font-spaceGrotesk mb-3 relative">Growth</h3></div>
+<div className="bg-white/10 backdrop-blur-md border border-white/20 text-[15px] px-4 py-2 rounded-3xl font-spaceGrotesk text-white shadow-md">
+  Most Popular
+</div>
+
+                
+               </div>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="text-4xl font-spaceGrotesk mb-2">$4k+</div>
+                  <div className="text-4xl font-spaceGrotesk mb-6 relative">$4k+</div>
                   <div className="text-sm text-white">/ Year</div>
                   <div className="bg-[#4F456B] text-xs px-2 py-1 rounded-md">
                     Save Up To <strong>20%</strong>
                   </div>
                 </div>
-                <p className="text-sm text-white  font-inter mb-5">
+                <p className="text-[1rem] text-white  font-inter mb-4 relative">
                   With pre-paid credits for the year. Credits are redeemed against actual usage.
                 </p>
-                <button className="w-full bg-[#444057] hover:bg-white hover:text-black transition-colors duration-200  py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
+                <button className=" relative w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200  py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
                   Buy Now <FaShoppingBag className="text-base transition-colors duration-200 " />
                 </button>
-                <ul className="space-y-3 text-sm text-white">
+                <ul className="space-y-3 text-[1rem] text-white">
                   <li className="flex items-start gap-2">
-                    <span className="text-green-400 font-inter mb-1">✔</span>
+                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
                     Access all endpoints in public models
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-400 ">✔</span>
+                  </li> 
+                  <li className="flex items-start gap-4">
+                    <span className="text-white"><FiCheck  size={16} className="mt-1" /></span>
                     <div>
-                      <div className="font-inter text-white mb-2">Concurrency Limits</div>
-                      <ul className="list-disc list-inside space-y-1 text-white font-inter mb-3">
-                        <li>Speech-to-text: <br />- Up to 100 for the REST API <br />- Up to 50 for the WSS API  <br />- Up to 5 for Deepgram Whisper Cloud</li>
-                        <li>Text-to-speech: <br /> - Up to 5 for the REST API + WSS API</li>
-                        <li>Voice Agent API: <br />- Up to 5 for the WSS API</li>
-                        <li>Audio Intelligence:  <br /> -Up to 10 for the Api</li>
+                      <div className="font-inter text-white mb-3 text-md relative">Concurrency Limits</div>
+                      <ul className="list-disc list-inside space-y-3 text-white  font-inter mb-3 relative">
+                        <li >Speech-to-text:  </li>
+                        <div className="ml-5">- Up to 100 for the REST API </div>
+                             <div className="ml-5">- Up to 50 for the WSS API</div>
+                             <div className="ml-5">- Up to 5 for Deepgram Whisper Cloud</div>
+                        <li>Text-to-speech: <div className="ml-5">- Up to 5 for the REST API + WSS API</div></li>
+                        <li>Voice Agent API:  <div className="ml-5"> - Up to 5 for the WSS API</div></li>
+                        <li>Audio Intelligence: <div className="ml-5">- Up to 10 for the REST API</div></li>
                       </ul>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-green-400 font-inter">✔</span>
+                    <span className="text-white font-inter"><FiCheck  size={16} className="mt-1" /></span>
                     Discord and community help
                   </li>
                 </ul>
               </div>
       
               {/* CARD 3: Enterprise */}
-              <div className="flex flex-col min-h-[680px] bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg">
-                <h3 className="text-lg font-spaceGroteskmb mb-5">Enterprise</h3>
-                <div className="text-4xl font-spaceGroteskmb mb-5 flex flex-row">$15k+ <div className="text-sm text-white font-inter mt-3.5 ml-1">/ Year</div></div>
+<div  className="flex  group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white  rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg ">
+               <div className='flex justify-between' >
+                <div><h3 className="text-lg font-spaceGrotesk mb-3 relative">Enterprise</h3></div>
+<div className="">
+  
+</div>
+
                 
-                <p className="text-sm text-white/90 mb-6 font-inter">
-                  For businesses with large volumes, data or deployment requirements, or support needs.
+               </div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-4xl font-spaceGrotesk mb-6 relative">$15k+</div>
+                  <div className="text-sm text-white">/ Year</div>
+                  
+                </div>
+                <p className="text-[1rem] text-white  font-inter mb-4 relative">
+      For businesses with large volumes, data or deployment requirements, or support needs.
                 </p>
-                <button className="w-full bg-white hover:bg-gray-100 transition-colors duration-200 text-[#1E1B34] py-3 rounded-full font-inter text-sm flex items-center justify-center gap-2 mb-7">
-                  Buy Now <FaShoppingBag className="text-[#FC4B94] text-base" />
+                <button className=" relative w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200  py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
+                  Buy Now <FaShoppingBag className="text-base transition-colors duration-200 " />
                 </button>
-                <ul className="space-y-3 text-sm text-white font-inter">
-                  <li className="flex items-start gap-2"><span>✔</span> Access all endpoints in public models with our best discounts</li>
-                  <li className="flex items-start gap-2"><span>✔</span> Access to custom-trained speech-to-text models</li>
-                  <li className="flex items-start gap-2"><span>✔</span> Priority access to new endpoints and models</li>
-                  <li className="flex items-start gap-2"><span>✔</span> Highest concurrency support</li>
-                  <li className="flex items-start gap-2"><span>✔</span> Self-hosted deployment options</li>
-                  <li className="flex items-start gap-2"><span>✔</span> Paid Support plans available</li>
-                  <li className="flex items-start gap-2"><span>✔</span> Discord and community help</li>
+                <ul className="space-y-9 text-[1rem] text-white">
+                  <li className="flex items-start gap-2">
+                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
+                   Access all endpoints in public models with our best discounts
+                  </li> 
+                 <li className="flex items-start gap-2">
+                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
+                 Priority access to new endpoints and models
+                  </li> 
+                  <li className="flex items-start gap-2">
+                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
+                 Highest concurrency support
+                  </li> 
+                  <li className="flex items-start gap-2">
+                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
+                   Self-hosted deployment options
+                  </li> 
+                     <li className="flex items-start gap-2">
+                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
+                 Paid Support plans available
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-white font-inter"><FiCheck  size={16} className="mt-1" /></span>
+                    Discord and community help
+                  </li>
                 </ul>
               </div>
+
+
             </div>
     </div>
-     <div className="bg-[#0f0c29] text-white px-4 py-20 md:px-16 ">
+     <div className=" text-white px-4 py-20 md:px-16 ">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-center   text-3xl md:text-4xl font-spaceGrotesk mb-3">Compare plans and features</h2>
           <p className="text-center mx-auto text-gray-400 text-sm md:text-base mb-10 font-inter max-w-3xl px-2">
@@ -229,11 +281,18 @@ const [activeIndex, setActiveIndex] = useState(null);
     </div>
        </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 relative">
+              <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
+        <div className="absolute bottom-[5%] left-1/12 w-[600px] h-[550px] bg-white rounded-full opacity-6 blur-3xl" />
+        
+
+      </div>
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className={`px-6 py-4 transition-all duration-300 border-b border-b-[#3F4550] ${activeIndex === index ? 'bg-[#1E2139]' : ''}`}
+                className={`px-6 py-4 transition-all duration-300 border-b border-b-[#3F4550] relative ${activeIndex === index ? ' relative' : ''}`}
               >
                 <div
                   className="flex items-center justify-between cursor-pointer"

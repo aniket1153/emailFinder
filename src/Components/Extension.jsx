@@ -8,8 +8,8 @@ import Footer from "./Footer";
 import { TbPuzzle } from "react-icons/tb";
 const Extension = () => {
   return (
-    <div className="bg-[#0f0c29]">
-      <div className="max-w-screen-xl  mx-auto px-4 py-8 ">
+    <div className="">
+      <div className="max-w-screen-xl  mx-auto px-4 py-8 relative ">
         <div className="flex flex-col gap-3.5">
           <h1 className="font-spaceGrotesk  text-5xl p-1.5">
             Get the Extension & Work Smarter
@@ -26,7 +26,7 @@ const Extension = () => {
       <div className="bg-gradient-to-br from-[#1b1f30] to-[#141827] rounded-2xl p-6 sm:p-10 md:p-12 max-w-7xl mx-auto mt-16 shadow-xl border border-[#2e3248] text-center">
   
   {/* Browser Icons */}
-  <div className=" flex justify-center items-center gap-4 mb-4 mt-12 ">
+  <div className=" flex justify-center items-center gap-4 mb-4 mt-12 relative ">
   <svg width="155" height="45" viewBox="0 0 145 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M29.8587 10.7352C29.1848 9.11371 27.8178 7.36299 26.7474 6.80957C27.5109 8.28822 28.0407 9.87623 28.318 11.5171L28.3208 11.5431C26.5673 7.17091 23.5937 5.40859 21.1651 1.57021C21.0397 1.37453 20.9179 1.17655 20.7997 0.976367C20.7388 0.871804 20.6819 0.76502 20.6289 0.656236C20.5281 0.461177 20.4505 0.255032 20.3976 0.0419831C20.3976 0.0321519 20.3941 0.0226386 20.3876 0.015258C20.3811 0.00787746 20.3721 0.00314612 20.3624 0.00196661C20.3528 -0.000655536 20.3427 -0.000655536 20.3331 0.00196661C20.3311 0.00196661 20.3279 0.00556809 20.3255 0.00596825L20.3143 0.0123709L20.3203 0.00196661C16.4247 2.2829 15.103 6.50544 14.9814 8.61751C13.4257 8.72433 11.9383 9.29747 10.7132 10.2622C10.5854 10.1541 10.4518 10.0529 10.313 9.95926C9.95965 8.72233 9.94458 7.41324 10.2694 6.1685C8.8388 6.86156 7.56762 7.84401 6.53628 9.05369H6.52908C5.91443 8.27457 5.95765 5.70551 5.99286 5.16889C5.81103 5.24197 5.63745 5.33412 5.47505 5.4438C4.93244 5.83107 4.42519 6.26561 3.95923 6.74234C3.42825 7.28069 2.94329 7.86256 2.50943 8.48185C1.51232 9.89546 0.80509 11.4922 0.428576 13.1806L0.407767 13.283C0.350562 13.6048 0.299731 13.9277 0.255305 14.2514C0.255305 14.263 0.252904 14.2738 0.251703 14.2854C0.115943 14.9911 0.0318185 15.7057 0 16.4235V16.5036C0.00340024 20.3869 1.46341 24.1276 4.09149 26.9865C6.71956 29.8454 10.3245 31.6145 14.1938 31.944C18.0631 32.2735 21.9152 31.1396 24.9889 28.7663C28.0626 26.393 30.1342 22.953 30.7942 19.1262C30.8203 18.9261 30.8415 18.7281 30.8647 18.526C31.1842 15.8857 30.8384 13.2077 29.8587 10.7352ZM11.9833 22.8754C12.0557 22.9102 12.1238 22.9474 12.1982 22.981L12.209 22.9878C12.1338 22.9518 12.0586 22.9143 11.9833 22.8754ZM28.322 11.5467V11.5319L28.3248 11.5479L28.322 11.5467Z" fill="url(#paint0_linear_221_616)"/>
 <path d="M29.8587 10.7352C29.1848 9.11372 27.8178 7.363 26.7474 6.80957C27.5109 8.28823 28.0407 9.87623 28.318 11.5171V11.5319L28.3208 11.5479C29.5163 14.9688 29.3434 18.7194 27.8382 22.0158C26.0607 25.8294 21.7581 29.739 15.0234 29.5489C7.74638 29.3428 1.33775 23.9426 0.139657 16.8705C-0.0784322 15.7552 0.139657 15.1898 0.249302 14.2834C0.099732 14.9875 0.0162684 15.704 0 16.4235V16.5036C0.00340024 20.3869 1.46341 24.1276 4.09149 26.9865C6.71956 29.8454 10.3245 31.6145 14.1938 31.944C18.0631 32.2735 21.9152 31.1396 24.9889 28.7663C28.0626 26.393 30.1342 22.953 30.7942 19.1262C30.8203 18.9262 30.8415 18.7281 30.8647 18.526C31.1842 15.8857 30.8384 13.2078 29.8587 10.7352Z" fill="url(#paint1_radial_221_616)"/>
@@ -204,31 +204,38 @@ const Extension = () => {
       </div>
 
 
-                <div className="flex flex-col justify-center lg:gap-80 md:flex-row items-center gap-3 mt-20 px-5 md:px-20">
+                <div className=" relative flex flex-col justify-center lg:gap-80 md:flex-row items-center gap-3 mt-20 px-5 md:px-20">
+                    <div className="absolute inset-0 z-0">
+        <div className="absolute top-[32%] left-[20%] w-[720px] h-[520px] bg-white  rounded-full opacity-8 blur-3xl" />
+        <div className="absolute top-20 right-10 w-[720px] h-[520px] bg-pink-500 rounded-full opacity-11 blur-3xl" />
+        <div className="absolute bottom-[4%] left-2/10 w-[620px] h-[520px] bg-pink-500 rounded-full opacity-11 blur-3xl" />
+        
+
+      </div>
             {/* Left Text Section */}
             <div className="flex flex-col gap-8 text-left max-w-xl">
-              <h2 className="text-white text-5xl font-spaceGrotesk">How It Works</h2>
+              <h2 className="text-white text-5xl font-spaceGrotesk relative">How It Works</h2>
       
               {/* Step 1 */}
               <div className="flex flex-col gap-3">
-                <h3 className="text-gray-400 font-spaceGrotesk">1. Ad litora torquent per conubia nostra inceptos</h3>
-                <p className="text-gray-500 text-sm font-inter">
+                <h3 className="text-gray-400 font-spaceGrotesk relative">1. Ad litora torquent per conubia nostra inceptos</h3>
+                <p className="text-gray-500 text-sm font-inter relative">
                   In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
                 </p>
               </div>
       
               {/* Step 2 */}
               <div className="flex flex-col gap-3">
-                <h3 className="text-white font-spaceGrotesk">2.  Tempus leo eu aenean sed diam</h3>
-                <p className="text-gray-300 text-sm font-inter">
+                <h3 className="text-white font-spaceGrotesk relative">2.  Tempus leo eu aenean sed diam</h3>
+                <p className="text-gray-300 text-sm font-inter relative">
                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
                 </p>
               </div>
       
               {/* Step 3 */}
               <div className="flex flex-col gap-3">
-                <h3 className="text-gray-500 font-spaceGrotesk">3.  Tempus leo eu aenean sed diam urna tempor</h3>
-                <p className="text-gray-500 font-inter">
+                <h3 className="text-gray-500 font-spaceGrotesk relative">3.  Tempus leo eu aenean sed diam urna tempor</h3>
+                <p className="text-gray-500 font-inter relative">
                 Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integess torquent per conubia nostra inceptos himenaeos.
                 </p>
               </div>

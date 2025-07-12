@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="px-5 py-3 bg-[#0f0c29]">
+    <nav className="px-5 py-3  relative">
       <div className="max-w-7xl mx-auto flex justify-between items-center text-white px-6 py-3 rounded-full shadow-lg border border-[#ffffff1a] bg-gradient-to-r from-[#1b1c2d] via-[#1f1f35] to-[#161623]">
         
         {/* Logo */}

@@ -42,59 +42,64 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-[#0f0c29] text-white px-4 py-20 md:px-16 font-sans">
-      <div className="max-w-7xl mx-auto">
+    <section className=" text-white px-4 py-20 md:px-16 font-sans relative ">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
+        <div className="absolute top-15 right-160 w-[750px] h-[580px] bg-pink-500 rounded-full opacity-9 blur-3xl" />
+        <div className="absolute right-150 bottom-[-22%] w-[500px] h-[500px] bg-pink-500  rounded-full opacity-9 blur-3xl" />
+        
+
+      </div>
+      <div className="max-w-7xl mx-auto  ">
         {/* Header */}
-        <h2 className="text-center text-3xl md:text-4xl font-spaceGrotesk mb-2">FAQ</h2>
-        <p className="text-center text-gray-400 text-sm md:text-base mb-10 font-inter">
+        <h2 className="text-center text-3xl md:text-4xl font-spaceGrotesk mb-2 relative">FAQ</h2>
+        <p className="text-center text-gray-200 text-sm md:text-base mb-10 font-inter relative">
           Answers to common queries about our platform, features, pricing, and more.
         </p>
 
         {/* FAQ List */}
-        <div className="flex flex-col gap-3">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`rounded-lg px-6 py-4 transition-all duration-300 ${
-                activeIndex === index
-                  ? 'border-[#00A3FF] bg-[#1E2139]'
-                  : 'border-[#2E2F4F] bg-[#181A2C] hover:bg-[#1E2035]'
-              }`}
-            >
-              <div
-                className="flex items-center justify-between cursor-pointer"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span className="text-sm md:font-spaceGrotesk">{faq.question}</span>
-                {activeIndex === index ? (
-                  <RxCross1 className="text-white" />
-                ) : (
-                  <FiPlus className="text-white" />
-                )}
+        <div className="flex flex-col gap-3 relative">
+  {faqs.map((faq, index) => (
+    <div
+      key={index}
+      className={`rounded-xl px-6 py-4 transition-all duration-300 border backdrop-blur-md ${
+        activeIndex === index
+          ? 'border-[#00A3FF] bg-white/10'
+          : 'bg-white/5 border border-white/10 hover:bg-white/10'
+      }`}
+    >
+      <div
+        className="flex items-center justify-between cursor-pointer"
+        onClick={() => toggleFAQ(index)}
+      >
+        <span className="text-sm md:font-spaceGrotesk relative text-white">{faq.question}</span>
+        {activeIndex === index ? (
+          <RxCross1 className="text-white" />
+        ) : (
+          <FiPlus className="text-white" />
+        )}
+      </div>
+
+      {activeIndex === index && (
+        <>
+          <div className="mt-3 text-xs text-white/90">{faq.answer}</div>
+
+          {showBanner && (
+            <div className="mt-6 bg-gradient-to-r from-[#6B4EFF] to-[#FF4ED9] text-white px-6 py-4 rounded-lg flex justify-between items-start text-sm md:text-base shadow-lg backdrop-blur-md">
+              <div>
+                <p className="font-spaceGrotesk text-xl">{faq.question}</p>
+                <p className="text-md mt-1 font-spaceGrotesk text-white/90 relative">
+                  {faq.answer}
+                </p>
               </div>
-
-              {activeIndex === index && (
-                <>
-                  <div className="mt-3 text-xs text-white/90"></div>
-
-                  {showBanner && (
-                    <div className="mt-6 bg-gradient-to-r from-[#6B4EFF] to-[#FF4ED9] text-white px-6 py-4 rounded-lg flex justify-between items-start text-sm md:text-base">
-                      <div>
-                        <p className="font-spaceGrotesk text-xl">
-                          {faq.question}
-                        </p>
-                        <p className="text-md mt-1 font-spaceGrotesk text-white/90">
-{faq.answer}
-                        </p>
-                      </div>
-                     
-                    </div>
-                  )}
-                </>
-              )}
             </div>
-          ))}
-        </div>
+          )}
+        </>
+      )}
+    </div>
+  ))}
+</div>
+
 
         {/* Footer CTA */}
         <div className="mt-10 flex justify-center">

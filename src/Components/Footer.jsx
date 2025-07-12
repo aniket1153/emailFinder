@@ -4,11 +4,18 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1B101D] text-white px-6 md:px-16 pt-16 pb-10 font-sans overflow-hidden">
-      {/* ✅ Seamless Scrolling Text */}
+    <footer className="bg-[#1B101D] text-white px-6 md:px-16 pt-16 pb-10 font-sans overflow-hidden relative">
+      {/* ✅ Background Gradient Blur Circles */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[2%] left-[65%] w-[450px] h-[380px] bg-pink-300 rounded-full opacity-10 blur-3xl" />
+        <div className="absolute top-1/2 right-[300px] w-[450px] h-[380px] bg-pink-300 rounded-full opacity-10 blur-3xl" />
+        <div className="absolute bottom-[-12%] left-1/8 w-[450px] h-[380px] bg-pink-300 rounded-full opacity-10 blur-3xl" />
+      </div>
+
+      {/* ✅ Scrolling Text */}
       <div className="relative overflow-hidden whitespace-nowrap w-full py-6">
         <motion.div
-          className="flex gap-16 text-2xl md:text-7xl  font-spaceGrotesk tracking-tight"
+          className="flex gap-16 text-2xl md:text-7xl font-spaceGrotesk tracking-tight"
           animate={{ x: ["100%", "-100%"] }}
           transition={{
             repeat: Infinity,
@@ -16,16 +23,16 @@ const Footer = () => {
             ease: "linear",
           }}
         >
-          <span>Find Emails Instantly Wherever You Work</span>
+          <span className="relative">Find Emails Instantly Wherever You Work</span>
           <span>Find Emails Instantly Wherever You Work</span>
           <span>Find Emails Instantly Wherever You Work</span>
         </motion.div>
       </div>
 
       {/* ✅ Description + CTA */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 mt-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 mt-17  relative z-10">
         <div>
-          <p className="text-[#E5E7EB] text-base leading-relaxed max-w-md">
+          <p className="text-[#E5E7EB] text-[20px]">
             Skip the back and forth. Our lightweight browser extension brings powerful email finding and verification tools directly to your workflow.
           </p>
         </div>
@@ -37,33 +44,38 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* ✅ Divider & Bottom Section */}
-      <div className="border-t border-white/10 mt-10 pt-6 grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+      {/* ✅ Divider & Footer Section */}
+      <div className="space-y-2 mt-23 relative z-15">
+        {/* Top Row */}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
+          {/* Logo */}
           <span className="text-white text-xl font-semibold">Logo</span>
+
+          {/* Navigation */}
           <nav className="flex gap-5 text-sm text-[#E5E7EB]">
             <a href="#" className="hover:underline">Home</a>
             <a href="#" className="hover:underline">Pricing</a>
             <a href="#" className="hover:underline">Extension</a>
             <a href="#" className="hover:underline">Contact Us</a>
           </nav>
-        </div>
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:justify-end">
+
+          {/* Socials */}
           <div className="flex gap-4 text-white text-sm">
             <FaFacebookF className="hover:text-pink-400 cursor-pointer" />
             <FaTwitter className="hover:text-pink-400 cursor-pointer" />
             <FaLinkedinIn className="hover:text-pink-400 cursor-pointer" />
           </div>
-          <div className="text-xs text-[#B0B3C3] flex gap-4">
+        </div>
+
+        {/* Bottom Line & Legal Links */}
+        <div className="border-t border-white/10 pt-4 flex flex-col lg:flex-row justify-between items-center text-xs text-[#B0B3C3] gap-2">
+          <span>© 2025 Company Website. All rights reserved.</span>
+          <div className="flex gap-4">
             <a href="#" className="hover:underline">Privacy Policy</a>
+            <span>|</span>
             <a href="#" className="hover:underline">Terms & Conditions</a>
           </div>
         </div>
-      </div>
-
-      {/* ✅ Footer Bottom */}
-      <div className="text-[#B0B3C3] text-xs text-center mt-6">
-        © 2025 Company Website. All rights reserved.
       </div>
     </footer>
   );

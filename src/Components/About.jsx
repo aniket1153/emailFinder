@@ -7,11 +7,18 @@ import StatsSection from "./StatsSection";
 
 const About = () => {
   return (
-    <div className=" bg-[#0f0c29] ">
-      <div className="flex flex-col-reverse py-12  lg:flex-row items-center justify-center gap-12 lg:gap-60">
+    <div className=" ">
+      <div className="flex flex-col-reverse py-12  lg:flex-row items-center justify-center gap-12 lg:gap-60 relative">
+          <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-5%] left-[35%] w-[700px] h-[450px] bg-white  rounded-full opacity-6 blur-3xl" />
+        <div className="absolute top-20 right-10 w-80 h-80  rounded-full opacity-25 blur-3xl" />
+        <div className="absolute bottom-[-38%] left-2/8  w-[700px] h-[450px] bg-pink-500  rounded-full opacity-11 blur-3xl" />
+        
+
+      </div>
         {/* Text Section */}
-        <div className="flex flex-col gap-6 max-w-xl text-center lg:text-left px-4 md:px-8">
-          <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-6 max-w-xl text-center lg:text-left px-4 md:px-8 relative">
+          <div className="flex flex-col gap-3 relative">
             <h1 className="text-4xl sm:text-4xl md:text-5xl  text-white font-spaceGrotesk">
               About Us
             </h1>
@@ -24,7 +31,7 @@ const About = () => {
             </h2>
           </div>
 
-          <div className="text-[#8D909C] text-base lg:text-lg  flex flex-col gap-2 font-inter ">
+          <div className="text-[#8D909C] text-base lg:text-lg  flex flex-col gap-2 font-inter relative ">
             <div>
               <p>
                 We are a data-driven SaaS company focused on helping businesses
@@ -57,7 +64,7 @@ const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="w-full max-w-sm md:max-w-md">
+        <div className="w-full max-w-sm md:max-w-md relative">
           <img
             className="rounded-2xl w-full h-auto lg:w-[450px] lg:h-[450px] object-cover"
             src={imgAb}
@@ -75,7 +82,9 @@ const About = () => {
           </span>
         </button> */}
       </div>
-      <WhyChooseUs />
+      
+        
+      <WhyChooseUs className="relative" />
       <StatsSection />
 
       <Footer />
