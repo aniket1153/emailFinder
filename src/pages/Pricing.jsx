@@ -320,7 +320,7 @@ const [activeIndex, setActiveIndex] = useState(null);
 
           <div className="mt-10 flex justify-center">
             <button className="bg-[#2E2F4E] text-white text-xs px-6 py-2 rounded-full border border-[#5A5B73] hover:bg-[#3a3c5a]">
-              Still have a question? <span className="underline ml-1">Contact Us</span>
+              Still have a Question? <span className="underline ml-1">Contact Us</span>
             </button>
           </div>
         </div>
