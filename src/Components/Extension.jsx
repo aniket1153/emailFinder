@@ -206,9 +206,9 @@ const Extension = () => {
 
                 <div className=" relative flex flex-col justify-center lg:gap-80 md:flex-row items-center gap-3 mt-20 px-5 md:px-20">
                     <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
-        <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
-        <div className="absolute bottom-[5%] left-1/10 w-[720px] h-[500px] bg-pink-500 rounded-full opacity-15 blur-3xl" />
+        <div className="absolute top-[32%] left-[20%] w-[720px] h-[520px] bg-white  rounded-full opacity-8 blur-3xl" />
+        <div className="absolute top-20 right-10 w-[720px] h-[520px] bg-pink-500 rounded-full opacity-11 blur-3xl" />
+        <div className="absolute bottom-[4%] left-2/10 w-[620px] h-[520px] bg-pink-500 rounded-full opacity-11 blur-3xl" />
         
 
       </div>

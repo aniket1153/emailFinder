@@ -7,14 +7,14 @@ const SimplePlans = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b  px-4 py-28 lg:mt-12 relative">
        <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-6%] left-[40%] w-[600px] h-[500px] bg-pink-500 rounded-full opacity-15 blur-3xl" />
+        <div className="absolute top-[-6%] left-[40%] w-[600px] h-[500px] bg-pink-500 rounded-full opacity-14 blur-3xl" />
   
         
 
       </div>
       {/* Heading */}
       <div className="text-center text-white mb-10 relative">
-        <h2 className="text-3xl md:text-4xl font-spaceGrotesk mb-2 relative">
+        <h2 className="text-3xl text-white md:text-4xl font-spaceGrotesk mb-2 relative">
           Simple Plans, Powerful Results
         </h2>
         <p className="text-sm text-gray-400 max-w-xl mx-auto font-inter relative">
@@ -26,7 +26,7 @@ const SimplePlans = () => {
       <div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center relative">
          <div className="absolute inset-0 z-0">
         
-        <div className="absolute bottom-[35%] left-1/9 w-[700px] h-[500px]  bg-pink-500 rounded-full opacity-15 blur-3xl" />
+        <div className="absolute bottom-[35%] left-1/9 w-[700px] h-[500px]  bg-pink-500 rounded-full opacity-14 blur-3xl" />
         
 
       </div>
@@ -111,7 +111,7 @@ const SimplePlans = () => {
         {/* CARD 3: Enterprise */}
         <div className="flex flex-col min-h-[680px] bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg relative">
           <div className="absolute inset-0 z-0">
-<div className="absolute top-32 right-35 w-[500px] h-[500px] bg-white rounded-full opacity-15 blur-3xl" />
+<div className="absolute top-32 right-35 w-[500px] h-[500px] bg-white rounded-full opacity-10 blur-3xl" />
           </div>
           <h3 className="text-lg font-spaceGroteskmb mb-5 relative">Enterprise</h3>
           <div className="text-4xl font-spaceGroteskmb mb-5 flex flex-row relative">$15k+ <div className="text-sm text-white font-inter mt-3.5 ml-1">/ Year</div></div>

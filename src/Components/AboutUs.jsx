@@ -9,7 +9,7 @@ const AboutUs = () => {
   return (
     <div className="  px-4 py-12 relative">
         <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-10%] left-[38%] w-[700px] h-[500px] bg-white rounded-full opacity-15 blur-3xl" />
+        <div className="absolute top-[-10%] left-[35%] w-[800px] h-[500px] bg-white rounded-full opacity-10 blur-3xl" />
         <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
         <div className="absolute bottom-32 left-1/4 w-[400px] h-[400px]  rounded-full opacity-35 blur-3xl" />
         <div className="absolute bottom-10 right-1/4 w-80 h-80 rounded-full opacity-25 blur-3xl" />

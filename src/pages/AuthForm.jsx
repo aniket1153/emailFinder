@@ -18,7 +18,7 @@ const AuthForm = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center  px-4 relative">
        <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-2%] left-[42%] w-[600px] h-[500px] bg-white   rounded-full opacity-15 blur-3xl" />
+        <div className="absolute top-[-2%] left-[42%] w-[600px] h-[500px]    rounded-full opacity-15 blur-3xl" />
         <div className="absolute top-20 right-10 w-[600px] h-[500px] bg-gray-400  rounded-full opacity-15 blur-3xl" />
         <div className="absolute bottom-[-10%] left-1/8  rounded-full opacity-15 blur-3xl" />
         
@@ -58,10 +58,7 @@ const AuthForm = () => {
                 <img src="https://img.icons8.com/color/20/000000/google-logo.png" alt="google" />
                 {isLogin ? "Login With Google" : "Sign Up With Google"}
               </button>
-              <button className="flex items-center justify-center w-full border py-2 rounded-full hover:border-blue-500 text-white gap-2">
-                <img src="https://img.icons8.com/color/20/000000/microsoft.png" alt="microsoft" />
-                {isLogin ? "Login With Microsoft" : "Sign Up With Microsoft"}
-              </button>
+              
             </div>
 
             {/* Divider */}

@@ -25,7 +25,7 @@ const StatsSection = () => {
       
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
-        <div className="absolute top-15 right-100 w-[800px] h-[430px] bg-pink-500 rounded-full opacity-12 blur-3xl" />
+        <div className="absolute top-15 right-100 w-[800px] h-[430px] bg-pink-500 rounded-full opacity-9 blur-3xl" />
         <div className="absolute bottom-[-10%] left-1/8  rounded-full opacity-15 blur-3xl" />
         
 

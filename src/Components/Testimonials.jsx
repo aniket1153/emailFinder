@@ -108,7 +108,7 @@ const Testimonials = () => {
       <section className="text-white py-20 px-4 md:px-16 relative">
          <div className="absolute inset-0 z-0">
         <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
-        <div className="absolute top-28 right-58 w-[350px] h-[350px] rounded-full bg-pink-500 opacity-15 blur-3xl" />
+        <div className="absolute top-28 right-58 w-[350px] h-[350px] rounded-full bg-pink-500 opacity-10 blur-3xl" />
         <div className="absolute bottom-[-6%] left-1/8 w-[500px] h-[500px] bg-pink-500 rounded-full opacity-15 blur-3xl" />
         
 
