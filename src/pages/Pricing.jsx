@@ -115,156 +115,151 @@ const [activeIndex, setActiveIndex] = useState(null);
           Choose the plan that fits your goals. Scale up your outreach with verified emails, no hidden fees, cancel anytime.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center relative">
-          <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
-        <div className="absolute top-20 right-1  w-[600px] h-[500px]  rounded-full opacity-15 blur-3xl" />
-        <div className="absolute bottom-[30%] left-1/8 w-[600px] h-[500px] bg-pink-500  rounded-full opacity-15 blur-3xl" />
-        
+<div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center relative">
+  {/* Background Blur Effects */}
+  <div className="absolute inset-0 z-0">
+    <div className="absolute top-[-2%] left-[40%] w-96 h-96 rounded-full opacity-20 blur-3xl" />
+    <div className="absolute top-20 right-1 w-[600px] h-[500px] rounded-full opacity-15 blur-3xl" />
+    <div className="absolute bottom-[30%] left-[12.5%] w-[600px] h-[500px] bg-pink-500 rounded-full opacity-15 blur-3xl" />
+  </div>
 
+  {/* CARD 1: Pay As You Go */}
+  <div className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10">
+    <h3 className="text-lg font-spaceGrotesk mb-7">Pay As You Go</h3>
+    <div className="text-4xl font-spaceGrotesk mb-1 flex items-center">
+      Free <span className="text-[1rem] text-gray-300 ml-2 mt-4">$200 Of Credit</span>
+    </div>
+    <p className="text-[1rem] text-white mb-5 font-inter">
+      Then pay-as-you-go. No minimums. No expiration. No credit card required.
+    </p>
+    <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
+      Sign Up Free <BsPersonCircle size={23} />
+    </button>
+    <ul className="space-y-3 text-[1rem] font-inter">
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Access all endpoints in public models
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        <div>
+          <div className="mb-3">Concurrency Limits</div>
+          <ul className="list-disc ml-5 space-y-2">
+            <li>Speech-to-text:</li>
+            <div className="ml-4">- Up to 100 for the REST API</div>
+            <div className="ml-4">- Up to 50 for the WSS API</div>
+            <div className="ml-4">- Up to 5 for Deepgram Whisper Cloud</div>
+            <li>Text-to-speech:</li>
+            <div className="ml-4">- Up to 5 for the REST API + WSS API</div>
+            <li>Voice Agent API:</li>
+            <div className="ml-4">- Up to 5 for the WSS API</div>
+            <li>Audio Intelligence:</li>
+            <div className="ml-4">- Up to 10 for the REST API</div>
+          </ul>
+        </div>
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Discord and community help
+      </li>
+    </ul>
+  </div>
+
+  {/* CARD 2: Growth */}
+  <div className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10">
+    <div className="flex justify-between items-center mb-3">
+      <h3 className="text-lg font-spaceGrotesk">Growth</h3>
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 text-[15px] px-4 py-2 rounded-3xl font-spaceGrotesk shadow-md">
+        Most Popular
       </div>
-              {/* CARD 1: Pay As You Go */}
-              <div  onTouchMoveCapture={()=> isCardhover(true)}  
-               className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white  rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg">
-                <h3 className="text-lg font-spaceGrotesk mb-7 ">Pay As You Go</h3>
-                <div className="text-4xl font-spaceGrotesk mb-1 flex flew-row ">Free <div className="text-[1rem] text-gray-300  mb-4 mt-4 ml-1">$200 Of Credit</div></div>
-                
-                <p className="text-[1rem] x` text-white mb-5 font-inter  ">
-                  Then pay-as-you-go. No minimums. No expiration. No credit card required.
-                </p>
-      
-     <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 text-white py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7 relative">
-                  Sign Up Free <BsPersonCircle className="" size={23} />
-                </button>
-      
-                <ul className="space-y-3 text-sm text-white">
-                  <li className="flex items-start gap-2 text-[1rem]">
-                    <span className="text-white font-inter mb-2 relative text-[1rem]"><FiCheck  size={16} className="mt-1" /></span>
-                    Access all endpoints in public models
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <span className="text-white"><FiCheck  size={16} className="mt-1" /></span>
-                    <div>
-                      <div className="font-inter text-white mb-3 text-[1rem]">Concurrency Limits</div>
-                      <ul className="list-disc list-inside space-y-3 text-white text-[1rem]  font-inter mb-3 relative">
-                        <li >Speech-to-text:  </li>
-                        <div className="ml-5">- Up to 100 for the REST API </div>
-                             <div className="ml-5">- Up to 50 for the WSS API</div>
-                             <div className="ml-5">- Up to 5 for Deepgram Whisper Cloud</div>
-                        <li>Text-to-speech: <div className="ml-5">- Up to 5 for the REST API + WSS API</div></li>
-                        <li>Voice Agent API:  <div className="ml-5"> - Up to 5 for the WSS API</div></li>
-                        <li>Audio Intelligence: <div className="ml-5">- Up to 10 for the REST API</div></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2 text-[1rem]">
-                    <span className="text-white font-inter text-[1rem]"><FiCheck  size={16} className="mt-1" /></span>
-                    Discord and community help
-                  </li>
-                </ul>
-              </div>
-         {/* absolute top-4 right-4 bg-gray-700 text-xs px-2 py-1 rounded-md font-spaceGroteskmb  */}
-              {/* CARD 2: Growth */}
-              <div  className="flex  group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white  rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg ">
-               <div className='flex justify-between' >
-                <div><h3 className="text-lg font-spaceGrotesk mb-3 relative">Growth</h3></div>
-<div className="bg-white/10 backdrop-blur-md border border-white/20 text-[15px] px-4 py-2 rounded-3xl font-spaceGrotesk text-white shadow-md">
-  Most Popular
-</div>
+    </div>
+    <div className="flex items-center gap-3 mb-2">
+      <div className="text-4xl font-spaceGrotesk">$4k+</div>
+      <div className="text-sm">/ Year</div>
+      <div className="bg-[#4F456B] text-xs px-2 py-1 rounded-md">
+        Save Up To <strong>20%</strong>
+      </div>
+    </div>
+    <p className="text-[1rem] font-inter mb-4">
+      With pre-paid credits for the year. Credits are redeemed against actual usage.
+    </p>
+    <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
+      Buy Now <FaShoppingBag className="text-base" />
+    </button>
+    <ul className="space-y-3 text-[1rem] font-inter">
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Access all endpoints in public models
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        <div>
+          <div className="mb-3">Concurrency Limits</div>
+          <ul className="list-disc ml-5 space-y-2">
+            <li>Speech-to-text:</li>
+            <div className="ml-4">- Up to 100 for the REST API</div>
+            <div className="ml-4">- Up to 50 for the WSS API</div>
+            <div className="ml-4">- Up to 5 for Deepgram Whisper Cloud</div>
+            <li>Text-to-speech:</li>
+            <div className="ml-4">- Up to 5 for the REST API + WSS API</div>
+            <li>Voice Agent API:</li>
+            <div className="ml-4">- Up to 5 for the WSS API</div>
+            <li>Audio Intelligence:</li>
+            <div className="ml-4">- Up to 10 for the REST API</div>
+          </ul>
+        </div>
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Discord and community help
+      </li>
+    </ul>
+  </div>
 
-                
-               </div>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="text-4xl font-spaceGrotesk mb-6 relative">$4k+</div>
-                  <div className="text-sm text-white">/ Year</div>
-                  <div className="bg-[#4F456B] text-xs px-2 py-1 rounded-md">
-                    Save Up To <strong>20%</strong>
-                  </div>
-                </div>
-                <p className="text-[1rem] text-white  font-inter mb-4 relative">
-                  With pre-paid credits for the year. Credits are redeemed against actual usage.
-                </p>
-                <button className=" relative w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200  py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
-                  Buy Now <FaShoppingBag className="text-base transition-colors duration-200 " />
-                </button>
-                <ul className="space-y-3 text-[1rem] text-white">
-                  <li className="flex items-start gap-2">
-                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
-                    Access all endpoints in public models
-                  </li> 
-                  <li className="flex items-start gap-4">
-                    <span className="text-white"><FiCheck  size={16} className="mt-1" /></span>
-                    <div>
-                      <div className="font-inter text-white mb-3 text-md relative">Concurrency Limits</div>
-                      <ul className="list-disc list-inside space-y-3 text-white  font-inter mb-3 relative">
-                        <li >Speech-to-text:  </li>
-                        <div className="ml-5">- Up to 100 for the REST API </div>
-                             <div className="ml-5">- Up to 50 for the WSS API</div>
-                             <div className="ml-5">- Up to 5 for Deepgram Whisper Cloud</div>
-                        <li>Text-to-speech: <div className="ml-5">- Up to 5 for the REST API + WSS API</div></li>
-                        <li>Voice Agent API:  <div className="ml-5"> - Up to 5 for the WSS API</div></li>
-                        <li>Audio Intelligence: <div className="ml-5">- Up to 10 for the REST API</div></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white font-inter"><FiCheck  size={16} className="mt-1" /></span>
-                    Discord and community help
-                  </li>
-                </ul>
-              </div>
-      
-              {/* CARD 3: Enterprise */}
-<div  className="flex  group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248]  hover:bg-gradient-to-b from-[#6B4EFF] to-[#FC4B94] text-white  rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg ">
-               <div className='flex justify-between' >
-                <div><h3 className="text-lg font-spaceGrotesk mb-3 relative">Enterprise</h3></div>
-<div className="">
-  
-</div>
-
-                
-               </div>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="text-4xl font-spaceGrotesk mb-6 relative">$15k+</div>
-                  <div className="text-sm text-white">/ Year</div>
-                  
-                </div>
-                <p className="text-[1rem] text-white  font-inter mb-4 relative">
+  {/* CARD 3: Enterprise */}
+  <div className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10">
+    <div className="flex justify-between items-center mb-3">
+      <h3 className="text-lg font-spaceGrotesk">Enterprise</h3>
+    </div>
+    <div className="flex items-center gap-3 mb-2">
+      <div className="text-4xl font-spaceGrotesk">$15k+</div>
+      <div className="text-sm">/ Year</div>
+    </div>
+    <p className="text-[1rem] font-inter mb-4">
       For businesses with large volumes, data or deployment requirements, or support needs.
-                </p>
-                <button className=" relative w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200  py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
-                  Buy Now <FaShoppingBag className="text-base transition-colors duration-200 " />
-                </button>
-                <ul className="space-y-9 text-[1rem] text-white">
-                  <li className="flex items-start gap-2">
-                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
-                   Access all endpoints in public models with our best discounts
-                  </li> 
-                 <li className="flex items-start gap-2">
-                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
-                 Priority access to new endpoints and models
-                  </li> 
-                  <li className="flex items-start gap-2">
-                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
-                 Highest concurrency support
-                  </li> 
-                  <li className="flex items-start gap-2">
-                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
-                   Self-hosted deployment options
-                  </li> 
-                     <li className="flex items-start gap-2">
-                    <span className="text-white font-inter mb-2 relative"><FiCheck  size={16} className="mt-1" /></span>
-                 Paid Support plans available
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-white font-inter"><FiCheck  size={16} className="mt-1" /></span>
-                    Discord and community help
-                  </li>
-                </ul>
-              </div>
+    </p>
+    <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
+      Buy Now <FaShoppingBag className="text-base" />
+    </button>
+    <ul className="space-y-3 text-[1rem] font-inter">
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Access all endpoints in public models with our best discounts
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Priority access to new endpoints and models
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Highest concurrency support
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Self-hosted deployment options
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Paid Support plans available
+      </li>
+      <li className="flex items-start gap-2">
+        <FiCheck size={16} className="mt-1" />
+        Discord and community help
+      </li>
+    </ul>
+  </div>
+</div>
 
-
-            </div>
     </div>
      <div className=" text-white px-4 py-20 md:px-16 ">
         <div className="max-w-7xl mx-auto">
