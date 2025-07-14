@@ -116,6 +116,7 @@ const SimplePlans = () => {
           <h3 className="text-lg font-spaceGroteskmb mb-5 relative">Enterprise</h3>
           <div className="text-4xl font-spaceGroteskmb mb-5 flex flex-row relative">$15k+ <div className="text-sm text-white font-inter mt-3.5 ml-1">/ Year</div></div>
                   
+                  
           <p className="text-sm text-white/90 mb-6 font-inter relative">
             For businesses with large volumes, data or deployment requirements, or support needs.
           </p>
