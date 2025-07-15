@@ -74,7 +74,7 @@ const AboutUs = () => {
       </div>
 
       {/* Button */}
-      <div className="mt-10 flex justify-center lg:justify-start lg:ml-28">
+      <div className="mt-10 flex justify-center lg:justify-start lg:ml-46">
         <button className="flex items-center gap-3 text-white text-base md:text-lg font-semibold px-6 py-3 rounded-full border-2 border-blue-400 bg-gradient-to-r from-purple-500 via-pink-500 to-pink-400 hover:opacity-90 transition-all duration-300 shadow-lg">
           Read More
           <span className="bg-white/20 p-2 rounded-full">

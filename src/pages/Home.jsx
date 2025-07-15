@@ -11,6 +11,7 @@ import FAQSection from "../Components/FAQSection";
 import StatsSection from "../Components/StatsSection";
 import Footer from "../Components/Footer";
 import { BiLeftArrowCircle, BiRightArrowCircle } from "react-icons/bi";
+import { FiDownload } from "react-icons/fi"; 
 import {
   MdEmail,
   MdPhone,
@@ -159,22 +160,26 @@ const Home = () => {
   {isvisible && (<div className="max-w-[78%] bg-white rounded-xl mt-7 w-full">
   <div className="flex flex-col md:flex-row justify-between md:justify-evenly md:gap-14 gap-4 mt-6 px-4">
     {/* Checkbox + Select */}
-    <div className="flex items-start gap-2 mr-2 mt-4">
-       <input type="checkbox" className="mt-1 h-4 w-4" />
-      <p className="text-black mb-2">Select</p>
+    <div className="flex items-start gap-3 mr-2 ">
+       <input type="checkbox" className="mt-3 h-4 w-4" />
+      <p className="text-black mb-2 mt-2">Select</p>
+       <button className="inline-flex items-center gap-2 mb px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-xl shadow hover:scale-95 hover:shadow-lg transition-all duration-300">
+      <FiDownload className="w-4 h-4" />
+      <span>Download</span>
+    </button>
     </div>
 
     {/* Total contacts */}
     <div className="flex  flex-row gap-5">
     <div className="flex flex-row  gap-9">
     <div>
-      <p className="text-black font-inter font-semibold text-sm md:text-base text-center mt-4 ml-15">
+      <p className="text-black font-inter font-semibold text-sm md:text-base text-center mt-4 ml-12">
         6M+ contacts from 3M+ companies
       </p>
     </div>
 
     {/* Rows per page */}
-    <div className="flex flex-col md:flex-row items-center gap-1.5 mt-4">
+    <div className="flex flex-col md:flex-row items-center gap-1.5 mt-2">
       <p className="text-gray-400 text-sm">Rows Per Page</p>
       <select className="text-black border-2 border-gray-500 text-sm">
         <option className="text-black">10</option>
