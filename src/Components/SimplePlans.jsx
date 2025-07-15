@@ -3,6 +3,8 @@ import {  FaArrowRight, FaShoppingBag } from "react-icons/fa";
 import { BsPersonCircle } from "react-icons/bs";
  import { FiCheck  } from 'react-icons/fi';
 import { RxCross1 } from 'react-icons/rx';
+import UserIconButton from "./UserIconButton";
+import LockCircleIcon from "./LockCircleIcon";
 
 const SimplePlans = () => {
   return (
@@ -34,16 +36,16 @@ const SimplePlans = () => {
       
         {/* CARD 1: Pay As You Go */}
         <div className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10">
-          <h3 className="text-lg font-spaceGrotesk mb-7">Pay As You Go</h3>
+          <h3 className="text-lg font-spaceGrotesk mb-6">Pay As You Go</h3>
           <div className="text-4xl font-spaceGrotesk mb-1 flex items-center">
             Free <span className="text-[1rem] text-gray-300 ml-2 mt-4">$200 Of Credit</span>
           </div>
-          <p className="text-[1rem] text-white mb-5 font-inter">
+          <p className="text-[1rem] text-white mb-7 font-inter">
             Then pay-as-you-go. No minimums. No expiration. No credit card required.
           </p>
-          <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
-            Sign Up Free <BsPersonCircle size={23} />
-          </button>
+          <div className="w-full text-lg  bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center   mb-7">
+            <div className="mr-19 ml-22">Sign Up Free</div> <div className=" "><UserIconButton className="bg-gray-900 min-h-screen ml-7 flex items-center justify-center"/></div>
+          </div>
           <ul className="space-y-3 text-[1rem] font-inter">
             <li className="flex items-start gap-2">
               <FiCheck size={16} className="mt-1" />
@@ -75,26 +77,26 @@ const SimplePlans = () => {
         </div>
       
         {/* CARD 2: Growth */}
-        <div className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10">
+        <div className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10 cursor-pointer hover:cursor-default">
           <div className="flex justify-between items-center mb-3">
-            <h3 className="text-lg font-spaceGrotesk">Growth</h3>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 text-[15px] px-4 py-2 rounded-3xl font-spaceGrotesk shadow-md">
+            <h3 className="text-lg font-spaceGrotesk ">Growth</h3>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 text-[15px] px-4 py-2 rounded-3xl font-spaceGrotesk  shadow-md">
               Most Popular
             </div>
           </div>
           <div className="flex items-center gap-3 mb-2">
             <div className="text-4xl font-spaceGrotesk">$4k+</div>
             <div className="text-sm">/ Year</div>
-            <div className="bg-[#4F456B] text-xs px-2 py-1 rounded-md">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 text-xs px-2 py-1 rounded-md">
               Save Up To <strong>20%</strong>
             </div>
           </div>
-          <p className="text-[1rem] font-inter mb-4">
+          <p className="text-[1rem] font-inter mb-7">
             With pre-paid credits for the year. Credits are redeemed against actual usage.
           </p>
-          <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
-            Buy Now <FaShoppingBag className="text-base" />
-          </button>
+          <div className="w-full  bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center  text-lg  mb-7">
+            <div className="mr-24 ml-24">Buy now</div> <div className=" "><LockCircleIcon className="bg-gray-900 min-h-screen ml-7 flex items-center justify-center"/></div>
+          </div>
           <ul className="space-y-3 text-[1rem] font-inter">
             <li className="flex items-start gap-2">
               <FiCheck size={16} className="mt-1" />
@@ -137,9 +139,9 @@ const SimplePlans = () => {
           <p className="text-[1rem] font-inter mb-4">
             For businesses with large volumes, data or deployment requirements, or support needs.
           </p>
-          <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-10">
-            Buy Now <FaShoppingBag className="text-base" />
-          </button>
+           <div className="w-full  bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center  text-lg  mb-7">
+            <div className="mr-24 ml-24">Buy now</div> <div className=" "><LockCircleIcon className="bg-gray-900 min-h-screen ml-7 flex items-center justify-center"/></div>
+          </div>
           <ul className="space-y-10 text-[1rem] font-inter">
             <li className="flex items-start gap-2">
               <FiCheck size={23} className="mt-1" />

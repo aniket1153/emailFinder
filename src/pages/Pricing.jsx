@@ -7,6 +7,8 @@ import { ImCross } from 'react-icons/im';
 import { RxCross1 } from 'react-icons/rx';
 import FAQSection from '../Components/FAQSection';
 import Footer from '../Components/Footer';
+import UserIconButton from '../Components/UserIconButton';
+import LockCircleIcon from '../Components/LockCircleIcon';
 
 const ComparisonTable = () => (
 
@@ -107,7 +109,7 @@ const [activeIndex, setActiveIndex] = useState(null);
   return (
    <div className='w-[100%]'>
      <div className='w-full  text-white py-20 px-4 md:px-12 lg:px-12 font-sans'>
-        <div className=" text-white mb-10 lg:ml-18">
+        <div className=" text-white mb-10  lg:ml-40">
         <h2 className="text-4xl md:text-4xl font-spaceGrotesk mb-2">
           Simple Plans, Powerful Results
         </h2>
@@ -132,9 +134,9 @@ const [activeIndex, setActiveIndex] = useState(null);
     <p className="text-[1rem] text-white mb-5 font-inter">
       Then pay-as-you-go. No minimums. No expiration. No credit card required.
     </p>
-    <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
-      Sign Up Free <BsPersonCircle size={23} />
-    </button>
+   <div className="w-full text-lg  bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center   mb-7">
+            <div className="mr-19 ml-22">Sign Up Free</div> <div className=" "><UserIconButton className="bg-gray-900 min-h-screen ml-7 flex items-center justify-center"/></div>
+          </div>
     <ul className="space-y-3 text-[1rem] font-inter">
       <li className="flex items-start gap-2">
         <FiCheck size={16} className="mt-1" />
@@ -183,9 +185,9 @@ const [activeIndex, setActiveIndex] = useState(null);
     <p className="text-[1rem] font-inter mb-4">
       With pre-paid credits for the year. Credits are redeemed against actual usage.
     </p>
-    <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-7">
-      Buy Now <FaShoppingBag className="text-base" />
-    </button>
+   <div className="w-full  bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center  text-lg  mb-7">
+            <div className="mr-24 ml-24">Buy now</div> <div className=" "><LockCircleIcon className="bg-gray-900 min-h-screen ml-7 flex items-center justify-center"/></div>
+          </div>
     <ul className="space-y-3 text-[1rem] font-inter">
       <li className="flex items-start gap-2">
         <FiCheck size={16} className="mt-1" />
@@ -228,9 +230,9 @@ const [activeIndex, setActiveIndex] = useState(null);
     <p className="text-[1rem] font-inter mb-4">
       For businesses with large volumes, data or deployment requirements, or support needs.
     </p>
-    <button className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center gap-2 text-sm mb-10">
-      Buy Now <FaShoppingBag className="text-base" />
-    </button>
+    <div className="w-full  bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center  text-lg  mb-7">
+            <div className="mr-24 ml-24">Buy now</div> <div className=" "><LockCircleIcon className="bg-gray-900 min-h-screen ml-7 flex items-center justify-center"/></div>
+          </div>
     <ul className="space-y-10 text-[1rem] font-inter">
       <li className="flex items-start gap-2">
         <FiCheck size={23} className="mt-1" />
