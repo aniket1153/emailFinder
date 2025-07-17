@@ -26,3 +26,17 @@ export const getPlans = async () => {
   const response = await apiClient.get(APIENDPOINTS.getPlans);
   return response.data;
 };
+
+// Email Accounts Service
+export const getEmailAccounts = async ({
+  page = 1,
+  limit = 10,
+  filters = {},
+} = {}) => {
+  // Build query params for pagination and filters
+  const params = { page, limit, ...filters };
+  const response = await apiClient.get(APIENDPOINTS.getEmailAccounts, {
+    params,
+  });
+  return response.data;
+};
