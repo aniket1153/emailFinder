@@ -11,8 +11,11 @@ export const login = async (email, password) => {
   return response.data;
 };
 
-export const createAccount = async (userData) => {
-  const response = await apiClient.post(APIENDPOINTS.signUp, userData);
+export const createAccount = async (email, password) => {
+  const response = await apiClient.post(APIENDPOINTS.signUp, {
+    email,
+    password,
+  });
   return response.data;
 };
 
@@ -24,6 +27,11 @@ export const logout = async () => {
 // Plans Service
 export const getPlans = async () => {
   const response = await apiClient.get(APIENDPOINTS.getPlans);
+  return response.data;
+};
+
+export const subscribePlan = async (body) => {
+  const response = await apiClient.post(APIENDPOINTS.subscribePlan, body);
   return response.data;
 };
 

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_API_URL } from "./api.constants";
+import store from "../redux/store";
 
 // Create axios instance
 const apiClient = axios.create({
@@ -12,10 +13,13 @@ const apiClient = axios.create({
 // Request interceptor
 apiClient.interceptors.request.use(
   (config) => {
-    // Attach token if available
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
+    // Attach token from Redux
+
+    const accessToken = store.getState().auth.accessToken; // Add real token logic here
+
+    console.log(accessToken, "getting accesstoken");
+    if (accessToken) {
+      config.headers["Authorization"] = `Bearer ${accessToken}`;
     }
     return config;
   },
@@ -29,8 +33,6 @@ apiClient.interceptors.response.use(
     // Token expiry handler
     if (error.response && error.response.status === 401) {
       // Optionally clear token and redirect to login
-      localStorage.removeItem("token");
-      window.location.href = "/login";
     }
     return Promise.reject(error);
   }

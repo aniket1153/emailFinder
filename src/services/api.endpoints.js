@@ -3,5 +3,6 @@ export const APIENDPOINTS = {
   signUp: "/auth/signup",
   logOut: "/auth/logout",
   getPlans: "/plans",
+  subscribePlan: "/subscriptions/subscribe",
   getEmailAccounts: "/emailaccounts",
 };

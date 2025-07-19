@@ -82,7 +82,7 @@ const AuthForm = () => {
                   signIn(email, password);
                 } else {
                   if (!agree) return;
-                  signUp({ email, password });
+                  signUp(email, password);
                 }
               }}
             >
