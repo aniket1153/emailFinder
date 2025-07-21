@@ -27,15 +27,17 @@ function* handleLogin(action) {
 
     navigate("/");
   } catch (error) {
+    showGlobalToast(error.response?.data?.message, "error");
     yield put(loginFailure(error.response?.data?.message || "Login failed"));
   }
 }
 
 function* handleLogout() {
   try {
-    yield call(logoutService);
+    const response = yield call(logoutService);
     yield put(logoutSuccess());
     navigate("/auth?mode=login");
+    showGlobalToast(response?.message, "success");
   } catch (error) {
     yield put(logoutFailure(error.response?.data?.message || "Logout failed"));
   }

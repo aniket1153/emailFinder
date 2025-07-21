@@ -174,18 +174,51 @@ const Pricing = (props) => {
                 <button
                   ref={paypalRef}
                   type="button"
-                  className="w-full bg-[#444057] group-hover:bg-white group-hover:text-black transition-colors duration-200 py-3 rounded-full font-inter flex items-center justify-center text-lg mb-7 cursor-pointer"
-                  onClick={() => {
-                    handleBuyPlan(plan);
-                  }}
+                  className={`w-full py-3 rounded-full font-inter flex items-center justify-center text-lg mb-7 transition-colors duration-200 ${
+                    subscribeLoading
+                      ? "bg-gray-500 text-white cursor-not-allowed opacity-70"
+                      : "bg-[#444057] text-white group-hover:bg-white group-hover:text-black cursor-pointer"
+                  }`}
+                  onClick={() => handleBuyPlan(plan)}
                   disabled={subscribeLoading}
                 >
-                  {subscribeLoading && "Subscribbing..."}
-                  <span className="mr-24 ml-24">Buy now</span>
-                  <span>
-                    <LockCircleIcon className="bg-gray-900 min-h-screen ml-7 flex items-center justify-center" />
+                  {/* Left spacer (can hold spinner if needed) */}
+                  <div className="w-6 h-6 flex items-center justify-center mr-2">
+                    {subscribeLoading && (
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8H4z"
+                        ></path>
+                      </svg>
+                    )}
+                  </div>
+
+                  {/* Center text */}
+                  <span className="flex-1 text-center">
+                    {subscribeLoading ? "Subscribing..." : "Buy now"}
+                  </span>
+
+                  {/* Right lock icon */}
+                  <span className="ml-2">
+                    <LockCircleIcon className="h-6 w-6" />
                   </span>
                 </button>
+
                 <ul className="space-y-3 text-[1rem] font-inter">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2">

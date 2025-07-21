@@ -9,8 +9,8 @@ import { getEmailAccounts } from "../../services/api.services";
 function* handleFetchEmailAccounts(action) {
   try {
     const params = action.payload || {};
-    const data = yield call(getEmailAccounts, params);
-    yield put(fetchEmailAccountsSuccess(data));
+    const response = yield call(getEmailAccounts, params);
+    yield put(fetchEmailAccountsSuccess(response));
   } catch (error) {
     yield put(
       fetchEmailAccountsFailure(

@@ -4,7 +4,7 @@ const initialState = {
   accounts: [],
   total: 0,
   page: 1,
-  pageSize: 10,
+  limit: 10,
   filters: {},
   loading: false,
   error: null,
@@ -19,13 +19,15 @@ const emailAccountSlice = createSlice({
       state.error = null;
       if (action.payload) {
         state.page = action.payload.page || state.page;
-        state.pageSize = action.payload.pageSize || state.pageSize;
+        state.limit = action.payload.limit || state.limit;
         state.filters = action.payload.filters || state.filters;
       }
     },
     fetchEmailAccountsSuccess(state, action) {
-      state.accounts = action.payload.accounts;
+      state.accounts = action.payload.data;
       state.total = action.payload.total;
+      state.page = action.payload.page;
+      state.limit = action.payload.limit;
       state.loading = false;
       state.error = null;
     },
