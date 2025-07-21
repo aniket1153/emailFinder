@@ -7,6 +7,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { ToastProvider } from "./contexctprovider/toast.context.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -14,7 +15,14 @@ createRoot(document.getElementById("root")).render(
       <PersistGate loading={<>Loading ....</>} persistor={persistor}>
         <BrowserRouter>
           <ToastProvider>
-            <App />
+            <PayPalScriptProvider
+              options={{
+                clientId:
+                  "AVdJKQBbuwMjqqyRhvDCjCa1-HyOic9aVNVSsQwdiiK66JAHijqpBOsPOCr9W7-x2evA4a7bvGTXSSnE",
+              }}
+            >
+              <App />
+            </PayPalScriptProvider>
           </ToastProvider>
         </BrowserRouter>
       </PersistGate>

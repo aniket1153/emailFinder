@@ -42,7 +42,13 @@ const emailAccountSlice = createSlice({
       state.limit = limit || state.limit;
     },
     setSelectedAccounts(state, action) {
-      state.selectedAccounts = [...state.selectedAccounts, ...action.payload];
+      state.selectedAccounts = [...action.payload];
+    },
+    clearSelectedAccounts(state) {
+      state.selectedAccounts = [];
+    },
+    selectAllAccounts(state) {
+      state.selectedAccounts = state.accounts;
     },
   },
 });
@@ -54,5 +60,7 @@ export const {
   setEmailAccountFilters,
   updatePagination,
   setSelectedAccounts,
+  clearSelectedAccounts,
+  selectAllAccounts,
 } = emailAccountSlice.actions;
 export default emailAccountSlice.reducer;

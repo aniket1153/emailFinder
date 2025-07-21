@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import LoginImage from "../assets/first.png";
 import SignupImage from "../assets/second.png";
 import { FaEye } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
+import { showGlobalToast } from "../utils/toastService";
+import { useEffect, useState } from "react";
 
 const AuthForm = () => {
   const location = useLocation();
@@ -20,6 +21,23 @@ const AuthForm = () => {
   useEffect(() => {
     setIsLogin(mode !== "signup");
   }, [mode]);
+
+  // Email regex for validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!emailRegex.test(email)) {
+      showGlobalToast("Please enter a valid email address.", "error");
+      return;
+    }
+    if (isLogin) {
+      signIn(email, password);
+    } else {
+      if (!agree) return;
+      signUp(email, password);
+    }
+  };
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center  px-4 relative">
@@ -74,18 +92,7 @@ const AuthForm = () => {
               <div className="flex-1 h-px bg-gray-600" />
             </div>
 
-            <form
-              className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (isLogin) {
-                  signIn(email, password);
-                } else {
-                  if (!agree) return;
-                  signUp(email, password);
-                }
-              }}
-            >
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <input
                 type="email"
                 placeholder="Email you@yourmail.com"

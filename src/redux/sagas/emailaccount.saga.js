@@ -3,6 +3,7 @@ import {
   fetchEmailAccountsRequested,
   fetchEmailAccountsSuccess,
   fetchEmailAccountsFailure,
+  clearSelectedAccounts,
 } from "../slices/emailaccount.slice";
 import { getEmailAccounts } from "../../services/api.services";
 
@@ -11,6 +12,7 @@ import store from "../store";
 function* handleFetchEmailAccounts(action) {
   try {
     // Get page, limit, filters from redux state
+
     const state = store.getState();
     const { page, limit, filters } = state.emailAccounts;
     console.log("Fetching email accounts with params:", filters);

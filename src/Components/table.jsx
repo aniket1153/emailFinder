@@ -15,7 +15,10 @@ import {
   fetchEmailAccountsRequested,
   updatePagination,
   setSelectedAccounts,
+  clearSelectedAccounts,
+  selectAllAccounts,
 } from "../redux/slices/emailaccount.slice";
+import { exportData } from "../utils/export";
 
 const pageSizeDropdownOptions = [100, 200, 500, 1000];
 
@@ -33,12 +36,28 @@ const ResultsTable = () => {
 
   const dispatch = useDispatch();
 
-  // State for selected accounts
+  // Select all/deselect all logic
 
-  const handleSelectAccount = (id) => {
-    setSelectedAccounts((prev) =>
-      prev.includes(id) ? prev.filter((accId) => accId !== id) : [...prev, id]
-    );
+  const handleSelectAccount = (accountNew) => {
+    if (checkIsSelected(accountNew._id)) {
+      // Deselect: remove by _id
+      dispatch(
+        setSelectedAccounts(
+          selectedAccounts.filter((account) => account._id !== accountNew._id)
+        )
+      );
+    } else {
+      // Select: add only if not already present
+      dispatch(setSelectedAccounts([...selectedAccounts, accountNew]));
+    }
+  };
+
+  const handleSelectAll = () => {
+    if (selectedAccounts.length === accounts.length) {
+      dispatch(clearSelectedAccounts());
+    } else {
+      dispatch(selectAllAccounts());
+    }
   };
 
   const goToPage = (page) => {
@@ -57,6 +76,15 @@ const ResultsTable = () => {
     dispatch(updatePagination({ limit: size, page: 1 })); // Reset to first page
   };
 
+  const checkIsSelected = (id) => {
+    for (let i = 0; i < selectedAccounts.length; i++) {
+      if (selectedAccounts[i]._id === id) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   useEffect(() => {
     dispatch(fetchEmailAccountsRequested());
   }, [filters, page, limit]);
@@ -69,12 +97,38 @@ const ResultsTable = () => {
       {/* Header and pagination */}
       <div className="flex flex-col md:flex-row justify-between md:justify-evenly md:gap-14 gap-4 mt-6 px-4">
         <div className="flex items-start gap-3 mr-2">
-          <input type="checkbox" className="mt-3 h-4 w-4" />
-          <p className="text-black mb-2 mt-2">Select</p>
-          <button className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-xl shadow hover:scale-95 hover:shadow-lg transition-all duration-300">
-            <FiDownload className="w-4 h-4" />
-            <span>Download</span>
-          </button>
+          {accounts.length > 0 && (
+            <>
+              <input
+                type="checkbox"
+                className="mt-3 h-4 w-4 cursor-pointer"
+                checked={selectedAccounts.length === accounts.length}
+                onChange={handleSelectAll}
+                indeterminate={
+                  selectedAccounts.length < accounts.length ? "true" : undefined
+                }
+              />
+              <p className="text-black mb-2 mt-2">
+                {" "}
+                {selectedAccounts.length > 0 ? (
+                  <span>{selectedAccounts.length} selected</span>
+                ) : (
+                  <span>Select all</span>
+                )}
+              </p>
+            </>
+          )}
+        </div>
+        <div className="flex flex-row gap-5">
+          {selectedAccounts.length > 0 && (
+            <button
+              onClick={() => exportData(selectedAccounts)}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-xl shadow hover:scale-95 hover:shadow-lg transition-all duration-300"
+            >
+              <FiDownload className="w-4 h-4" />
+              <span>Download</span>
+            </button>
+          )}
         </div>
         <div className="flex flex-row gap-5">
           <div className="flex flex-row gap-9">
@@ -219,9 +273,10 @@ const ResultsTable = () => {
                     <td className="px-4 py-3">
                       <div className="flex items-start space-x-2">
                         <input
-                          onClick={() => handleSelectAccount(person.id)}
+                          onChange={() => handleSelectAccount(person)}
                           type="checkbox"
-                          className="mt-1"
+                          className="mt-1 cursor-pointer"
+                          checked={checkIsSelected(person._id)}
                         />
                         <div>
                           <div className="font-medium text-gray-800">

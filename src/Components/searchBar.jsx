@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RiSearchEyeLine } from "react-icons/ri";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setEmailAccountFilters } from "../redux/slices/emailaccount.slice";
 
@@ -8,12 +8,30 @@ const SearchRecords = ({ isvisible }) => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const [searchValue, setsearchValue] = useState("");
+  const debounceTimeout = useRef();
+
+  const { filters } = useSelector((state) => state.emailAccounts);
+
+  // Debounce searchValue changes
+  useEffect(() => {
+    if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
+    debounceTimeout.current = setTimeout(() => {
+      if (searchValue.length > 0) {
+        dispatch(setEmailAccountFilters({ email: searchValue }));
+      }
+    }, 500);
+    return () => clearTimeout(debounceTimeout.current);
+  }, [searchValue, dispatch]);
+
+  useEffect(() => {
+    setsearchValue(filters.email || "");
+  }, [filters.email]);
+
   const handleTable = () => {
     if (!isvisible) {
       navigation("/searchresults");
     }
-    console.log("Search Value:", searchValue);
-    // if (searchValue.length > 0)
+    // Immediate search on button click
     dispatch(setEmailAccountFilters({ email: searchValue }));
   };
   return (
