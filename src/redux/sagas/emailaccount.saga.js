@@ -6,9 +6,19 @@ import {
 } from "../slices/emailaccount.slice";
 import { getEmailAccounts } from "../../services/api.services";
 
+import store from "../store";
+
 function* handleFetchEmailAccounts(action) {
   try {
-    const params = action.payload || {};
+    // Get page, limit, filters from redux state
+    const state = store.getState();
+    const { page, limit, filters } = state.emailAccounts;
+    console.log("Fetching email accounts with params:", filters);
+    const params = {
+      page,
+      limit,
+      filters,
+    };
     const response = yield call(getEmailAccounts, params);
     yield put(fetchEmailAccountsSuccess(response));
   } catch (error) {

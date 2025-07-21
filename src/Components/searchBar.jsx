@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiSearchEyeLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchEmailAccountsRequested } from "../redux/slices/emailaccount.slice";
+import { setEmailAccountFilters } from "../redux/slices/emailaccount.slice";
 
 const SearchRecords = ({ isvisible }) => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
+  const [searchValue, setsearchValue] = useState("");
   const handleTable = () => {
     if (!isvisible) {
       navigation("/searchresults");
     }
-    dispatch(fetchEmailAccountsRequested());
+    console.log("Search Value:", searchValue);
+    // if (searchValue.length > 0)
+    dispatch(setEmailAccountFilters({ email: searchValue }));
   };
   return (
     <div
+      style={{ zIndex: 1000 }}
       className={` ${
         isvisible
           ? "w-[25%] mt-6 flex flex-col p-4 rounded-2xl  shadow-xl bg-[#1C212E] border border-[#5d616E]"
@@ -33,6 +37,8 @@ const SearchRecords = ({ isvisible }) => {
         }`}
       >
         <textarea
+          value={searchValue}
+          onChange={(e) => setsearchValue(e.target.value)}
           className="w-full resize-none  text-black pl-2.5 pt-1.5 focus:outline-none shadow-inner placeholder-gray-500"
           placeholder={`Type or Paste Domain Address:`}
         ></textarea>

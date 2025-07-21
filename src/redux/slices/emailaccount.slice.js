@@ -8,6 +8,7 @@ const initialState = {
   filters: {},
   loading: false,
   error: null,
+  totalPages: 1,
 };
 
 const emailAccountSlice = createSlice({
@@ -17,17 +18,13 @@ const emailAccountSlice = createSlice({
     fetchEmailAccountsRequested(state, action) {
       state.loading = true;
       state.error = null;
-      if (action.payload) {
-        state.page = action.payload.page || state.page;
-        state.limit = action.payload.limit || state.limit;
-        state.filters = action.payload.filters || state.filters;
-      }
     },
     fetchEmailAccountsSuccess(state, action) {
       state.accounts = action.payload.data;
       state.total = action.payload.total;
       state.page = action.payload.page;
       state.limit = action.payload.limit;
+      state.totalPages = action.payload.totalPages;
       state.loading = false;
       state.error = null;
     },
@@ -38,6 +35,11 @@ const emailAccountSlice = createSlice({
     setEmailAccountFilters(state, action) {
       state.filters = action.payload;
     },
+    updatePagination(state, action) {
+      const { page, limit } = action.payload;
+      state.page = page || state.page;
+      state.limit = limit || state.limit;
+    },
   },
 });
 
@@ -46,5 +48,6 @@ export const {
   fetchEmailAccountsSuccess,
   fetchEmailAccountsFailure,
   setEmailAccountFilters,
+  updatePagination,
 } = emailAccountSlice.actions;
 export default emailAccountSlice.reducer;
