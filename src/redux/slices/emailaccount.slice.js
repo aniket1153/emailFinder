@@ -4,11 +4,12 @@ const initialState = {
   accounts: [],
   total: 0,
   page: 1,
-  limit: 10,
+  limit: 100,
   filters: {},
   loading: false,
   error: null,
   totalPages: 1,
+  selectedAccounts: [],
 };
 
 const emailAccountSlice = createSlice({
@@ -40,6 +41,9 @@ const emailAccountSlice = createSlice({
       state.page = page || state.page;
       state.limit = limit || state.limit;
     },
+    setSelectedAccounts(state, action) {
+      state.selectedAccounts = [...state.selectedAccounts, ...action.payload];
+    },
   },
 });
 
@@ -49,5 +53,6 @@ export const {
   fetchEmailAccountsFailure,
   setEmailAccountFilters,
   updatePagination,
+  setSelectedAccounts,
 } = emailAccountSlice.actions;
 export default emailAccountSlice.reducer;

@@ -14,13 +14,32 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchEmailAccountsRequested,
   updatePagination,
+  setSelectedAccounts,
 } from "../redux/slices/emailaccount.slice";
 
+const pageSizeDropdownOptions = [100, 200, 500, 1000];
+
 const ResultsTable = () => {
-  const { accounts, page, limit, total, totalPages, filters, loading } =
-    useSelector((state) => state.emailAccounts);
+  const {
+    accounts,
+    page,
+    limit,
+    total,
+    totalPages,
+    filters,
+    loading,
+    selectedAccounts,
+  } = useSelector((state) => state.emailAccounts);
 
   const dispatch = useDispatch();
+
+  // State for selected accounts
+
+  const handleSelectAccount = (id) => {
+    setSelectedAccounts((prev) =>
+      prev.includes(id) ? prev.filter((accId) => accId !== id) : [...prev, id]
+    );
+  };
 
   const goToPage = (page) => {
     dispatch(updatePagination({ page }));
@@ -72,7 +91,7 @@ const ResultsTable = () => {
                   changePageSize(Number(e.target.value));
                 }}
               >
-                {[10, 20, 30].map((num) => (
+                {pageSizeDropdownOptions.map((num) => (
                   <option key={num} className="text-black" value={num}>
                     {num}
                   </option>
@@ -199,7 +218,11 @@ const ResultsTable = () => {
                   <tr key={index} className="border-t text-sm">
                     <td className="px-4 py-3">
                       <div className="flex items-start space-x-2">
-                        <input type="checkbox" className="mt-1" />
+                        <input
+                          onClick={() => handleSelectAccount(person.id)}
+                          type="checkbox"
+                          className="mt-1"
+                        />
                         <div>
                           <div className="font-medium text-gray-800">
                             {person.name}
