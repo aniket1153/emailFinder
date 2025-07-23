@@ -82,26 +82,18 @@ const Pricing = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { handlePaypalPayment } = usePayment();
+
+  // Use the usePayment hook to get a function to trigger PayPal modal
+
   const handleBuyPlan = (plan) => {
     if (isAuthenticated) {
-      subscribeToPlan(plan);
+      // Trigger PayPal modal for this plan
+      handlePaypalPayment({ planId: plan._id });
     } else {
       navigate("/auth?mode=login");
     }
   };
-
-  const paypalRef = usePayment({
-    amount: 200,
-    currency: "USD",
-    onSuccess: (details) => {
-      alert("Payment successful!");
-      // handle success (e.g., update backend, show message)
-    },
-    onError: (err) => {
-      alert("Payment failed!");
-      // handle error
-    },
-  });
 
   useEffect(() => {
     dispatch(fetchPlansRequested());
@@ -171,8 +163,8 @@ const Pricing = (props) => {
                   {plan.description}
                 </p>
 
+                {/* Only show Buy Now button, PayPal modal is triggered programmatically */}
                 <button
-                  ref={paypalRef}
                   type="button"
                   className={`w-full py-3 rounded-full font-inter flex items-center justify-center text-lg mb-7 transition-colors duration-200 ${
                     subscribeLoading
@@ -182,11 +174,10 @@ const Pricing = (props) => {
                   onClick={() => handleBuyPlan(plan)}
                   disabled={subscribeLoading}
                 >
-                  {/* Left spacer (can hold spinner if needed) */}
-                  <div className="w-6 h-6 flex items-center justify-center mr-2">
-                    {subscribeLoading && (
+                  {subscribeLoading ? (
+                    <span className="flex items-center justify-center">
                       <svg
-                        className="animate-spin h-5 w-5 text-white"
+                        className="animate-spin h-5 w-5 mr-2 text-white"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -205,18 +196,16 @@ const Pricing = (props) => {
                           d="M4 12a8 8 0 018-8v8H4z"
                         ></path>
                       </svg>
-                    )}
-                  </div>
-
-                  {/* Center text */}
-                  <span className="flex-1 text-center">
-                    {subscribeLoading ? "Subscribing..." : "Buy now"}
-                  </span>
-
-                  {/* Right lock icon */}
-                  <span className="ml-2">
-                    <LockCircleIcon className="h-6 w-6" />
-                  </span>
+                      Subscribing...
+                    </span>
+                  ) : (
+                    <>
+                      Buy now
+                      <span className="ml-2">
+                        <LockCircleIcon className="h-6 w-6" />
+                      </span>
+                    </>
+                  )}
                 </button>
 
                 <ul className="space-y-3 text-[1rem] font-inter">

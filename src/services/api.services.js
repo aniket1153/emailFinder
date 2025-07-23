@@ -48,3 +48,16 @@ export const getEmailAccounts = async ({
   });
   return response.data;
 };
+
+// Paypal Service
+export const createPaypalOrder = async (body) => {
+  const response = await apiClient.post(APIENDPOINTS.createPaypalOrder, body);
+  return response.data;
+};
+
+export const capturePaypalOrder = async (token) => {
+  const response = await apiClient.post(
+    `${APIENDPOINTS.capturePaypalOrder}/${token}`
+  );
+  return response.data;
+};

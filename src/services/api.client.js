@@ -1,6 +1,8 @@
 import axios from "axios";
 import { BASE_API_URL } from "./api.constants";
 import store from "../redux/store";
+import { logoutRequested } from "../redux/slices/auth.slice";
+import { showGlobalToast } from "../utils/toastService";
 
 // Create axios instance
 const apiClient = axios.create({
@@ -33,6 +35,9 @@ apiClient.interceptors.response.use(
     // Token expiry handler
     if (error.response && error.response.status === 401) {
       // Optionally clear token and redirect to login
+
+      window.location.assign("/auth?mode=login");
+      showGlobalToast("Session expired. Please log in again.", "error");
     }
     return Promise.reject(error);
   }

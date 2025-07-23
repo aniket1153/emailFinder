@@ -5,4 +5,6 @@ export const APIENDPOINTS = {
   getPlans: "/plans",
   subscribePlan: "/subscriptions/subscribe",
   getEmailAccounts: "/emailaccounts",
+  createPaypalOrder: "/payment/create-order",
+  capturePaypalOrder: "/payment/capture-order",
 };

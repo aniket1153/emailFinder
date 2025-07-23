@@ -1,45 +1,39 @@
-import { useEffect, useRef } from "react";
+import React, { useState } from "react";
+import {
+  capturePaypalOrder,
+  createPaypalOrder,
+} from "../services/api.services";
 
-// Usage: <div ref={paypalRef}></div> in your component
-export default function usePayment({
-  amount,
-  currency = "USD",
-  onSuccess,
-  onError,
-}) {
-  const paypalRef = useRef(null);
+const usePayment = () => {
+  const [loading, setLoading] = useState(false);
+  const handlePaypalPayment = async (paymentDetails) => {
+    try {
+      setLoading(true);
+      const response = await createPaypalOrder(paymentDetails);
+      console.log("Payment response:", response);
+      window.location.href = response.link;
 
-  useEffect(() => {
-    if (!window.paypal || !paypalRef.current) return;
+      console.log("Payment details:", paymentDetails);
+    } catch (error) {
+      console.error("Payment error:", error);
+      throw error; // Re-throw the error for further handling
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handlePaymentSuccess = async (body) => {
+    try {
+      setLoading(true);
+      const response = await capturePaypalOrder(body);
+      navigate("/");
+    } catch (error) {
+      console.error("Error capturing payment:", error);
+      throw error; // Re-throw the error for further handling
+    } finally {
+      setLoading(false);
+    }
+  };
+  return { handlePaypalPayment, handlePaymentSuccess, loading };
+};
 
-    window.paypal
-      .Buttons({
-        createOrder: (data, actions) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: amount,
-                  currency_code: currency,
-                },
-              },
-            ],
-          });
-        },
-        onApprove: async (data, actions) => {
-          try {
-            const details = await actions.order.capture();
-            if (onSuccess) onSuccess(details);
-          } catch (err) {
-            if (onError) onError(err);
-          }
-        },
-        onError: (err) => {
-          if (onError) onError(err);
-        },
-      })
-      .render(paypalRef.current);
-  }, [amount, currency, onSuccess, onError]);
-
-  return paypalRef;
-}
+export default usePayment;

@@ -17,6 +17,8 @@ import ContactUs from "./pages/ContactUs";
 import SearchResults from "./pages/searchResults";
 import { setNavigator } from "./utils/navigator";
 import { useSelector } from "react-redux";
+import SuccessPage from "./pages/paymentSuccessPage";
+import CancelPage from "./pages/paymentFailure";
 
 function App() {
   const navigate = useNavigate();
@@ -59,6 +61,22 @@ function App() {
           element={
             <PrivateRoute>
               <SearchResults />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/success"
+          element={
+            <PrivateRoute>
+              <SuccessPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cancel"
+          element={
+            <PrivateRoute>
+              <CancelPage />
             </PrivateRoute>
           }
         />
