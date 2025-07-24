@@ -82,7 +82,7 @@ const Pricing = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { handlePaypalPayment } = usePayment();
+  const { handlePaypalPayment, loading: paymentLoading } = usePayment();
 
   // Use the usePayment hook to get a function to trigger PayPal modal
 
@@ -167,14 +167,14 @@ const Pricing = (props) => {
                 <button
                   type="button"
                   className={`w-full py-3 rounded-full font-inter flex items-center justify-center text-lg mb-7 transition-colors duration-200 ${
-                    subscribeLoading
+                    subscribeLoading || paymentLoading
                       ? "bg-gray-500 text-white cursor-not-allowed opacity-70"
                       : "bg-[#444057] text-white group-hover:bg-white group-hover:text-black cursor-pointer"
                   }`}
                   onClick={() => handleBuyPlan(plan)}
-                  disabled={subscribeLoading}
+                  disabled={subscribeLoading || paymentLoading}
                 >
-                  {subscribeLoading ? (
+                  {subscribeLoading || paymentLoading ? (
                     <span className="flex items-center justify-center">
                       <svg
                         className="animate-spin h-5 w-5 mr-2 text-white"
@@ -196,7 +196,7 @@ const Pricing = (props) => {
                           d="M4 12a8 8 0 018-8v8H4z"
                         ></path>
                       </svg>
-                      Subscribing...
+                      {paymentLoading ? "Processing..." : "Subscribing..."}
                     </span>
                   ) : (
                     <>

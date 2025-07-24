@@ -57,7 +57,8 @@ export const createPaypalOrder = async (body) => {
 
 export const capturePaypalOrder = async (token) => {
   const response = await apiClient.post(
-    `${APIENDPOINTS.capturePaypalOrder}/${token}`
+    `${APIENDPOINTS.capturePaypalOrder}`,
+    token
   );
   return response.data;
 };

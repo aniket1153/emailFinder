@@ -1,22 +1,25 @@
 // src/pages/SuccessPage.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import usePayment from "../hooks/usePayment";
 
 const SuccessPage = () => {
   const [params] = useSearchParams();
   const token = params.get("token");
-  const planId = useState(params.get("planId"));
+  const planId = params.get("planId");
   const { handlePaymentSuccess, loading } = usePayment();
+
+  const hasCalled = useRef(false); // 👈 flag to prevent re-calling
 
   useEffect(() => {
     const process = async () => {
-      if (token) {
-        await handlePaymentSuccess({ token, planId });
+      if (token && !hasCalled.current) {
+        hasCalled.current = true;
+        await handlePaymentSuccess({ orderId: token, planId });
       }
     };
     process();
-  }, [token]);
+  }, [token, planId, handlePaymentSuccess]);
 
   return (
     <div
