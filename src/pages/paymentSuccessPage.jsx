@@ -13,7 +13,7 @@ const SuccessPage = () => {
 
   useEffect(() => {
     const process = async () => {
-      if (token && !hasCalled.current) {
+      if (token) {
         hasCalled.current = true;
         await handlePaymentSuccess({ orderId: token, planId });
       }

@@ -19,17 +19,34 @@ import { setNavigator } from "./utils/navigator";
 import { useSelector } from "react-redux";
 import SuccessPage from "./pages/paymentSuccessPage";
 import CancelPage from "./pages/paymentFailure";
+export const loginPath = "/auth?mode=login";
+const rootPath = "/";
+export const pricingPath = "/pricing";
 
 function App() {
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, user, paymentProcessing } = useSelector(
+    (state) => state.auth
+  );
 
   // Inline PrivateRoute component
   const PrivateRoute = ({ children }) => {
     return isAuthenticated ? (
       children
+    ) : user && user?.subscription ? (
+      <Navigate to={pricingPath} replace />
     ) : (
-      <Navigate to="/auth?mode=login" replace />
+      <Navigate to={loginPath} replace />
+    );
+  };
+
+  const PaymentResultRoute = ({ children }) => {
+    return isAuthenticated && paymentProcessing ? (
+      children
+    ) : !paymentProcessing && isAuthenticated ? (
+      <Navigate to={rootPath} replace />
+    ) : (
+      <Navigate to={loginPath} replace />
     );
   };
 
@@ -67,17 +84,17 @@ function App() {
         <Route
           path="/success"
           element={
-            <PrivateRoute>
+            <PaymentResultRoute>
               <SuccessPage />
-            </PrivateRoute>
+            </PaymentResultRoute>
           }
         />
         <Route
           path="/cancel"
           element={
-            <PrivateRoute>
+            <PaymentResultRoute>
               <CancelPage />
-            </PrivateRoute>
+            </PaymentResultRoute>
           }
         />
       </Routes>

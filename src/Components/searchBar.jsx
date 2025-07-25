@@ -3,11 +3,15 @@ import { RiSearchEyeLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setEmailAccountFilters } from "../redux/slices/emailaccount.slice";
+import { showGlobalToast } from "../utils/toastService";
+import { pricingPath } from "../App";
 
 const SearchRecords = ({ isvisible }) => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const [searchValue, setsearchValue] = useState("");
+
+  const { user } = useSelector((state) => state.auth);
   const debounceTimeout = useRef();
 
   const { filters } = useSelector((state) => state.emailAccounts);
@@ -28,11 +32,17 @@ const SearchRecords = ({ isvisible }) => {
   }, [filters.email]);
 
   const handleTable = () => {
-    if (!isvisible) {
-      navigation("/searchresults");
+    if (!user?.subscription) {
+      navigation(pricingPath);
+      showGlobalToast("Please subscribe to access this feature.", "error");
+      return;
+    } else {
+      if (!isvisible && searchValue.length > 0) {
+        navigation("/searchresults");
+      }
+      // Immediate search on button click
+      dispatch(setEmailAccountFilters({ email: searchValue }));
     }
-    // Immediate search on button click
-    dispatch(setEmailAccountFilters({ email: searchValue }));
   };
   return (
     <div

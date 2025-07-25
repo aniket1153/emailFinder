@@ -2,9 +2,9 @@
 const ENV = "staging"; // 'staging' , 'production'
 
 const API_URLS = {
-  development: "http://localhost:5000/emailFinder/api",
+  dev: "http://localhost:5000/emailFinder/api",
   staging: "https://email-finder-server.onrender.com/emailFinder/api",
   production: "https://api.example.com",
 };
 
-export const BASE_API_URL = API_URLS[ENV] || API_URLS.development;
+export const BASE_API_URL = API_URLS[ENV] || API_URLS.dev;

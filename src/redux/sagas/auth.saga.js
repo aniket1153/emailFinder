@@ -22,6 +22,7 @@ function* handleLogin(action) {
       action.payload.email,
       action.payload.password
     );
+    console.log("Login response:", data.user);
     yield put(loginSuccess({ user: data.user, token: data.token }));
     showGlobalToast(data.message, "success");
 

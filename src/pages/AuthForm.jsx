@@ -34,7 +34,10 @@ const AuthForm = () => {
     if (isLogin) {
       signIn(email, password);
     } else {
-      if (!agree) return;
+      if (!agree) {
+        showGlobalToast("You must agree to the terms to sign up.", "error");
+        return;
+      }
       signUp(email, password);
     }
   };
