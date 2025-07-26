@@ -1,5 +1,5 @@
 // Environment-based API URLs
-const ENV = "dev"; // 'staging' , 'production'
+const ENV = "staging"; //"dev"; // 'staging' , 'production'
 
 const API_URLS = {
   dev: "http://localhost:5000/emailFinder/api",
