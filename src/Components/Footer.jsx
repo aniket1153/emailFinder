@@ -1,6 +1,8 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { rootPath } from "../App";
 
 const Footer = () => {
   return (
@@ -23,7 +25,9 @@ const Footer = () => {
             ease: "linear",
           }}
         >
-          <span className="relative">Find Emails Instantly Wherever You Work</span>
+          <span className="relative">
+            Find Emails Instantly Wherever You Work
+          </span>
           <span>Find Emails Instantly Wherever You Work</span>
           <span>Find Emails Instantly Wherever You Work</span>
         </motion.div>
@@ -33,7 +37,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 mt-17  relative z-10">
         <div>
           <p className="text-[#E5E7EB] text-[20px]">
-            Skip the back and forth. Our lightweight browser extension brings powerful email finding and verification tools directly to your workflow.
+            Skip the back and forth. Our lightweight browser extension brings
+            powerful email finding and verification tools directly to your
+            workflow.
           </p>
         </div>
         <div className="flex justify-start lg:justify-end items-start">
@@ -49,14 +55,32 @@ const Footer = () => {
         {/* Top Row */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
           {/* Logo */}
-          <span className="text-white text-xl font-semibold">Logo</span>
+          <nav>
+            <Link
+              to={rootPath}
+              className="flex items-center"
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              <div className="text-white text-xl font-semibold">Logo</div>
+            </Link>
+          </nav>
 
           {/* Navigation */}
           <nav className="flex gap-5 text-sm text-[#E5E7EB]">
-            <a href="#" className="hover:underline">Home</a>
-            <a href="#" className="hover:underline">Pricing</a>
-            <a href="#" className="hover:underline">Extension</a>
-            <a href="#" className="hover:underline">Contact Us</a>
+            <a href="#" className="hover:underline">
+              Home
+            </a>
+            <a href="#" className="hover:underline">
+              Pricing
+            </a>
+            <a href="#" className="hover:underline">
+              Extension
+            </a>
+            <a href="#" className="hover:underline">
+              Contact Us
+            </a>
           </nav>
 
           {/* Socials */}
@@ -71,9 +95,13 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-4 flex flex-col lg:flex-row justify-between items-center text-xs text-[#B0B3C3] gap-2">
           <span>© 2025 Company Website. All rights reserved.</span>
           <div className="flex gap-4">
-            <a href="#" className="hover:underline">Privacy Policy</a>
+            <a href="#" className="hover:underline">
+              Privacy Policy
+            </a>
             <span>|</span>
-            <a href="#" className="hover:underline">Terms & Conditions</a>
+            <a href="#" className="hover:underline">
+              Terms & Conditions
+            </a>
           </div>
         </div>
       </div>

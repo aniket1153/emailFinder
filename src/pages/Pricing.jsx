@@ -293,7 +293,6 @@ const Pricing = (props) => {
       )}
 
       <FAQSection />
-      <Footer />
     </div>
   );
 };

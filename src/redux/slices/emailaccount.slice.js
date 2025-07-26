@@ -21,6 +21,7 @@ const emailAccountSlice = createSlice({
       state.error = null;
     },
     fetchEmailAccountsSuccess(state, action) {
+      state.selectedAccounts = [];
       state.accounts = action.payload.data;
       state.total = action.payload.total;
       state.page = action.payload.page;
