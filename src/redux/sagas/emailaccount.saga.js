@@ -15,7 +15,7 @@ function* handleFetchEmailAccounts(action) {
 
     const state = store.getState();
     const { page, limit, filters } = state.emailAccounts;
-    console.log("Fetching email accounts with params:", filters);
+
     const params = {
       page,
       limit,
