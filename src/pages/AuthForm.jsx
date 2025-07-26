@@ -57,7 +57,7 @@ const AuthForm = () => {
             <div className="flex items-center justify-between bg-white p-1 rounded-full mb-6">
               <button
                 onClick={() => setIsLogin(true)}
-                className={`w-1/2 text-sm md:text-base py-2.5 rounded-full ${
+                className={`w-1/2 text-sm md:text-base py-2.5 rounded-full cursor-pointer ${
                   isLogin
                     ? "bg-gradient-to-r from-purple-500 to-pink-600 text-white"
                     : "text-black"
@@ -67,7 +67,7 @@ const AuthForm = () => {
               </button>
               <button
                 onClick={() => setIsLogin(false)}
-                className={`w-1/2 text-sm md:text-base py-2.5 rounded-full ${
+                className={`w-1/2 text-sm md:text-base py-2.5 rounded-full cursor-pointer ${
                   !isLogin
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
                     : "text-black"
@@ -79,7 +79,7 @@ const AuthForm = () => {
 
             {/* Social Buttons */}
             <div className="space-y-4 mb-4">
-              <button className="flex items-center justify-center w-full border border-white hover:border-blue-500 py-2 rounded-full text-white gap-2">
+              <button className="flex items-center justify-center w-full cursor-pointer border border-white hover:border-blue-500 py-2 rounded-full text-white gap-2">
                 <img
                   src="https://img.icons8.com/color/20/000000/google-logo.png"
                   alt="google"
@@ -102,7 +102,6 @@ const AuthForm = () => {
                 className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
               <div className="relative">
                 <input
@@ -111,7 +110,6 @@ const AuthForm = () => {
                   className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none pr-10"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
                 />
                 {isLogin && (
                   <span className="absolute right-3 top-2.5 text-gray-400 cursor-pointer text-sm">
@@ -136,8 +134,8 @@ const AuthForm = () => {
 
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center"
-                disabled={loading || (!isLogin && !agree)}
+                className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500  text-white rounded-full flex items-center justify-center cursor-pointer"
+                // disabled={loading || (!isLogin && !agree)}
               >
                 {loading ? (
                   <span className="flex items-center justify-center">

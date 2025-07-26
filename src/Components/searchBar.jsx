@@ -83,13 +83,15 @@ const SearchRecords = ({ isvisible }) => {
         </div>
       </div>
       {/* Search Button */}
-      <button
-        onClick={handleTable}
-        className="w-full mt-6 py-3 rounded-full text-white font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#6e61e6] to-[#ef497a] hover:from-[#5a4edc] hover:to-[#e73368] transition duration-300 cursor-pointer"
-      >
-        Search Records
-        <RiSearchEyeLine color="white" size={23} />
-      </button>
+      {!isvisible && (
+        <button
+          onClick={handleTable}
+          className="w-full mt-6 py-3 rounded-full text-white font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#6e61e6] to-[#ef497a] hover:from-[#5a4edc] hover:to-[#e73368] transition duration-300 cursor-pointer"
+        >
+          Search Records
+          <RiSearchEyeLine color="white" size={23} />
+        </button>
+      )}
     </div>
   );
 };

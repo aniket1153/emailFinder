@@ -53,7 +53,7 @@ const authSlice = createSlice({
       state.user = { ...state.user, ...action.payload };
     },
     updatePaymentState(state, action) {
-      state.isPaymentProcessing = action.payload.isPaymentProcessing;
+      state.isPaymentProcessing = action.payload;
     },
   },
 });

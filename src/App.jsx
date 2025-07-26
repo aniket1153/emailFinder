@@ -94,17 +94,17 @@ function App() {
         <Route
           path={successPath}
           element={
-            <PaymentResultRoute>
+            <PrivateRoute>
               <SuccessPage />
-            </PaymentResultRoute>
+            </PrivateRoute>
           }
         />
         <Route
           path={cancelPath}
           element={
-            <PaymentResultRoute>
+            <PrivateRoute>
               <CancelPage />
-            </PaymentResultRoute>
+            </PrivateRoute>
           }
         />
       </Routes>
