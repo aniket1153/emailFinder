@@ -14,6 +14,7 @@ import {
 } from "../../services/api.services";
 import { showGlobalToast } from "../../utils/toastService";
 import { navigate } from "../../utils/navigator";
+import { loginPath, rootPath } from "../../App";
 
 function* handleLogin(action) {
   try {
@@ -26,7 +27,7 @@ function* handleLogin(action) {
     yield put(loginSuccess({ user: data.user, token: data.token }));
     showGlobalToast(data.message, "success");
 
-    navigate("/");
+    navigate(rootPath);
   } catch (error) {
     showGlobalToast(error.response?.data?.message, "error");
     yield put(loginFailure(error.response?.data?.message || "Login failed"));
@@ -37,7 +38,7 @@ function* handleLogout() {
   try {
     const response = yield call(logoutService);
     yield put(logoutSuccess());
-    navigate("/auth?mode=login");
+    navigate(loginPath);
     showGlobalToast(response?.message, "success");
   } catch (error) {
     yield put(logoutFailure(error.response?.data?.message || "Logout failed"));

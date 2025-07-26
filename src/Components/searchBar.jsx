@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setEmailAccountFilters } from "../redux/slices/emailaccount.slice";
 import { showGlobalToast } from "../utils/toastService";
-import { pricingPath } from "../App";
+import { pricingPath, searchPath } from "../App";
 
 const SearchRecords = ({ isvisible }) => {
   const navigation = useNavigate();
@@ -38,7 +38,7 @@ const SearchRecords = ({ isvisible }) => {
       return;
     } else {
       if (!isvisible && searchValue.length > 0) {
-        navigation("/searchresults");
+        navigation(searchPath);
       }
       // Immediate search on button click
       dispatch(setEmailAccountFilters({ email: searchValue }));
@@ -67,6 +67,12 @@ const SearchRecords = ({ isvisible }) => {
         <textarea
           value={searchValue}
           onChange={(e) => setsearchValue(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleTable();
+            }
+          }}
           className="w-full resize-none  text-black pl-2.5 pt-1.5 focus:outline-none shadow-inner placeholder-gray-500"
           placeholder={`Type or Paste Domain Address:`}
         ></textarea>
@@ -79,7 +85,7 @@ const SearchRecords = ({ isvisible }) => {
       {/* Search Button */}
       <button
         onClick={handleTable}
-        className="w-full mt-6 py-3 rounded-full text-white font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#6e61e6] to-[#ef497a] hover:from-[#5a4edc] hover:to-[#e73368] transition duration-300"
+        className="w-full mt-6 py-3 rounded-full text-white font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-[#6e61e6] to-[#ef497a] hover:from-[#5a4edc] hover:to-[#e73368] transition duration-300 cursor-pointer"
       >
         Search Records
         <RiSearchEyeLine color="white" size={23} />

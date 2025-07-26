@@ -14,6 +14,7 @@ import { fetchPlansRequested } from "../redux/slices/plans.slice";
 import { useNavigate } from "react-router-dom";
 import usePayment from "../hooks/usePayment";
 import useSubscribe from "../hooks/useSubscribe";
+import { loginPath } from "../App";
 
 const ComparisonTable = ({ plans }) => {
   // Collect all unique features from all plans
@@ -91,7 +92,7 @@ const Pricing = (props) => {
       // Trigger PayPal modal for this plan
       handlePaypalPayment({ planId: plan._id });
     } else {
-      navigate("/auth?mode=login");
+      navigate(loginPath);
     }
   };
 

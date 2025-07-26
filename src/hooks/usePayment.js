@@ -5,6 +5,7 @@ import {
 } from "../services/api.services";
 import { navigate } from "../utils/navigator";
 import { showGlobalToast } from "../utils/toastService";
+import { rootPath } from "../App";
 
 const usePayment = () => {
   const [loading, setLoading] = useState(false);
@@ -37,7 +38,7 @@ const usePayment = () => {
       );
       console.log("Payment captured successfully:", response);
       // Optionally, you can navigate to a success page or show a success message
-      navigate("/");
+      navigate(rootPath);
     } catch (error) {
       console.error("Error capturing payment:", error);
       showGlobalToast(

@@ -4,6 +4,15 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { logoutRequested } from "../redux/slices/auth.slice";
+import {
+  aboutPath,
+  contactUsPath,
+  extensionPath,
+  loginPath,
+  pricingPath,
+  rootPath,
+  signUpPath,
+} from "../App";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,11 +22,11 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Extension", path: "/Extension" },
-    { name: "Contact Us", path: "/ContactUs" },
+    { name: "Home", path: rootPath },
+    { name: "About", path: aboutPath },
+    { name: "Pricing", path: pricingPath },
+    { name: "Extension", path: extensionPath },
+    { name: "Contact Us", path: contactUsPath },
   ];
 
   return (
@@ -62,13 +71,13 @@ const Navbar = () => {
               <>
                 {" "}
                 <Link
-                  to="/auth?mode=signup"
+                  to={signUpPath}
                   className="flex items-center bg-gradient-to-r from-[#7f5af0] to-[#f13bc1] text-white px-4 ml-16 py-2 rounded-full text-sm shadow hover:opacity-90 transition"
                 >
                   Create An Account <FaUserPlus className="ml-2" />
                 </Link>
                 <Link
-                  to="/auth?mode=login"
+                  to={loginPath}
                   className="flex items-center bg-[#2c2c2e] px-4 py-2 rounded-full text-sm hover:bg-[#3a3a3e] transition"
                 >
                   Login <FaLock className="ml-2" />
