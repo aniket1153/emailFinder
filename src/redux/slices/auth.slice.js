@@ -6,6 +6,7 @@ const initialState = {
   isAuthenticated: false,
   loading: false,
   error: null,
+  isPaymentProcessing: false,
 };
 
 const authSlice = createSlice({
@@ -17,7 +18,11 @@ const authSlice = createSlice({
       state.error = null;
     },
     loginSuccess(state, action) {
-      state.user = action.payload.user;
+      console.log("Login success:", action.payload);
+      state.user = {
+        ...action.payload.user,
+        subscription: action.payload.user.subscription,
+      };
       state.accessToken = action.payload.token;
       state.isAuthenticated = true;
       state.loading = false;
@@ -44,7 +49,14 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
     updateUser(state, action) {
+      console.log("Updating user:", action.payload);
+      if (!state.user) {
+        state.user = {};
+      }
       state.user = { ...state.user, ...action.payload };
+    },
+    updatePaymentState(state, action) {
+      state.isPaymentProcessing = action.payload;
     },
   },
 });
@@ -56,5 +68,7 @@ export const {
   logoutRequested,
   logoutSuccess,
   logoutFailure,
+  updateUser,
+  updatePaymentState,
 } = authSlice.actions;
 export default authSlice.reducer;

@@ -1,5 +1,5 @@
 // src/pages/SuccessPage.js
-import React, { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import usePayment from "../hooks/usePayment";
 
@@ -9,7 +9,7 @@ const SuccessPage = () => {
   const planId = params.get("planId");
   const { handlePaymentSuccess, loading } = usePayment();
 
-  const hasCalled = useRef(false); // 👈 flag to prevent re-calling
+  const hasCalled = useRef(false);
 
   useEffect(() => {
     const process = async () => {
@@ -19,7 +19,7 @@ const SuccessPage = () => {
       }
     };
     process();
-  }, [token, planId, handlePaymentSuccess]);
+  }, [token, planId]);
 
   return (
     <div

@@ -20,16 +20,43 @@ import { useSelector } from "react-redux";
 import SuccessPage from "./pages/paymentSuccessPage";
 import CancelPage from "./pages/paymentFailure";
 
+// path
+export const loginPath = "/auth?mode=login";
+export const rootPath = "/";
+export const pricingPath = "/pricing";
+export const searchPath = "/searchresults";
+export const extensionPath = "/extension";
+export const contactUsPath = "/contactus";
+export const aboutPath = "/about";
+export const successPath = "/success";
+export const cancelPath = "/cancel";
+export const authPath = "/auth";
+export const signUpPath = "/auth?mode=signup";
+
 function App() {
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, user, paymentProcessing } = useSelector(
+    (state) => state.auth
+  );
 
   // Inline PrivateRoute component
   const PrivateRoute = ({ children }) => {
     return isAuthenticated ? (
       children
+    ) : user && user?.subscription ? (
+      <Navigate to={pricingPath} replace />
     ) : (
-      <Navigate to="/auth?mode=login" replace />
+      <Navigate to={loginPath} replace />
+    );
+  };
+
+  const PaymentResultRoute = ({ children }) => {
+    return isAuthenticated && paymentProcessing ? (
+      children
+    ) : !paymentProcessing && isAuthenticated ? (
+      <Navigate to={rootPath} replace />
+    ) : (
+      <Navigate to={loginPath} replace />
     );
   };
 
@@ -50,14 +77,14 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<AuthForm />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/extension" element={<Extension />} />
-        <Route path="/contactus" element={<ContactUs />} />
+        <Route path={rootPath} element={<Home />} />
+        <Route path={authPath} element={<AuthForm />} />
+        <Route path={aboutPath} element={<About />} />
+        <Route path={pricingPath} element={<Pricing />} />
+        <Route path={extensionPath} element={<Extension />} />
+        <Route path={contactUsPath} element={<ContactUs />} />
         <Route
-          path="/searchresults"
+          path={searchPath}
           element={
             <PrivateRoute>
               <SearchResults />
@@ -65,7 +92,7 @@ function App() {
           }
         />
         <Route
-          path="/success"
+          path={successPath}
           element={
             <PrivateRoute>
               <SuccessPage />
@@ -73,7 +100,7 @@ function App() {
           }
         />
         <Route
-          path="/cancel"
+          path={cancelPath}
           element={
             <PrivateRoute>
               <CancelPage />
