@@ -19,7 +19,7 @@ const SuccessPage = () => {
       }
     };
     process();
-  }, [token, planId, handlePaymentSuccess]);
+  }, [token, planId]);
 
   return (
     <div

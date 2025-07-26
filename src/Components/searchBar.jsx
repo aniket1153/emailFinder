@@ -77,9 +77,9 @@ const SearchRecords = ({ isvisible }) => {
           placeholder={`Type or Paste Domain Address:`}
         ></textarea>
         <div className="flex flex-col gap-2 pl-2.5 ">
-          <p className="text-black">company.com</p>
-          <p className="text-black">google.com</p>
-          <p className="text-black">github.com</p>
+          <button className="text-black cursor-pointer">company.com</button>
+          <button className="text-black cursor-pointer">google.com</button>
+          <button className="text-black cursor-pointer">github.com</button>
         </div>
       </div>
       {/* Search Button */}

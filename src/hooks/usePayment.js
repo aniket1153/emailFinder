@@ -7,7 +7,7 @@ import { navigate } from "../utils/navigator";
 import { showGlobalToast } from "../utils/toastService";
 import { rootPath } from "../App";
 import { useDispatch } from "react-redux";
-import { updatePaymentState } from "../redux/slices/auth.slice";
+import { updatePaymentState, updateUser } from "../redux/slices/auth.slice";
 
 const usePayment = () => {
   const dispatch = useDispatch();
@@ -42,6 +42,8 @@ const usePayment = () => {
         response?.message || "Payment made successfully",
         "success"
       );
+
+      if (response) dispatch(updateUser({ subscription: true }));
 
       // Optionally, you can navigate to a success page or show a success message
       navigate(rootPath);

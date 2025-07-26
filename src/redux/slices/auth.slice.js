@@ -19,7 +19,10 @@ const authSlice = createSlice({
     },
     loginSuccess(state, action) {
       console.log("Login success:", action.payload);
-      state.user = action.payload.user;
+      state.user = {
+        ...action.payload.user,
+        subscription: action.payload.user.subscription,
+      };
       state.accessToken = action.payload.token;
       state.isAuthenticated = true;
       state.loading = false;
