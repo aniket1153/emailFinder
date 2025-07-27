@@ -7,7 +7,7 @@ const useSubscribe = () => {
   const subscribeToPlan = async (plan) => {
     try {
       setLoading(true);
-      console.log(plan);
+
       const response = await subscribePlan({ planId: plan._id });
       showGlobalToast(response.message, "success");
     } catch (error) {

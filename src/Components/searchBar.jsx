@@ -25,10 +25,12 @@ const SearchRecords = ({ isvisible }) => {
       }
     }, 500);
     return () => clearTimeout(debounceTimeout.current);
-  }, [searchValue, dispatch]);
+  }, [searchValue]);
 
   useEffect(() => {
-    setsearchValue(filters.email || "");
+    if (searchValue !== filters.email) {
+      setsearchValue(filters.email || "");
+    }
   }, [filters.email]);
 
   const handleTable = () => {
@@ -46,7 +48,7 @@ const SearchRecords = ({ isvisible }) => {
   };
   return (
     <div
-      style={{ zIndex: 1000 }}
+      style={{ zIndex: 1000, maxHeight: "500px" }}
       className={` ${
         isvisible
           ? "w-[25%] mt-6 flex flex-col p-4 rounded-2xl  shadow-xl bg-[#1C212E] border border-[#5d616E]"
@@ -60,7 +62,7 @@ const SearchRecords = ({ isvisible }) => {
       <div
         className={`${
           isvisible
-            ? "bg-white h-[255px] w-[255px] rounded-xl mt-3 mb-80 "
+            ? "bg-white h-[255px] w-[350px] rounded-xl mt-3 mb-80 "
             : "bg-white w-full h-44 rounded-md"
         }`}
       >
@@ -77,9 +79,18 @@ const SearchRecords = ({ isvisible }) => {
           placeholder={`Type or Paste Domain Address:`}
         ></textarea>
         <div className="flex flex-col gap-2 pl-2.5 ">
-          <button className="text-black cursor-pointer">company.com</button>
-          <button className="text-black cursor-pointer">google.com</button>
-          <button className="text-black cursor-pointer">github.com</button>
+          {["company.com", "google.com", "github.com"].map((domain) => (
+            <button
+              key={domain}
+              className="text-black cursor-pointer"
+              onClick={() => {
+                setsearchValue(domain);
+                handleTable();
+              }}
+            >
+              {domain}
+            </button>
+          ))}
         </div>
       </div>
       {/* Search Button */}

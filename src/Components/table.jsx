@@ -38,6 +38,8 @@ const ResultsTable = () => {
 
   // Select all/deselect all logic
 
+  const [atTop, setAtTop] = useState(true);
+
   const handleSelectAccount = (accountNew) => {
     if (checkIsSelected(accountNew._id)) {
       // Deselect: remove by _id
@@ -85,9 +87,29 @@ const ResultsTable = () => {
     return false;
   };
 
+  const handleClick = () => {
+    if (atTop) {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     dispatch(fetchEmailAccountsRequested());
   }, [filters, page, limit]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setAtTop(window.scrollY < 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
@@ -198,7 +220,7 @@ const ResultsTable = () => {
                 <th className="px-12 py-3 text-left font-medium text-gray-700">
                   Company
                 </th>
-                <th className="px-5 py-3 text-left font-medium text-gray-700">
+                <th c20ame="px-5 py-3 text-left font-medium text-gray-700">
                   Company Details
                 </th>
               </tr>
@@ -351,6 +373,47 @@ const ResultsTable = () => {
           </table>
         )}
       </div>
+      {/* Toggle Scroll Button */}
+      <button
+        onClick={handleClick}
+        className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2"
+        aria-label={atTop ? "Scroll to bottom" : "Scroll to top"}
+      >
+        {atTop ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 15l7-7 7 7"
+            />
+          </svg>
+        )}
+        <span className="hidden md:inline">
+          {atTop ? "Go to bottom" : "Go to top"}
+        </span>
+      </button>
     </div>
   );
 };

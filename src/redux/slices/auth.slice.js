@@ -18,7 +18,6 @@ const authSlice = createSlice({
       state.error = null;
     },
     loginSuccess(state, action) {
-      console.log("Login success:", action.payload);
       state.user = {
         ...action.payload.user,
         subscription: action.payload.user.subscription,
@@ -49,7 +48,6 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
     updateUser(state, action) {
-      console.log("Updating user:", action.payload);
       if (!state.user) {
         state.user = {};
       }

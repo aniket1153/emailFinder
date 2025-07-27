@@ -20,8 +20,6 @@ const usePayment = () => {
         dispatch(updatePaymentState(true));
       }
       window.location.href = response.link;
-
-      console.log("Payment details:", paymentDetails);
     } catch (error) {
       console.error("Payment error:", error);
 

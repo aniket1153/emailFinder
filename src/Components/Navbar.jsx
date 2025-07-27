@@ -33,7 +33,9 @@ const Navbar = () => {
     <nav className="px-5 py-3  relative">
       <div className="max-w-7xl mx-auto flex justify-between items-center text-white px-6 py-3 rounded-full shadow-lg border border-[#ffffff1a] bg-gradient-to-r from-[#1b1c2d] via-[#1f1f35] to-[#161623]">
         {/* Logo */}
-        <div className="text-2xl font-spaceGrotesk pl-2">Logo</div>
+        <Link to={rootPath} className="flex items-center">
+          <div className="text-2xl font-spaceGrotesk pl-2">Logo</div>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="flex flex-row gap-2">
