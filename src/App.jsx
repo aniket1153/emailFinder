@@ -50,16 +50,6 @@ function App() {
     );
   };
 
-  const PaymentResultRoute = ({ children }) => {
-    return isAuthenticated && paymentProcessing ? (
-      children
-    ) : !paymentProcessing && isAuthenticated ? (
-      <Navigate to={rootPath} replace />
-    ) : (
-      <Navigate to={loginPath} replace />
-    );
-  };
-
   useEffect(() => {
     setNavigator(navigate);
   }, [navigate]);
