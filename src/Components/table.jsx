@@ -17,10 +17,47 @@ import {
   setSelectedAccounts,
   clearSelectedAccounts,
   selectAllAccounts,
+  updateSortData,
 } from "../redux/slices/emailaccount.slice";
 import { exportData } from "../utils/export";
+import { FaLinkedin } from "react-icons/fa";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
 const pageSizeDropdownOptions = [100, 200, 500, 1000];
+
+const SortHeader = ({ column, label, sort, order, handleSort }) => (
+  <button
+    onClick={() => handleSort(column)}
+    className="flex items-center gap-1 hover:text-purple-600 transition-colors"
+  >
+    {label}
+    {sort === column ? (
+      order === "asc" ? (
+        <AiOutlineArrowUp className="inline-block" />
+      ) : (
+        <AiOutlineArrowDown className="inline-block" />
+      )
+    ) : (
+      <span className="opacity-30">
+        <AiOutlineArrowUp className="inline-block" />
+      </span>
+    )}
+  </button>
+);
+
+const TableLoader = ({ rows = 10, cols = 5 }) => (
+  <>
+    {Array.from({ length: rows }).map((_, rIdx) => (
+      <tr key={rIdx} className="border-b animate-pulse">
+        {Array.from({ length: cols }).map((_, cIdx) => (
+          <td key={cIdx} className="px-4 py-3">
+            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+          </td>
+        ))}
+      </tr>
+    ))}
+  </>
+);
 
 const ResultsTable = () => {
   const {
@@ -32,6 +69,8 @@ const ResultsTable = () => {
     filters,
     loading,
     selectedAccounts,
+    sort,
+    order,
   } = useSelector((state) => state.emailAccounts);
 
   const dispatch = useDispatch();
@@ -39,6 +78,14 @@ const ResultsTable = () => {
   // Select all/deselect all logic
 
   const [atTop, setAtTop] = useState(true);
+
+  const handleSort = (column) => {
+    if (sort === column) {
+      dispatch(updateSortData({ order: order === "asc" ? "desc" : "asc" }));
+    } else {
+      dispatch(updateSortData({ order: "asc", sort: column }));
+    }
+  };
 
   const handleSelectAccount = (accountNew) => {
     if (checkIsSelected(accountNew._id)) {
@@ -100,7 +147,7 @@ const ResultsTable = () => {
 
   useEffect(() => {
     dispatch(fetchEmailAccountsRequested());
-  }, [filters, page, limit]);
+  }, [filters, page, limit, sort, order]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -157,23 +204,6 @@ const ResultsTable = () => {
             <p className="text-black font-inter font-semibold text-sm md:text-base text-center mt-4 ml-12">
               {total.toLocaleString()} records
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-1.5 mt-2">
-              <p className="text-gray-400 text-sm">Rows Per Page</p>
-              <select
-                className="text-black border-2 border-gray-500 text-sm"
-                style={{ zIndex: 100000 }}
-                value={limit}
-                onChange={(e) => {
-                  changePageSize(Number(e.target.value));
-                }}
-              >
-                {pageSizeDropdownOptions.map((num) => (
-                  <option key={num} className="text-black" value={num}>
-                    {num}
-                  </option>
-                ))}
-              </select>
-            </div>
           </div>
           <div className="flex flex-row gap-5">
             <div className="text-black text-sm text-center md:text-left mt-5">
@@ -215,52 +245,22 @@ const ResultsTable = () => {
                   Name
                 </th>
                 <th className="px-5 py-3 text-left font-medium text-gray-700">
-                  Contact
+                  Email
+                </th>
+                <th className="px-5 py-3 text-left font-medium text-gray-700">
+                  Website
                 </th>
                 <th className="px-12 py-3 text-left font-medium text-gray-700">
                   Company
                 </th>
                 <th c20ame="px-5 py-3 text-left font-medium text-gray-700">
-                  Company Details
+                  Role
                 </th>
               </tr>
             </thead>
             <tbody>
               {[...Array(limit)].map((_, idx) => (
-                <tr key={idx} className="border-t animate-pulse">
-                  <td className="px-4 py-3">
-                    <div className="flex items-start space-x-2">
-                      <div className="h-4 w-4 bg-gray-200 rounded" />
-                      <div>
-                        <div className="h-4 w-24 bg-gray-200 rounded mb-2" />
-                        <div className="h-3 w-16 bg-gray-200 rounded mb-1" />
-                        <div className="h-3 w-20 bg-gray-200 rounded" />
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="flex flex-col space-y-3">
-                      <div className="h-4 w-32 bg-gray-200 rounded mb-2" />
-                      <div className="h-4 w-28 bg-gray-200 rounded" />
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="h-12 w-12 bg-gray-200 rounded-full" />
-                      <div>
-                        <div className="h-4 w-20 bg-gray-200 rounded mb-2" />
-                        <div className="h-3 w-16 bg-gray-200 rounded" />
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="flex flex-col space-y-2">
-                      <div className="h-4 w-24 bg-gray-200 rounded mb-1" />
-                      <div className="h-4 w-20 bg-gray-200 rounded mb-1" />
-                      <div className="h-4 w-16 bg-gray-200 rounded" />
-                    </div>
-                  </td>
-                </tr>
+                <tr key={idx} className="border-t animate-pulse"></tr>
               ))}
             </tbody>
           </table>
@@ -269,16 +269,51 @@ const ResultsTable = () => {
             <thead className="bg-gray-100 text-xs md:text-sm">
               <tr>
                 <th className="px-5 py-3 text-left font-medium text-gray-700">
-                  Name
+                  <button
+                    onClick={() => {
+                      handleSort("name");
+                    }}
+                  >
+                    Name {sort === "name" && (order === "asc" ? "▲" : "▼")}
+                  </button>
                 </th>
                 <th className="px-5 py-3 text-left font-medium text-gray-700">
-                  Contact
+                  <button
+                    onClick={() => {
+                      handleSort("email");
+                    }}
+                  >
+                    Email {sort === "email" && (order === "asc" ? "▲" : "▼")}
+                  </button>
+                </th>
+                <th className="px-5 py-3 text-left font-medium text-gray-700">
+                  <button
+                    onClick={() => {
+                      handleSort("website");
+                    }}
+                  >
+                    Website{" "}
+                    {sort === "website" && (order === "asc" ? "▲" : "▼")}
+                  </button>
                 </th>
                 <th className="px-12 py-3 text-left font-medium text-gray-700">
-                  Company
+                  <button
+                    onClick={() => {
+                      handleSort("companyname");
+                    }}
+                  >
+                    Company{" "}
+                    {sort === "companyname" && (order === "asc" ? "▲" : "▼")}
+                  </button>
                 </th>
                 <th className="px-5 py-3 text-left font-medium text-gray-700">
-                  Company Details
+                  <button
+                    onClick={() => {
+                      handleSort("role");
+                    }}
+                  >
+                    Role {sort === "role" && (order === "asc" ? "▲" : "▼")}
+                  </button>
                 </th>
               </tr>
             </thead>
@@ -300,14 +335,19 @@ const ResultsTable = () => {
                           className="mt-1 cursor-pointer"
                           checked={checkIsSelected(person._id)}
                         />
+                        {person.linkedin && (
+                          <a
+                            href={person.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800"
+                          >
+                            <FaLinkedin size={18} />
+                          </a>
+                        )}
                         <div>
                           <div className="font-medium text-gray-800">
                             {person.name}
-                          </div>
-                          <div className="text-gray-500">{person.role}</div>
-                          <div className="text-sm text-gray-400 flex items-center">
-                            <MdLocationOn className="w-4 h-4 mr-1" />
-                            {person.location}
                           </div>
                         </div>
                       </div>
@@ -315,23 +355,13 @@ const ResultsTable = () => {
                     <td className="px-4 py-3">
                       <div className="flex flex-col space-y-3">
                         <div className="flex items-center space-x-2 text-gray-600">
-                          <MdEmail className="w-4 h-4" />
+                          <MdEmail onClick={() => {}} className="w-4 h-4" />
                           <span>{person.email}</span>
-                          <button className="text-sm px-4 py-1 rounded-full text-black font-semibold border border-gray-400 bg-white hover:bg-gray-200 shadow">
-                            View
-                          </button>
-                        </div>
-                        <div className="flex items-center space-x-2 text-gray-600">
-                          <MdPhone className="w-4 h-4" />
-                          <span>{person.personalcontactno}</span>
-                          <button className="text-sm px-4 py-1 rounded-full text-black font-semibold border border-gray-400 bg-white hover:bg-gray-200 shadow">
-                            Find
-                          </button>
                         </div>
                       </div>
                     </td>
                     <td className="px-4 py-3">
-                      <div className="flex items-center space-x-3">
+                      {/* <div className="flex items-center space-x-3">
                         <img
                           src={CompanyLogo}
                           alt="logo"
@@ -346,25 +376,15 @@ const ResultsTable = () => {
                             {person.location}
                           </div>
                         </div>
-                      </div>
+                      </div> */}
+
+                      <div className="text-gray-500">{person.website}</div>
+                    </td>
+                    <td className="px-4 py-3">
+                      <div className="text-gray-500">{person.companyname}</div>
                     </td>
                     <td className="px-4 py-3 text-gray-700">
-                      <div className="flex flex-col space-y-1">
-                        <div className="flex items-center space-x-2">
-                          <MdBusiness className="w-4 h-4" />
-                          <span>{person.industry}</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <MdGroup className="w-4 h-4" />
-                          <span>{person.size}</span>
-                          <MdScience className="w-4 h-4" />
-                          <span>{person.funding}</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <MdPhone className="w-4 h-4" />
-                          <span>{person.personalcontactno}</span>
-                        </div>
-                      </div>
+                      <div className="text-gray-500">{person.role}</div>
                     </td>
                   </tr>
                 ))

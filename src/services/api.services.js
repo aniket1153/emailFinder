@@ -11,6 +11,16 @@ export const login = async (email, password) => {
   return response.data;
 };
 
+export const sendOTP = async (body) => {
+  const response = await apiClient.post(APIENDPOINTS.requestOTP, body);
+  return response.data;
+};
+
+export const verifyOTP = async (body) => {
+  const response = await apiClient.post(APIENDPOINTS.verifyOTP, body);
+  return response.data;
+};
+
 export const createAccount = async (email, password) => {
   const response = await apiClient.post(APIENDPOINTS.signUp, {
     email,
@@ -36,16 +46,17 @@ export const subscribePlan = async (body) => {
 };
 
 // Email Accounts Service
-export const getEmailAccounts = async ({
-  page = 1,
-  limit = 10,
-  filters = {},
-} = {}) => {
-  // Build query params for pagination and filters
-  const params = { page, limit, ...filters };
+export const getEmailAccounts = async (params) => {
+  // Merge pagination, filters, and sort into query params
+  const queryParams = {
+    ...params,
+    ...(params?.filters || {}),
+  };
+
   const response = await apiClient.get(APIENDPOINTS.getEmailAccounts, {
-    params,
+    params: queryParams,
   });
+
   return response.data;
 };
 

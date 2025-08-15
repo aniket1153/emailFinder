@@ -14,12 +14,14 @@ function* handleFetchEmailAccounts(action) {
     // Get page, limit, filters from redux state
 
     const state = store.getState();
-    const { page, limit, filters } = state.emailAccounts;
+    const { page, limit, filters, sort, order } = state.emailAccounts;
 
     const params = {
       page,
       limit,
       filters,
+      sort,
+      order,
     };
     const response = yield call(getEmailAccounts, params);
     yield put(fetchEmailAccountsSuccess(response));

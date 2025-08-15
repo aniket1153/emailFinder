@@ -18,16 +18,19 @@ import { loginPath, rootPath } from "../../App";
 
 function* handleLogin(action) {
   try {
-    const data = yield call(
-      action.payload.isLogin ? loginService : createAccount,
-      action.payload.email,
-      action.payload.password
-    );
+    let data;
+    if (action.payload.isLogin) {
+      data = yield call(
+        loginService,
+        action.payload.email,
+        action.payload.password
+      );
 
-    yield put(loginSuccess({ user: data.user, token: data.token }));
-    showGlobalToast(data.message, "success");
+      yield put(loginSuccess({ user: data.user, token: data.token }));
+      showGlobalToast(data.message, "success");
 
-    navigate(rootPath);
+      navigate(rootPath);
+    }
   } catch (error) {
     showGlobalToast(error.response?.data?.message, "error");
     yield put(loginFailure(error.response?.data?.message || "Login failed"));

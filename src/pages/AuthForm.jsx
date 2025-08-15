@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import LoginImage from "../assets/first.png";
 import SignupImage from "../assets/second.png";
 import { FaEye } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import { showGlobalToast } from "../utils/toastService";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const AuthForm = () => {
   const location = useLocation();
@@ -16,7 +17,9 @@ const AuthForm = () => {
   const [password, setPassword] = useState("");
   const [agree, setAgree] = useState(false);
 
-  const { loading, error, signIn, signUp } = useAuth();
+  const { error, signIn, requestOTP } = useAuth();
+
+  const { loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     setIsLogin(mode !== "signup");
@@ -38,7 +41,7 @@ const AuthForm = () => {
         showGlobalToast("You must agree to the terms to sign up.", "error");
         return;
       }
-      signUp(email, password);
+      requestOTP({ email, password });
     }
   };
 

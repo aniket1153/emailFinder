@@ -4,12 +4,14 @@ const initialState = {
   accounts: [],
   total: 0,
   page: 1,
-  limit: 100,
+  limit: 25,
   filters: {},
   loading: false,
   error: null,
   totalPages: 1,
   selectedAccounts: [],
+  sort: "name",
+  order: "asc",
 };
 
 const emailAccountSlice = createSlice({
@@ -51,6 +53,10 @@ const emailAccountSlice = createSlice({
     selectAllAccounts(state) {
       state.selectedAccounts = state.accounts;
     },
+    updateSortData(state, action) {
+      (state.sort = action.payload.sort ?? state.sort),
+        (state.order = action.payload.order ?? state.order);
+    },
   },
 });
 
@@ -63,5 +69,6 @@ export const {
   setSelectedAccounts,
   clearSelectedAccounts,
   selectAllAccounts,
+  updateSortData,
 } = emailAccountSlice.actions;
 export default emailAccountSlice.reducer;

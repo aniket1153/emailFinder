@@ -18,7 +18,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const navItems = [
@@ -61,12 +61,38 @@ const Navbar = () => {
             {isAuthenticated ? (
               <button
                 type="button"
-                className="flex items-center bg-gradient-to-r from-[#7f5af0] to-[#f13bc1] text-white px-4 ml-16 py-2 rounded-full text-sm shadow hover:opacity-90 transition"
+                className="flex items-center bg-gradient-to-r from-[#7f5af0] to-[#f13bc1] text-white px-4 ml-16 py-2 rounded-full text-sm shadow hover:opacity-90 transition cursor-pointer"
                 onClick={() => {
                   dispatch(logoutRequested());
                 }}
               >
-                Logout
+                {loading ? (
+                  <span className="flex items-center justify-center">
+                    <svg
+                      className="animate-spin h-5 w-5 mr-2 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      ></path>
+                    </svg>
+                    Logging out ...
+                  </span>
+                ) : (
+                  "Logout"
+                )}
                 <FaUserPlus className="ml-2" />
               </button>
             ) : (

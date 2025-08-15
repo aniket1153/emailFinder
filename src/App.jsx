@@ -19,6 +19,8 @@ import { setNavigator } from "./utils/navigator";
 import { useSelector } from "react-redux";
 import SuccessPage from "./pages/paymentSuccessPage";
 import CancelPage from "./pages/paymentFailure";
+import { verifyOTP } from "./services/api.services";
+import OTPForm from "./pages/OTPPage";
 
 // path
 export const loginPath = "/auth?mode=login";
@@ -32,6 +34,7 @@ export const successPath = "/success";
 export const cancelPath = "/cancel";
 export const authPath = "/auth";
 export const signUpPath = "/auth?mode=signup";
+export const otpverify = "/verifyotp";
 
 function App() {
   const navigate = useNavigate();
@@ -69,6 +72,7 @@ function App() {
       <Routes>
         <Route path={rootPath} element={<Home />} />
         <Route path={authPath} element={<AuthForm />} />
+        <Route path={otpverify} element={<OTPForm />} />
         <Route path={aboutPath} element={<About />} />
         <Route path={pricingPath} element={<Pricing />} />
         <Route path={extensionPath} element={<Extension />} />

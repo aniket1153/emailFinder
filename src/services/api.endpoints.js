@@ -1,4 +1,6 @@
 export const APIENDPOINTS = {
+  requestOTP: "/auth/requestotp",
+  verifyOTP: "/auth/verifysignup",
   signIn: "/auth/signin",
   signUp: "/auth/signup",
   logOut: "/auth/logout",
