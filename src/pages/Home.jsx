@@ -1,4 +1,5 @@
 import img1 from "../assets/girl.jpg";
+import table from "../assets/table.png";
 import { FaPlayCircle } from "react-icons/fa";
 import AboutUs from "../Components/AboutUs";
 import Testimonials from "../Components/Testimonials";
@@ -23,13 +24,20 @@ const Home = () => {
         </div>
       </div>
 
-      <div
-        className={`" ${"bg-[#1b1f30] rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-[#2e3248] max-w-7xl w-full mx-auto mt-10"}`}
-      >
-        {/* Label (stays outside) */}
+      <div className="bg-[#1b1f30] rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-[#2e3248] max-w-7xl w-full mx-auto mt-10 flex items-center gap-6">
+        {/* Search box */}
+        <div className="w-[45%] h-[70px] flex items-center">
+          <SearchRecords isvisible={true} />
+        </div>
 
-        {/* Textarea with gray placeholder */}
-        <SearchRecords isvisible={false} />
+        {/* Image */}
+        <div className="w-[95%]">
+          <img
+            src={table}
+            alt="Search Illustration"
+            className="w-full h-[500px] object-cover rounded-xl"
+          />
+        </div>
       </div>
 
       {/* {How It Works} */}

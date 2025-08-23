@@ -56,11 +56,10 @@ const SearchRecords = ({ isvisible }) => {
       return;
     }
 
-    if (!isvisible && searchValue.length > 0) {
+    if (searchValue.length > 0) {
       navigation(searchPath);
+      dispatch(setEmailAccountFilters({ email: searchValue }));
     }
-
-    dispatch(setEmailAccountFilters({ email: searchValue }));
   };
 
   return (
@@ -93,7 +92,7 @@ const SearchRecords = ({ isvisible }) => {
             }
           }}
           rows={isvisible ? 8 : 4}
-          className="w-full resize-none text-black p-3 focus:outline-none shadow-inner placeholder-gray-500 rounded-xl"
+          className="w-full resize-none text-black p-3 h-12 focus:outline-none shadow-inner placeholder-gray-500 rounded"
           placeholder="Type or Paste Domain Address:"
         />
       </div>

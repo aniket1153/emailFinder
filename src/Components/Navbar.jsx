@@ -13,6 +13,7 @@ import {
   rootPath,
   signUpPath,
 } from "../App";
+import AppLogo from "../assets/logo.jpg";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,7 +35,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center text-white px-6 py-3 rounded-full shadow-lg border border-[#ffffff1a] bg-gradient-to-r from-[#1b1c2d] via-[#1f1f35] to-[#161623]">
         {/* Logo */}
         <Link to={rootPath} className="flex items-center">
-          <div className="text-2xl font-spaceGrotesk pl-2">Logo</div>
+          <img src={AppLogo} alt="Logo" className="h-10" />
         </Link>
 
         {/* Desktop Menu */}

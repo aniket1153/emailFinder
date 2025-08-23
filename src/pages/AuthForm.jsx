@@ -81,7 +81,7 @@ const AuthForm = () => {
             </div>
 
             {/* Social Buttons */}
-            <div className="space-y-4 mb-4">
+            {/*   <div className="space-y-4 mb-4">
               <button className="flex items-center justify-center w-full cursor-pointer border border-white hover:border-blue-500 py-2 rounded-full text-white gap-2">
                 <img
                   src="https://img.icons8.com/color/20/000000/google-logo.png"
@@ -89,14 +89,15 @@ const AuthForm = () => {
                 />
                 {isLogin ? "Login With Google" : "Sign Up With Google"}
               </button>
-            </div>
+            </div> */}
 
             {/* Divider */}
-            <div className="flex items-center text-gray-400 text-sm mb-4">
+
+            {/* <div className="flex items-center text-gray-400 text-sm mb-4">
               <div className="flex-1 h-px bg-gray-600" />
               <span className="px-3">Or</span>
               <div className="flex-1 h-px bg-gray-600" />
-            </div>
+            </div>*/}
 
             <form className="space-y-4" onSubmit={handleSubmit}>
               <input
