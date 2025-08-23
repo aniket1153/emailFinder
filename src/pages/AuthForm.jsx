@@ -1,11 +1,12 @@
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import LoginImage from "../assets/first.png";
 import SignupImage from "../assets/second.png";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import { showGlobalToast } from "../utils/toastService";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { isBusinessEmail } from "../config";
 
 const AuthForm = () => {
   const location = useLocation();
@@ -13,12 +14,18 @@ const AuthForm = () => {
   const mode = queryParams.get("mode");
 
   const [isLogin, setIsLogin] = useState(mode !== "signup");
+
+  // form states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [company, setCompany] = useState("");
+  const [role, setRole] = useState("");
   const [agree, setAgree] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const { error, signIn, requestOTP } = useAuth();
-
   const { loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -30,28 +37,40 @@ const AuthForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!emailRegex.test(email)) {
       showGlobalToast("Please enter a valid email address.", "error");
       return;
     }
+    const isBusiness = isBusinessEmail(email);
+    // if (!isBusiness) {
+    //   showGlobalToast("Please enter a business email address.", "error");
+    //   return;
+    // }
+
     if (isLogin) {
       signIn(email, password);
     } else {
+      // validate signup fields
+      if (!fullname || !company || !role) {
+        showGlobalToast("All fields are mandatory.", "error");
+        return;
+      }
+      if (password !== confirmPassword) {
+        showGlobalToast("Passwords do not match.", "error");
+        return;
+      }
       if (!agree) {
         showGlobalToast("You must agree to the terms to sign up.", "error");
         return;
       }
-      requestOTP({ email, password });
+
+      requestOTP({ email, password, fullname, company, role });
     }
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center  px-4 relative">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-2%] left-[42%] w-[600px] h-[500px]    rounded-full opacity-15 blur-3xl" />
-        <div className="absolute top-20 right-10 w-[600px] h-[500px] bg-gray-400  rounded-full opacity-15 blur-3xl" />
-        <div className="absolute bottom-[-10%] left-1/8  rounded-full opacity-15 blur-3xl" />
-      </div>
+    <div className="min-h-screen w-full flex items-center justify-center px-4 relative">
       <div className="flex flex-col md:flex-row items-center gap-28 relative">
         {/* Left Card */}
         <div className="bg-gradient-to-b from-[#2b2b2d] to-[#1b1c1e] p1 rounded-2xl shadow-xl border border-blue-600">
@@ -80,26 +99,33 @@ const AuthForm = () => {
               </button>
             </div>
 
-            {/* Social Buttons */}
-            {/*   <div className="space-y-4 mb-4">
-              <button className="flex items-center justify-center w-full cursor-pointer border border-white hover:border-blue-500 py-2 rounded-full text-white gap-2">
-                <img
-                  src="https://img.icons8.com/color/20/000000/google-logo.png"
-                  alt="google"
-                />
-                {isLogin ? "Login With Google" : "Sign Up With Google"}
-              </button>
-            </div> */}
-
-            {/* Divider */}
-
-            {/* <div className="flex items-center text-gray-400 text-sm mb-4">
-              <div className="flex-1 h-px bg-gray-600" />
-              <span className="px-3">Or</span>
-              <div className="flex-1 h-px bg-gray-600" />
-            </div>*/}
-
             <form className="space-y-4" onSubmit={handleSubmit}>
+              {!isLogin && (
+                <>
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none"
+                    value={fullname}
+                    onChange={(e) => setFullname(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Company Name"
+                    className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Role"
+                    className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                  />
+                </>
+              )}
+
               <input
                 type="email"
                 placeholder="Email you@yourmail.com"
@@ -107,20 +133,36 @@ const AuthForm = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+
               <div className="relative">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none pr-10"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {isLogin && (
-                  <span className="absolute right-3 top-2.5 text-gray-400 cursor-pointer text-sm">
+                <span
+                  className="absolute right-3 top-2.5 text-gray-400 cursor-pointer text-sm"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <FaEyeSlash size={23} />
+                  ) : (
                     <FaEye size={23} />
-                  </span>
-                )}
+                  )}
+                </span>
               </div>
+
+              {!isLogin && (
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              )}
 
               {!isLogin && (
                 <div className="flex items-start gap-2 text-sm text-gray-400">
@@ -138,8 +180,7 @@ const AuthForm = () => {
 
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500  text-white rounded-full flex items-center justify-center cursor-pointer"
-                // disabled={loading || (!isLogin && !agree)}
+                className="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center cursor-pointer"
               >
                 {loading ? (
                   <span className="flex items-center justify-center">

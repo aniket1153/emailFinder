@@ -23,6 +23,13 @@ export default function useAuth() {
 
   const requestOTP = async (body) => {
     try {
+      dispatch(
+        loginRequested({
+          email: body.email,
+          password: body.password,
+          isLogin: false,
+        })
+      );
       const response = await sendOTP(body);
       showGlobalToast(response?.message, "success");
       navigate(`${otpverify}?email=${body.email}`);
