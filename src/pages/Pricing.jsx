@@ -291,8 +291,6 @@ const Pricing = (props) => {
           </div>
         </div>
       )}
-
-      <FAQSection />
     </div>
   );
 };

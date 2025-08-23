@@ -1,11 +1,5 @@
-import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
 import Home from "./pages/Home";
@@ -19,8 +13,8 @@ import { setNavigator } from "./utils/navigator";
 import { useSelector } from "react-redux";
 import SuccessPage from "./pages/paymentSuccessPage";
 import CancelPage from "./pages/paymentFailure";
-import { verifyOTP } from "./services/api.services";
 import OTPForm from "./pages/OTPPage";
+import Footer from "./Components/Footer";
 
 // path
 export const loginPath = "/auth?mode=login";
@@ -102,6 +96,7 @@ function App() {
           }
         />
       </Routes>
+      {window.location.pathname !== "/auth" && <Footer />}
     </div>
   );
 }

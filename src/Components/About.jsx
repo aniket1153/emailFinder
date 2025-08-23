@@ -9,13 +9,11 @@ const About = () => {
   return (
     <div className=" ">
       <div className="flex flex-col-reverse py-12  lg:flex-row items-center justify-center gap-12 lg:gap-60 relative">
-          <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-5%] left-[35%] w-[700px] h-[450px] bg-white  rounded-full opacity-6 blur-3xl" />
-        <div className="absolute top-20 right-10 w-80 h-80  rounded-full opacity-25 blur-3xl" />
-        <div className="absolute bottom-[-38%] left-2/8  w-[700px] h-[450px] bg-pink-500  rounded-full opacity-11 blur-3xl" />
-        
-
-      </div>
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-[-5%] left-[35%] w-[700px] h-[450px] bg-white  rounded-full opacity-6 blur-3xl" />
+          <div className="absolute top-20 right-10 w-80 h-80  rounded-full opacity-25 blur-3xl" />
+          <div className="absolute bottom-[-38%] left-2/8  w-[700px] h-[450px] bg-pink-500  rounded-full opacity-11 blur-3xl" />
+        </div>
         {/* Text Section */}
         <div className="flex flex-col gap-6 max-w-xl text-center lg:text-left px-4 md:px-8 relative">
           <div className="flex flex-col gap-3 relative">
@@ -82,12 +80,9 @@ const About = () => {
           </span>
         </button> */}
       </div>
-      
-        
+
       <WhyChooseUs className="relative" />
       <StatsSection />
-
-      <Footer />
     </div>
   );
 };

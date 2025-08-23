@@ -113,7 +113,6 @@ const Home = () => {
       <WhyChooseUs />
       <FAQSection />
       <StatsSection />
-      <Footer />
     </div>
   );
 };

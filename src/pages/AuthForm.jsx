@@ -24,6 +24,7 @@ const AuthForm = () => {
   const [role, setRole] = useState("");
   const [agree, setAgree] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const { error, signIn, requestOTP } = useAuth();
   const { loading } = useSelector((state) => state.auth);
@@ -155,13 +156,25 @@ const AuthForm = () => {
               </div>
 
               {!isLogin && (
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Confirm Password"
-                  className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                <div className="relative">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Confirm Password"
+                    className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white placeholder-gray-500 text-sm focus:outline-none"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <span
+                    className="absolute right-3 top-2.5 text-gray-400 cursor-pointer text-sm"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
+                    {showConfirmPassword ? (
+                      <FaEyeSlash size={23} />
+                    ) : (
+                      <FaEye size={23} />
+                    )}
+                  </span>
+                </div>
               )}
 
               {!isLogin && (
