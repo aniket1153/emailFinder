@@ -73,3 +73,9 @@ export const capturePaypalOrder = async (token) => {
   );
   return response.data;
 };
+
+// dashboard data
+export const getDashboardCards = async () => {
+  const response = await apiClient.get(APIENDPOINTS.dashBoardCards);
+  return response.data;
+};

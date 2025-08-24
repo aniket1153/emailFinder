@@ -56,37 +56,30 @@ const Home = () => {
 
           {/* Step 1 */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-gray-400 font-spaceGrotesk">
-              1. Enter A Name Or Domain
-            </h3>
+            <h3 className="text-gray-400 font-spaceGrotesk">Step 1: Search</h3>
             <p className="text-gray-500 text-sm font-inter">
-              Start by entering the person’s name and their company, or just the
-              company’s domain (e.g., example.com). Our system will start
-              searching immediately.
+              Enter a domain name, company, job title, or LinkedIn profile to
+              instantly discover professional email addresses.
             </p>
           </div>
 
           {/* Step 2 */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-white font-spaceGrotesk">
-              2. We Search Public Sources
-            </h3>
+            <h3 className="text-white font-spaceGrotesk">Step 2: Verify</h3>
             <p className="text-gray-300 text-sm font-inter">
-              Our tool scans thousands of publicly available web pages,
-              professional profiles, corporate websites, and social platforms to
-              locate matching email patterns.
+              Our system provides 100% verified emails with real-time accuracy
+              checks to ensure reliable connections.
             </p>
           </div>
 
           {/* Step 3 */}
           <div className="flex flex-col gap-3">
             <h3 className="text-white font-spaceGrotesk">
-              3. Verify Every Email
+              Step 3: Export & Use
             </h3>
             <p className="text-gray-500 font-inter">
-              Our tool scans thousands of publicly available web pages,
-              professional profiles, corporate websites, and social platforms to
-              locate matching email patterns.
+              Download results in Excel or CSV with unlimited exports and start
+              reaching top decision-makers right away.
             </p>
           </div>
         </div>

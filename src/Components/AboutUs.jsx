@@ -8,7 +8,7 @@ import StatsSection from "./StatsSection";
 const AboutUs = () => {
   return (
     <div className="  px-4 py-12 relative">
-        <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0">
         <div className="absolute top-[-10%] left-[35%] w-[800px] h-[500px] bg-white rounded-full opacity-10 blur-3xl" />
         <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
         <div className="absolute bottom-32 left-1/4 w-[400px] h-[400px]  rounded-full opacity-35 blur-3xl" />
@@ -34,42 +34,50 @@ const AboutUs = () => {
           <div className="text-[#8D909C] text-base md:text-lg  flex flex-col gap-4 font-inter relative ">
             <div className="relative">
               <p>
-                We are a data-driven SaaS company focused on helping businesses
-                connect with the right people.
+                At Reach Finder, we make it easier than ever to connect with the
+                right people. With access to over 450M verified contacts across
+                180 countries, we provide businesses, recruiters, and marketers
+                with the tools to find accurate and reliable email addresses
+                instantly. Whether you’re searching by domain name, company
+                name, job title, or LinkedIn profile, Reach Finder helps you
+                discover verified contacts at lightning speed.
               </p>
             </div>
             <div className="relative">
               <p>
-                Our Email Finder & Verifier platform empowers sales teams,
-                recruiters, marketers, and entrepreneurs with accurate, verified
-                contact data instantly.
+                Our platform is designed with simplicity, affordability, and
+                accuracy in mind. Unlike other tools, we offer unlimited email
+                credits, unlimited domain searches, unlimited downloads in
+                Excel/CSV, and no restrictions on usage—all at the world’s most
+                affordable price.
               </p>
             </div>
             <div>
               <p>
-                Built with performance, security, and simplicity in mind, our
-                platform supports Web, Mobile, and Browser Extensions so you can
-                access your tools anywhere, anytime.
+                With 100% verified emails, drag-and-drop capabilities, and
+                browser extensions for Chrome, Microsoft Edge, and Firefox,
+                Reach Finder is the most powerful and reliable email finder
+                solution for professionals worldwide.
               </p>
             </div>
-            <div>
+            {/* <div>
               {" "}
               <p>
                 Our goal? To make finding and verifying emails easy, fast, and
                 reliable—whether you're running a solo campaign or managing an
                 enterprise pipeline.
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Image Section */}
         <div className="w-full max-w-sm md:max-w-md flex justify-center relative">
           <img
-              className="rounded-2xl w-full h-auto lg:w-[450px] lg:h-[450px] object-cover"
-                      src={imgAb}
-                      alt="About Us"
-                    />
+            className="rounded-2xl w-full h-auto lg:w-[450px] lg:h-[450px] object-cover"
+            src={imgAb}
+            alt="About Us"
+          />
         </div>
       </div>
 

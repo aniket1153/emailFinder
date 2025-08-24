@@ -13,7 +13,7 @@ import {
   rootPath,
   signUpPath,
 } from "../App";
-import AppLogo from "../assets/logo.jpg";
+import AppLogo from "../assets/logo.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

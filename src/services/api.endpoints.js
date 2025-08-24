@@ -9,4 +9,6 @@ export const APIENDPOINTS = {
   getEmailAccounts: "/emailaccounts",
   createPaypalOrder: "/payment/create-order",
   capturePaypalOrder: "/payment/capture-order",
+
+  dashBoardCards: "/admin/card",
 };
