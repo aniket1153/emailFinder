@@ -24,32 +24,33 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="bg-[#1b1f30] rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-[#2e3248] max-w-7xl w-full mx-auto mt-10 flex items-center gap-6">
-        {/* Search box */}
-        <div className="w-[45%] h-[70px] flex items-center">
-          <SearchRecords isvisible={true} />
-        </div>
+     <div className="bg-white/8 backdrop-blur-lg border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl max-w-7xl w-full mx-auto mt-10 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
+  {/* Search box */}
+  <div className="w-full md:w-1/2 flex items-center">
+    <SearchRecords isvisible={true} />
+  </div>
 
-        {/* Image */}
-        <div className="w-[95%]">
-          <img
-            src={table}
-            alt="Search Illustration"
-            className="w-full h-[500px] object-cover rounded-xl"
-          />
-        </div>
-      </div>
+  {/* Image */}
+  <div className="w-full md:w-1/2 lg:w-[95%]">
+    <img
+      src={table}
+      alt="Search Illustration"
+      className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-xl"
+    />
+  </div>
+</div>
+
 
       {/* {How It Works} */}
 
-      <div className="flex flex-col justify-center lg:gap-80 md:flex-row items-center gap-3 mt-20 px-5 md:px-20 relative">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 lg:gap-60 mt-20 px-5 md:px-12 lg:px-20 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-[-2%] left-[40%] w-96 h-96  rounded-full opacity-20 blur-3xl" />
           <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
           <div className="absolute bottom-[-10%] left-1/8 w-[600px] h-[500px] bg-pink-500 rounded-full opacity-15 blur-3xl" />
         </div>
         {/* Left Text Section */}
-        <div className="flex flex-col gap-8 text-left max-w-xl relative">
+        <div className="flex flex-col gap-8 text-center md:text-left max-w-lg md:max-w-xl relative z-10">
           <h2 className="text-white text-5xl font-spaceGrotesk ">
             How It Works
           </h2>
@@ -85,8 +86,8 @@ const Home = () => {
         </div>
 
         {/* Right Side Image Card with Gradient Border */}
-        <div className="bg-gradient-to-r from-[#7b2ff7] to-[#f107a3] p-[2px] rounded-2xl shadow-xl">
-          <div className="relative w-[300px] sm:w-[400px] md:w-[460px] lg:w-[380px] h-[300px] sm:h-[400px] md:h-[460px] lg:h-[380px] rounded-2xl overflow-hidden bg-[#111827]">
+        <div className="bg-gradient-to-r from-[#7b2ff7] to-[#f107a3] p-[2px] rounded-2xl shadow-xl relative z-10">
+          <div className="relative w-[18rem] sm:w-[22rem] md:w-[26rem] lg:w-[29rem] h-[18.75rem] sm:h-[25rem] md:h-[26rem] lg:h-[23.75rem] rounded-2xl overflow-hidden bg-[#111827]">
             <img
               src={img1}
               alt="video"

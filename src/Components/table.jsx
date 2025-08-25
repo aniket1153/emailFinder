@@ -160,7 +160,7 @@ const ResultsTable = () => {
 
   return (
     <div
-      className="max-w-[78%] bg-white rounded-xl mt-7 w-full"
+      className=" w-full md:max-w-[78%] bg-white rounded-xl mt-7 "
       style={{ zIndex: 1000 }}
     >
       {/* Header and pagination */}

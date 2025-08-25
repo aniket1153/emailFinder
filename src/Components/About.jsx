@@ -8,28 +8,28 @@ import StatsSection from "./StatsSection";
 const About = () => {
   return (
     <div className=" ">
-      <div className="flex flex-col-reverse py-12  lg:flex-row items-center justify-center gap-12 lg:gap-60 relative">
+      <div className="flex flex-col-reverse   md:flex-row py-12 items-center justify-center gap-12 md:gap-2 lg:gap-60 relative">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-[-5%] left-[35%] w-[700px] h-[450px] bg-white  rounded-full opacity-6 blur-3xl" />
           <div className="absolute top-20 right-10 w-80 h-80  rounded-full opacity-25 blur-3xl" />
           <div className="absolute bottom-[-38%] left-2/8  w-[700px] h-[450px] bg-pink-500  rounded-full opacity-11 blur-3xl" />
         </div>
         {/* Text Section */}
-        <div className="flex flex-col gap-6 max-w-xl text-center lg:text-left px-4 md:px-8 relative">
+        <div className="flex flex-col gap-6 max-w-xl text-center md:text-left px-4 md:px-6 lg:px-8 relative">
           <div className="flex flex-col gap-3 relative">
-            <h1 className="text-4xl sm:text-4xl md:text-5xl  text-white font-spaceGrotesk">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl  text-white font-spaceGrotesk">
               About Us
             </h1>
-            <h2 className="text-2xl sm:text-xl md:text-3xl text-[#ceced8] font-spaceGrotesk">
+            <h2 className="text-xl sm:text-xl md:text-3xl text-[#ceced8] font-spaceGrotesk">
               Helping You Connect with the Right{" "}
             </h2>
-            <h2 className="text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk">
+            <h2 className="text-xl md:text-3xl text-[#ceced8] font-spaceGrotesk">
               {" "}
               People Accurately and Reliably
             </h2>
           </div>
 
-          <div className="text-[#8D909C] text-base lg:text-lg  flex flex-col gap-2 font-inter relative ">
+          <div className="text-[#8D909C] text-lg lg:text-lg  flex flex-col gap-2 font-inter relative ">
             <div>
               <p>
                 We are a data-driven SaaS company focused on helping businesses
@@ -62,9 +62,9 @@ const About = () => {
         </div>
 
         {/* Image Section */}
-        <div className="w-full max-w-sm md:max-w-md relative">
+        <div className="w-full max-w-sm md:max-w-xl lg:max-w-md relative">
           <img
-            className="rounded-2xl w-full h-auto lg:w-[450px] lg:h-[450px] object-cover"
+            className="rounded-2xl w-full h-auto md:w-[420px] md:h-[480px] lg:w-[450px] lg:h-[450px] p-0 md:pr-2 lg: object-cover"
             src={imgAb}
             alt="About Us"
           />

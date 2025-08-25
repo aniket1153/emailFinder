@@ -40,7 +40,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="flex flex-row gap-2">
-          <ul className="hidden md:flex space-x-15  font-inter mt-2.5">
+          <ul className="hidden lg:flex space-x-15  font-inter mt-2.5">
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link
@@ -58,7 +58,7 @@ const Navbar = () => {
           </ul>
 
           {/* Desktop Buttons */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-3">
             {isAuthenticated ? (
               <button
                 type="button"
@@ -117,7 +117,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
           </button>
@@ -126,7 +126,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden mt-3 space-y-3 bg-[#1e203d] rounded-xl py-4 px-6 shadow-lg text-sm text-gray-300">
+        <div className="lg:hidden mt-3 space-y-3 bg-[#1e203d] rounded-xl py-4 px-6 shadow-lg text-sm text-gray-300">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -141,20 +141,20 @@ const Navbar = () => {
               {item.name}
             </Link>
           ))}
-          <Link
-            to="/signup"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center bg-gradient-to-r from-[#7f5af0] to-[#f13bc1] text-white px-4 py-2 rounded-full text-sm"
-          >
-            Create An Account <FaUserPlus className="ml-2" />
-          </Link>
-          <Link
-            to="/login"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center bg-[#2c2c2e] px-4 py-2 rounded-full text-sm hover:bg-[#3a3a3e]"
-          >
-            Login <FaLock className="ml-2" />
-          </Link>
+        <Link
+  to={signUpPath}
+  onClick={() => setMenuOpen(false)}
+  className="flex items-center justify-center bg-gradient-to-r from-[#7f5af0] to-[#f13bc1] text-white px-4 py-2 rounded-full text-sm"
+>
+  Create An Account <FaUserPlus className="ml-2" />
+</Link>
+         <Link
+  to={loginPath}
+  onClick={() => setMenuOpen(false)}
+  className="flex items-center justify-center bg-[#2c2c2e] px-4 py-2 rounded-full text-sm hover:bg-[#3a3a3e]"
+>
+  Login <FaLock className="ml-2" />
+</Link>
         </div>
       )}
     </nav>

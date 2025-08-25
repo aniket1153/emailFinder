@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-start lg:justify-end items-start">
           <button className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#6D5DF5] to-[#F850A0] text-white text-sm font-medium shadow-md hover:opacity-90 transition-all">
-            Get Extension For Your Browser
+            Browser Extension Coming Soon
             <span className="text-lg">➜</span>
           </button>
         </div>

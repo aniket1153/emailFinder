@@ -153,7 +153,7 @@ const Testimonials = () => {
               t ? (
                 <SwiperSlide key={`${t.name}-${i}`}>
                   
-                  <div className="rounded-2xl p-5 min-h-[220px] flex flex-col justify-between bg-gradient-to-br from-[#1c1e2f] to-[#15172a] border border-[#2a2d4a] text-sm text-gray-300 hover:scale-[1.02] transition relative">
+                  <div className="rounded-2xl p-5 min-h-[220px] flex flex-col justify-between bg-white/8 backdrop-blur-lg border border-white/10 text-sm text-gray-300 hover:scale-[1.02] transition relative">
                     
                     <p className="mb-7 leading-relaxed font-inter relative">"{t.message}"</p>
                     <div className="flex items-center gap-6 mt-auto">

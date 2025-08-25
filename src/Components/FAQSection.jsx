@@ -65,7 +65,7 @@ const FAQSection = () => {
       className={`rounded-xl px-6 py-4 transition-all duration-300 border backdrop-blur-md ${
         activeIndex === index
           ? 'border-[#00A3FF] bg-white/10'
-          : 'bg-white/5 border border-white/10 hover:bg-white/10'
+          : 'bg-white/8 backdrop-blur-lg border border-white/10'
       }`}
     >
       <div

@@ -103,16 +103,16 @@ const Pricing = (props) => {
   return (
     <div className="w-[100%]">
       <div className="w-full  text-white py-20 px-4 md:px-12 lg:px-12 font-sans">
-        <div className=" text-white mb-10  lg:ml-40">
-          <h2 className="text-4xl md:text-4xl font-spaceGrotesk mb-2">
+        <div className=" text-white mb-10  ">
+          <h2 className="text-4xl md:text-4xl text-center font-spaceGrotesk mb-4">
             Simple Plans, Powerful Results
           </h2>
-          <p className="text-md text-gray-400 max-w-xl  font-inter">
+          <p className="text-md text-gray-400 max-w-xl text-center ml-0 lg:ml-[28%]  font-inter">
             Choose the plan that fits your goals. Scale up your outreach with
             verified emails, no hidden fees, cancel anytime.
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-12 items-stretch justify-center relative">
+        <div className=" w-full lg:max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 ml-0 lg:ml-18 justify-center relative">
           {/* Background Blur Effects */}
           <div className="absolute inset-0 z-0">
             <div className="absolute top-[-2%] left-[40%] w-96 h-96 rounded-full opacity-20 blur-3xl" />
@@ -147,7 +147,7 @@ const Pricing = (props) => {
             plans.map((plan) => (
               <div
                 key={plan.id || plan.name}
-                className="flex group flex-col min-h-[680px] bg-[#1b1f30] border border-[#2e3248] hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10"
+                className="flex group flex-col min-h-[680px] bg-white/8 backdrop-blur-lg border border-white/10 hover:bg-gradient-to-b hover:from-[#6B4EFF] hover:to-[#FC4B94] text-white rounded-2xl p-6 sm:p-8 w-full max-w-[400px] shadow-lg transition-colors duration-300 relative z-10"
               >
                 <h3 className="text-lg font-spaceGrotesk mb-7">{plan.name}</h3>
                 <div className="flex items-center gap-3 mb-2">
@@ -222,75 +222,8 @@ const Pricing = (props) => {
           )}
         </div>
       </div>
-      {!hideComparision && (
-        <div className=" text-white px-4 py-20 md:px-16 ">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-center   text-3xl md:text-4xl font-spaceGrotesk mb-3">
-              Compare plans and features
-            </h2>
-            <p className="text-center mx-auto text-gray-400 text-sm md:text-base mb-10 font-inter max-w-3xl px-2">
-              Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus
-              fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
-              malesuada hendrerit litora torquent per conubia nostra inceptos
-              himenaeos.
-            </p>
-            {/* <div className="bg-[#1E2035] border border-[#4D424D] mb-5 p-3 w-full rounded-2xl text-sm font-inter overflow-x-auto">
-            <div className="flex justify-between min-w-[440px] sm:min-w-0 sm:grid grid-cols-4">
-              <p>Features</p>
-              <p>Free</p>
-              <p>Growth</p>
-              <p>Enterprise</p>
-            </div>
-          </div> */}
-
-            <div className="flex flex-col gap-3 relative z-10">
-              <div className="absolute inset-0 z-0">
-                <div className="absolute top-[-2%] left-[40%] w-96 h-96 rounded-full opacity-20 blur-3xl" />
-                <div className="absolute top-20 right-10 w-80 h-80 rounded-full opacity-25 blur-3xl" />
-                <div className="absolute bottom-[5%] left-1/12 w-[600px] h-[550px] bg-white rounded-full opacity-6 blur-3xl" />
-              </div>
-              <ComparisonTable plans={plans} />
-
-              {/* {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className={`px-6 py-4 transition-all duration-300 border-b border-b-[#3F4550] relative ${
-                  activeIndex === index ? "relative" : ""
-                }`}
-              >
-                <div
-                  className="flex items-center justify-between cursor-pointer"
-                  onClick={() => toggleFAQ(index)}
-                >
-                  <span className="text-sm md:font-spaceGrotesk">
-                    {faq.question}
-                  </span>
-                  {activeIndex === index ? (
-                    <RxCross1 className="text-white" />
-                  ) : (
-                    <FaPlus className="text-white" />
-                  )}
-                </div>
-
-                {activeIndex === index && (
-                  <div className="mt-3 text-xs text-white/90 space-y-4">
-                    {faq.answer && <p>{faq.answer}</p>}
-                    <ComparisonTable plans={plans} />
-                  </div>
-                )}
-              </div>
-            ))} */}
-            </div>
-
-            <div className="mt-10 flex justify-center">
-              <button className="bg-[#2E2F4E] text-white text-xs px-6 py-2 rounded-full border border-[#5A5B73] hover:bg-[#3a3c5a]">
-                Still have a Question?{" "}
-                <span className="underline ml-1">Contact Us</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+ 
+      
     </div>
   );
 };

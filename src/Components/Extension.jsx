@@ -23,9 +23,13 @@ const Extension = () => {
         </div>
       </div>
       <div className="">
-        <div className="bg-gradient-to-br from-[#1b1f30] to-[#141827] rounded-2xl p-6 sm:p-10 md:p-12 max-w-7xl mx-auto mt-16 shadow-xl border border-[#2e3248] text-center">
+        <div 
+       className="bg-white/8 backdrop-blur-lg border border-white/10 rounded-2xl 
+    p-6 sm:p-8 md:p-10 lg:p-12  
+    max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl 
+    mx-auto mt-12 shadow-xl text-center">
           {/* Browser Icons */}
-          <div className=" flex justify-center items-center gap-4 mb-4 mt-12 relative ">
+          <div className="flex flex-wrap justify-center items-center gap-4 mb-4 mt-8 relative">
             <svg
               width="155"
               height="45"
@@ -456,7 +460,7 @@ const Extension = () => {
           <div className="flex justify-center mb-11">
             {" "}
             <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300 ">
-              Get Extension For Your Browser
+           Browser Extension Coming Soon
               <TbPuzzle size={25} />
             </button>
           </div>

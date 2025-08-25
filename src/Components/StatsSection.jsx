@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardCardsRequested } from "../redux/slices/dashboard.slice";
+import CountUp from "react-countup";
 
 const StatsSection = () => {
   const { cards, loading } = useSelector((state) => state.dashboard);
@@ -48,10 +49,15 @@ const StatsSection = () => {
               cards.map((card, index) => (
                 <div
                   key={index}
-                  className=" bg-gradient-to-br from-[#1E1F2F] to-[#2B1F3C] rounded-xl px-6 py-8 shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
+                  className=" bg-white/8 backdrop-blur-lg border border-white/10 rounded-xl px-6 py-8 shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
                 >
                   <div className="text-white text-2xl md:text-5xl font-spaceGrotesk mb-3">
-                    {card.header}
+                    <CountUp
+                      start={1}
+                      end={250} // animate to card.header value
+                      duration={3} // speed in seconds
+                      separator=","
+                    />
                   </div>
                   <p className="text-sm text-[#D1D1DB] leading-snug font-inter">
                     {card.text}
