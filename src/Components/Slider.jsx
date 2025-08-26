@@ -58,56 +58,59 @@ const Slider = () => {
           const offset = (i - index + slides.length) % slides.length;
 
           return (
-            <motion.div
-              key={i}
-              className="
-                absolute inset-0 
-                flex flex-col md:flex-row 
-                gap-6 
-                p-6 
-                rounded-2xl 
-                shadow-xl 
-                backdrop-blur-lg 
-                border border-white/10
-              "
-              animate={{
-                scale: offset === 0 ? 1 : 0.92,
-                opacity: offset === 0 ? 1 : 0.4,
-                x: offset === 0 ? 0 : offset === 1 ? 60 : 70,
-                y: offset === 0 ? 0 : offset === 1 ? -20 : -40,
-                zIndex: offset === 0 ? 20 : 5,
-              }}
-              transition={{ type: "spring", stiffness: 120, damping: 20 }}
-              style={{ background: "rgba(255,255,255,0.05)" }}
-            >
-              {/* ✅ Text Section unchanged */}
-              <div className="w-full md:w-2/4 flex flex-col justify-center gap-2 text-white">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-2">
-                  {slide.title}
-                </h2>
-                <p className="text-gray-300 text-sm sm:text-base lg:text-lg ">
-                  {slide.description}
-                </p>
-                {slide.subdescription && (
-                  <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-                    {slide.subdescription}
-                  </p>
-                )}
-              </div>
+           <motion.div
+  key={i}
+  className="
+    absolute inset-0 
+    flex flex-col md:flex-row 
+    gap-6 
+    p-6 
+    rounded-2xl 
+    shadow-xl 
+    backdrop-blur-lg 
+    border border-white/10
+    items-center
+    text-center md:text-left
+  "
+  animate={{
+    scale: offset === 0 ? 1 : 0.92,
+    opacity: offset === 0 ? 1 : 0.4,
+    x: offset === 0 ? 0 : offset === 1 ? 60 : 70,
+    y: offset === 0 ? 0 : offset === 1 ? -20 : -40,
+    zIndex: offset === 0 ? 20 : 5,
+  }}
+  transition={{ type: "spring", stiffness: 120, damping: 20 }}
+  style={{ background: "rgba(255,255,255,0.05)" }}
+>
+  {/* Text Section */}
+  <div className="w-full md:w-2/3 flex flex-col justify-center gap-2">
+    <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-2">
+      {slide.title}
+    </h2>
+    <p className="text-gray-300 text-sm sm:text-base lg:text-lg">
+      {slide.description}
+    </p>
+    {slide.subdescription && (
+      <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
+        {slide.subdescription}
+      </p>
+    )}
+  </div>
 
-              {/* ✅ Image Section unchanged */}
-              <div className="w-full md:w-1/2 flex items-center justify-center">
-                <img
-                  src={slide.image}
-                  alt="slide"
-                  className="
-                    rounded-lg shadow-lg
-                    w-full sm:w-4/5 md:w-[280px] lg:w-[360px] xl:w-[420px]
-                    h-auto object-cover
-                  "
-                />
-              </div>
-            </motion.div>
+  {/* Image Section */}
+  <div className="w-full md:w-1/2 flex items-center justify-center mt-4 md:mt-0">
+    <img
+      src={slide.image}
+      alt="slide"
+      className="
+        rounded-lg shadow-lg
+        max-w-[12rem] sm:max-w-[18rem] md:max-w-[20rem] lg:max-w-[22rem] xl:max-w-[24rem]
+        w-full h-auto object-cover
+      "
+    />
+  </div>
+</motion.div>
+
           );
         })}
       </div>
