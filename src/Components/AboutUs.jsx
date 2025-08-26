@@ -17,61 +17,59 @@ const AboutUs = () => {
       </div>
 
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-12 md:gap-20 lg:gap-60 relative z-10">
-        {/* Text Section */}
-        <div className="flex flex-col gap-6 max-w-xl w-full p-0 md:p-3 lg:p-0">
-          <div className="flex flex-col gap-3 text-center  lg:text-left p-2 ">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-spaceGrotesk relative">
-              About Us
-            </h1>
-            <h2 className="text-lg sm:text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk relative">
-              Helping You Connect with the Right
-            </h2>
-            <h2 className="text-lg sm:text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk relative">
-              People Accurately and Reliably
-            </h2>
-          </div>
+  {/* Text Section */}
+  <div className="flex flex-col gap-6 max-w-xl w-full p-0 md:p-3 lg:p-0"> 
+    <div className="flex flex-col gap-3 text-center lg:text-left p-2">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-spaceGrotesk relative">
+        About Us
+      </h1>
+      <h2 className="text-lg sm:text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk relative">
+        Helping You Connect with the Right
+      </h2>
+      <h2 className="text-lg sm:text-2xl md:text-3xl text-[#ceced8] font-spaceGrotesk relative">
+        People Accurately and Reliably
+      </h2>
+    </div>
 
-          <div className="text-[#8D909C] text-sm sm:text-base md:text-lg flex flex-col gap-4 font-inter relative leading-relaxed md:leading-7">
-            <div className="relative">
-              <p>
-                At Reach Finder, we make it easier than ever to connect with the
-                right people. With access to over 450M verified contacts across
-                180 countries, we provide businesses, recruiters, and marketers
-                with the tools to find accurate and reliable email addresses
-                instantly. Whether you’re searching by domain name, company
-                name, job title, or LinkedIn profile, Reach Finder helps you
-                discover verified contacts at lightning speed.
-              </p>
-            </div>
-            <div className="relative">
-              <p>
-                Our platform is designed with simplicity, affordability, and
-                accuracy in mind. Unlike other tools, we offer unlimited email
-                credits, unlimited domain searches, unlimited downloads in
-                Excel/CSV, and no restrictions on usage—all at the world’s most
-                affordable price.
-              </p>
-            </div>
-            <div>
-              <p>
-                With 100% verified emails, drag-and-drop capabilities, and
-                browser extensions for Chrome, Microsoft Edge, and Firefox,
-                Reach Finder is the most powerful and reliable email finder
-                solution for professionals worldwide.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div className="text-[#8D909C] text-sm sm:text-base md:text-lg flex flex-col gap-4 font-inter leading-relaxed md:leading-7 text-center lg:text-left">
+      <p>
+        At Reach Finder, we make it easier than ever to connect with the
+        right people. With access to over 450M verified contacts across
+        180 countries, we provide businesses, recruiters, and marketers
+        with the tools to find accurate and reliable email addresses
+        instantly.
+      </p>
+      <p>
+        Our platform is designed with simplicity, affordability, and
+        accuracy in mind. Unlike other tools, we offer unlimited email
+        credits, unlimited domain searches, unlimited downloads in
+        Excel/CSV, and no restrictions on usage—all at the world’s most
+        affordable price.
+      </p>
+      <p>
+        With 100% verified emails, drag-and-drop capabilities, and
+        browser extensions, Reach Finder is the most powerful and
+        reliable email finder solution for professionals worldwide.
+      </p>
+    </div>
+  </div>
 
-        {/* Image Section */}
-        <div className="w-full max-w-sm md:max-w-md flex justify-center relative">
-          <img
-            className="rounded-2xl w-full h-auto md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] object-cover"
-            src={imgAb}
-            alt="About Us"
-          />
-        </div>
-      </div>
+  {/* Image Section */}
+  <div className="w-full max-w-sm md:max-w-lg flex justify-center relative">
+    <img
+      className="
+        rounded-2xl 
+        w-full h-auto 
+        md:w-[450px] md:h-[450px]   /* Tablet size */
+        lg:w-[500px] lg:h-[500px]  /* Desktop size */
+        object-cover
+      "
+      src={imgAb}
+      alt="About Us"
+    />
+  </div>
+</div>
+
 
       {/* Button */}
       <div className="mt-10 flex justify-center lg:justify-start lg:ml-30">
