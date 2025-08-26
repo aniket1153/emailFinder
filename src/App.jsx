@@ -52,7 +52,7 @@ function App() {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-[#0f0c29] text-white relative">
+    <div className="min-h-screen bg-[#0f0c29] text-white relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-2%] left-[40%] w-96 h-96 bg-white rounded-full opacity-15 blur-3xl" />
         <div className="absolute top-20 right-10 w-96 h-80 rounded-full opacity-18 blur-3xl" />
