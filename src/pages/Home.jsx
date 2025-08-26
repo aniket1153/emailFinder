@@ -24,7 +24,7 @@ const Home = () => {
         </div>
       </div>
 
-     <div className="bg-white/8 backdrop-blur-lg border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl max-w-7xl w-full mx-auto mt-10 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
+     <div className="bg-white/8 backdrop-blur-lg border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12  shadow-xl w-[90%] md:w-[90%] lg:max-w-7xl  mx-auto mt-10 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
   {/* Search box */}
   <div className="w-full md:w-1/2 flex items-center">
     <SearchRecords isvisible={true} />
@@ -35,7 +35,7 @@ const Home = () => {
     <img
       src={table}
       alt="Search Illustration"
-      className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-xl"
+      className="w-full  h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-xl"
     />
   </div>
 </div>
